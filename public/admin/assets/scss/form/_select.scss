@@ -1,0 +1,329 @@
+/*--
+    - Select
+--------------------------------------*/
+
+/*Select 2*/
+.select2-container--default {
+    &.select2 {
+        width: 100% !important;
+
+        background-color: $white;
+    }
+    & .select2-selection--single {
+        font-family: $body-font;
+        font-size: 14px;
+        line-height: 24px;
+
+        width: 100%;
+        height: auto;
+        padding: 10px 20px;
+
+        border: 1px solid $border-color;
+        border-radius: 5px;
+        background-color: transparent;
+        & .select2-selection__rendered {
+            line-height: 24px;
+
+            padding: 0;
+            padding-right: 30px;
+
+            color: $body-color;
+        }
+        & .select2-selection__arrow {
+            width: 46px;
+            height: 46px;
+
+            text-align: center;
+            &::before {
+                font-family: $fontAwesome;
+                font-size: 16px;
+                line-height: 46px;
+
+                display: block;
+
+                content: "\f107";
+                transition: $baseTransition;
+
+                color: $body-color;
+            }
+            & b {
+                display: none;
+            }
+        }
+    }
+    & .select2-selection--multiple {
+        font-family: $body-font;
+        font-size: 14px;
+        line-height: 24px;
+
+        display: flex;
+
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        padding: 10px 20px;
+
+        border: 1px solid $border-color;
+        border-radius: 5px;
+        background-color: transparent;
+
+        & .select2-selection__rendered {
+            display: flex;
+
+            margin-top: -5px;
+            margin-bottom: 0;
+            margin-left: -5px;
+            padding-right: 0;
+            & .select2-selection__choice {
+                font-size: 12px;
+                line-height: 24px;
+
+                display: flex;
+
+                color: $white;
+                border: none;
+                background-color: $primary;
+                & .select2-selection__choice__remove {
+                    line-height: 22px;
+
+                    margin-right: 5px;
+
+                    color: inherit;
+                    &:hover {
+                        background-color: darken($primary, 5);
+                    }
+                }
+                & .select2-selection__choice__display {
+                    padding-right: 8px;
+                }
+            }
+        }
+        & .select2-search {
+            & input {
+                margin: 0 0 0 5px;
+            }
+        }
+    }
+    &.select2-container--focus {
+        & .select2-selection--multiple {
+            border-color: $border-color;
+        }
+    }
+    &.select2-container--disabled {
+        & .select2-selection--single {
+            border-color: #EFEFEF;
+            background-color: transparent;
+            & .select2-selection__rendered {
+                color: #CCCCCC;
+            }
+        }
+    }
+    &.select2-container--open {
+        & .select2-selection--single {
+            & .select2-selection__arrow {
+                &::before {
+                    transform: rotateX(180deg);
+                }
+            }
+        }
+        & .select2-dropdown--below {
+            border-top: 1px solid #E2E2F3 !important;
+        }
+        & .select2-dropdown--above {
+            border-bottom: 1px solid #E2E2F3 !important;
+        }
+    }
+
+    & .select2-dropdown {
+        min-width: 130px;
+
+        border-color: $border-color;
+    }
+
+    & .select2-search--dropdown {
+        padding: 10px;
+        & .select2-search__field {
+            border-color: $border-color;
+            border-radius: 4px;
+        }
+    }
+
+    & .select2-results {
+        & .select2-results__options {
+            & .select2-results__option {
+                padding: 5px 10px;
+                &[role="group"] {
+                    padding: 0;
+                }
+                & .select2-results__group {
+                    padding: 5px 10px;
+                }
+            }
+            & .select2-results__options--nested {
+                & .select2-results__option {
+                    padding: 5px 15px;
+                }
+            }
+        }
+    }
+}
+
+/*Nice Select*/
+.nice-select {
+    &::after {
+        right: 20px;
+
+        width: 8px;
+        height: 8px;
+    }
+    & .list {
+        overflow-y: auto;
+
+        width: 100%;
+        max-height: 200px;
+        margin: 0;
+
+        border: 1px solid $border-color;
+        border-radius: 0 0 4px 4px;
+        box-shadow: none;
+    }
+}
+
+/*Bootstrap Select*/
+.form-control {
+    &.bSelect {
+        &[readonly] {
+            border-color: $border-color;
+            background-color: transparent;
+        }
+        &[disabled] {
+            color: #CCCCCC;
+            border-color: #EFEFEF;
+            background-color: transparent;
+
+@include placeholder {
+                color: #CCCCCC;
+            }
+        }
+        // Button
+        & .btn {
+            padding: 10px 20px;
+
+            border: 1px solid $border-color;
+            background-color: transparent;
+            // Primary
+            &.btn-primary {
+                color: $white;
+                border-color: $primary;
+                background-color: $primary;
+                &:hover {
+                    color: $white;
+                    border-color: darken($primary, 5);
+                    background-color: darken($primary, 5);
+                }
+            }
+            // Secondary
+            &.btn-secondary {
+                color: $white;
+                border-color: $secondary;
+                background-color: $secondary;
+                &:hover {
+                    color: $white;
+                    border-color: darken($secondary, 5);
+                    background-color: darken($secondary, 5);
+                }
+            }
+            // Success
+            &.btn-success {
+                color: $white;
+                border-color: $success;
+                background-color: $success;
+                &:hover {
+                    color: $white;
+                    border-color: darken($success, 5);
+                    background-color: darken($success, 5);
+                }
+            }
+            // Danger
+            &.btn-danger {
+                color: $white;
+                border-color: $danger;
+                background-color: $danger;
+                &:hover {
+                    color: $white;
+                    border-color: darken($danger, 5);
+                    background-color: darken($danger, 5);
+                }
+            }
+            // Warning
+            &.btn-warning {
+                color: $white;
+                border-color: $warning;
+                background-color: $warning;
+                &:hover {
+                    color: $white;
+                    border-color: darken($warning, 5);
+                    background-color: darken($warning, 5);
+                }
+            }
+            // Info
+            &.btn-info {
+                color: $white;
+                border-color: $info;
+                background-color: $info;
+                &:hover {
+                    color: $white;
+                    border-color: darken($info, 5);
+                    background-color: darken($info, 5);
+                }
+            }
+        }
+        // Dropdown Menu
+        & .dropdown-menu {
+            overflow-y: auto;
+
+            max-height: 200px;
+            margin: 0;
+        }
+        // State & Focus State
+        &.dark,
+        &.focus-dark:focus {
+            border-color: $heading-color;
+        }
+        &.primary,
+        &.focus-primary:focus {
+            border-color: $primary;
+        }
+        &.secondary,
+        &.focus-secondary:focus {
+            border-color: $secondary;
+        }
+        &.success,
+        &.focus-success:focus {
+            border-color: $success;
+        }
+        &.danger,
+        &.focus-danger:focus {
+            border-color: $danger;
+        }
+        &.warning,
+        &.focus-warning:focus {
+            border-color: $warning;
+        }
+        &.info,
+        &.focus-info:focus {
+            border-color: $info;
+        }
+        // Size
+        &.form-control-sm {
+            font-size: 12px;
+
+            padding: 5px 15px;
+        }
+        &.form-control-lg {
+            font-size: 16px;
+
+            padding: 15px 25px;
+        }
+    }
+}

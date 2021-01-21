@@ -1,0 +1,8 @@
+.price_duration {
+    display: flex;
+    justify-content: space-between;
+    & p {
+        color: $theme-color;
+        margin-bottom: 0;
+    }
+}

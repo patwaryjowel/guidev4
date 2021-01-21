@@ -1,0 +1,179 @@
+/*--
+    - Alert
+--------------------------------------*/
+.alert {
+    position: relative;
+
+    padding: 15px 20px;
+    padding-right: 45px;
+
+    color: $body-color;
+    border: none;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    & i {
+        margin-right: 5px;
+    }
+    & .alert-link {
+        font-weight: 600;
+
+        position: relative;
+        &::before {
+            position: absolute;
+            right: 0;
+            bottom: 3px;
+            left: auto;
+
+            width: 0;
+            height: 1px;
+
+            content: "";
+            transition: all 0.3s ease 0s;
+        }
+        &:hover {
+            &::before {
+                left: 0;
+
+                width: 100%;
+            }
+        }
+    }
+    & hr {
+        border-top-color: rgba($heading-color, 0.1);
+    }
+    & .close {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 20px;
+        height: 20px;
+        padding: 0;
+
+        transform: translateY(-50%);
+
+        opacity: 1;
+        border: 1px solid;
+        border-radius: 50px;
+        background-color: transparent;
+        text-shadow: none;
+        & i {
+            font-size: 13px;
+            line-height: 18px;
+
+            float: none;
+
+            margin: 0;
+
+            transition: all 0.3s ease 0s;
+        }
+        & svg.feather {
+            width: 14px;
+            height: 14px;
+        }
+        &:hover {
+            opacity: 1 !important;
+            color: $white;
+        }
+    }
+    // Colors
+    @each $name, $color in $theme-colors {
+        &.alert-#{$name} {
+            background-color: rgba($color, 0.1);
+            & h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: $color;
+            }
+            & i {
+                color: $color;
+            }
+            & .alert-link {
+                color: $color;
+                &::before {
+                    background-color: $color;
+                }
+            }
+            & .close {
+                color: $color;
+                border-color: $color;
+                &:hover {
+                    color: $white;
+                    background-color: $color;
+                }
+            }
+        }
+        &.alert-solid-#{$name} {
+            color: $white;
+            background-color: $color;
+            & h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: inherit;
+            }
+            & i {
+                color: $white;
+            }
+            & .alert-link {
+                color: $white;
+                &::before {
+                    background-color: $white;
+                }
+            }
+            & .close {
+                color: $white;
+                border-color: $white;
+                &:hover {
+                    background-color: $white;
+                    & i {
+                        color: $color;
+                    }
+                }
+            }
+        }
+        &.alert-outline-#{$name} {
+            color: $color;
+            border: 1px solid $color;
+            background-color: transparent;
+            & h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: $color;
+            }
+            & p {
+                color: $body-color;
+            }
+            & i {
+                color: $color;
+            }
+            & .alert-link {
+                color: $color;
+                &::before {
+                    background-color: $color;
+                }
+            }
+            & .close {
+                color: $color;
+                border-color: $color;
+                &:hover {
+                    color: $white;
+                    background-color: $color;
+                }
+            }
+        }
+    }
+}

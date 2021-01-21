@@ -1,0 +1,6 @@
+
+ @livewire('filter')
+                                
+  @livewireScripts  
+                                
+            

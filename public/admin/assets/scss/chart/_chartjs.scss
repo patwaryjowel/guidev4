@@ -1,0 +1,14 @@
+.example-chartjs {
+    min-height: 200px;
+}
+
+.example-morris {
+    width: 100%;
+    height: 250px;
+}
+
+.morris-chart {
+    & svg {
+        width: 100%;
+    }
+}

@@ -1,0 +1,109 @@
+.smart-wizard {
+    border: none;
+    & .nav {
+        margin: -5px -5px 15px;
+
+        box-shadow: none !important;
+        & .nav-item {
+            margin: 0;
+            padding: 5px;
+            & .nav-link {
+                font-weight: 600;
+
+                z-index: 1;
+
+                padding: 16px 25px;
+
+                text-align: left;
+
+                color: $white !important;
+                border-radius: 4px;
+                &.inactive {
+                    background-color: $secondary;
+                }
+                &.done {
+                    background-color: $success;
+                }
+                &.active {
+                    background-color: $primary;
+                }
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+    & .tab-content {
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        & .tab-pane {
+            visibility: visible;
+
+            height: auto;
+            padding: 20px;
+
+            opacity: 1;
+        }
+    }
+    & .toolbar {
+        padding: 15px 0;
+        & .btn {
+            margin: 5px;
+            padding-top: 6px;
+
+@extend .btn-sm;
+
+@extend .btn-primary;
+
+            &:last-child {
+                margin-right: 0;
+            }
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:focus {
+                box-shadow: none;
+            }
+            &.disabled {
+                opacity: 1;
+
+@extend .btn-outline-primary;
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+    &.vertical {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        & .nav {
+            align-self: flex-start;
+            flex-direction: column;
+
+            width: calc(25% - 10px);
+        }
+        & .tab-content {
+            width: calc(75% - 10px);
+        }
+        & .toolbar {
+            width: 100%;
+        }
+        @media #{$desktop-device,
+        $tablet-device,
+        $large-mobile} {
+            & .nav {
+                width: 100%;
+            }
+            & .tab-content {
+                width: 100%;
+            }
+            & .toolbar {
+                width: 100%;
+            }
+        }
+    }
+}

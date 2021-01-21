@@ -1,0 +1,26 @@
+/*--
+    - Sweetalert
+--------------------------------------*/
+.swal-modal {
+    & .swal-footer {
+        text-align: center;
+        & .btn-primary {
+            @extend .btn-primary;
+        }
+        & .button-secondary {
+            @extend .button-secondary;
+        }
+        & .button-success {
+            @extend .button-success;
+        }
+        & .button-danger {
+            @extend .btn-danger;
+        }
+        & .button-warning {
+            @extend .button-warning;
+        }
+        & .button-info {
+            @extend .btn-info;
+        }
+    }
+}

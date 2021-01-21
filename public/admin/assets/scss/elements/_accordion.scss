@@ -1,0 +1,152 @@
+/*--
+    - Accordion
+--------------------------------------*/
+.accordion {
+    // Card
+    & .card {
+        background-color: rgba($black, 0.03);
+        &:first-child {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        &:last-child {
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        & + .card {
+            margin-top: 10px;
+        }
+        // Card Header
+        & .card-header {
+            margin: 0;
+            padding: 0;
+
+            border-bottom: none;
+            border-radius: 0;
+            background-color: transparent;
+            & h2 {
+                font-size: 16px;
+
+                margin: 0;
+                & button {
+                    font-weight: 600;
+
+                    position: relative;
+
+                    display: block;
+
+                    width: 100%;
+                    padding: 15px 20px;
+
+                    text-align: left;
+
+                    border: none;
+                    background-color: transparent;
+                    &.collapsed {
+                        border-bottom-color: transparent;
+                    }
+                }
+            }
+        }
+        // Collapse
+        & .collapsing {
+            border-top: 1px solid rgba($black, 0.075);
+        }
+        & .collapse {
+            &.show {
+                border-top: 1px solid rgba($black, 0.075);
+            }
+            // Card Body
+            & .card-body {
+            }
+        }
+    }
+
+    // Accordion Indicator
+    &.accordion-indicator {
+        // Card
+        & .card {
+            // Card Header
+            & .card-header {
+                & h2 {
+                    & button {
+                        padding-right: 25px;
+                        &::before,
+                        &::after {
+                            position: absolute;
+                            top: 50%;
+                            right: 20px;
+
+                            width: 12px;
+                            height: 2px;
+
+                            content: "";
+                            transition: all 0.3s ease 0s;
+                            transform: translateY(-50%);
+
+                            background-color: $body-color;
+                        }
+                        &::after {
+                            transform: translateY(-50%) rotate(0deg);
+                        }
+                        &.collapsed {
+                            &::after {
+                                transform: translateY(-50%) rotate(90deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Colors
+    @each $name, $color in $theme-colors {
+        &.accordion-#{$name} {
+            & .card {
+                background-color: $color;
+                // Card Header
+                & .card-header {
+                    & h2 {
+                        color: $white;
+                        & button {
+                            &::before,
+                            &::after {
+                                background-color: $white;
+                            }
+                        }
+                    }
+                }
+                // Card Body
+                & .card-body {
+                    & p {
+                        color: $white;
+                    }
+                }
+            }
+        }
+        & .card {
+            &.card-#{$name} {
+                background-color: $color;
+                // Card Header
+                & .card-header {
+                    & h2 {
+                        color: $white;
+                        & button {
+                            &::before,
+                            &::after {
+                                background-color: $white;
+                            }
+                        }
+                    }
+                }
+                // Card Body
+                & .card-body {
+                    & p {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}

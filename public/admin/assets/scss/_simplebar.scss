@@ -1,0 +1,12 @@
+.simplebar-track {
+    &.simplebar-vertical {
+        width: 8px;
+        & .simplebar-scrollbar {
+            &.simplebar-visible {
+                &::before {
+                    opacity: 0.25;
+                }
+            }
+        }
+    }
+}

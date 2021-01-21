@@ -1,0 +1,67 @@
+/*--
+    - Card
+--------------------------------------*/
+.card {
+    height: 100%;
+
+    border: none;
+    border-radius: 6px;
+    background-color: $white;
+    & .card-head {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        padding: 20px;
+        & .title {
+            font-size: 18px;
+
+            margin: 0;
+        }
+    }
+    & .card-body {
+        padding: 20px;
+    }
+}
+
+.top-report-card {
+    & .card-body {
+        & .row {
+            @media #{$laptop-device,
+            $desktop-device,
+            $tablet-device,
+            $large-mobile} {
+                margin-right: -8px;
+                margin-left: -8px;
+                & > [class*="col"] {
+                    padding-right: 8px;
+                    padding-left: 8px;
+                }
+            }
+        }
+    }
+}
+.top-report-chart {
+    display: inline-flex;
+    align-items: center;
+}
+
+.weekly-statistics-chart {
+    & .apexcharts-backgroundBar {
+        width: 2px;
+
+        transform: translateX(1px);
+
+        fill: #EEEEFE;
+    }
+}
+
+.progress-graph-chart {
+    & .apexcharts-svg {
+        overflow: visible;
+        & > * {
+            overflow: visible !important;
+        }
+    }
+}

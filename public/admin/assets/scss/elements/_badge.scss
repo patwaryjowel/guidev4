@@ -1,0 +1,50 @@
+/*--
+    - Badge
+--------------------------------------*/
+.badge {
+    font-weight: 600;
+
+    padding: 0.35em 0.5em;
+
+    border: 1px solid;
+    &-dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+
+        text-indent: -9999px;
+
+        border-radius: 10px;
+    }
+    // Badge Colors
+    @each $name, $color in $theme-colors {
+        &-#{$name} {
+            border-color: $color;
+            background-color: $color;
+            &-outline {
+                color: $color;
+            }
+        }
+    }
+    // Outline
+    &-outline {
+        background-color: transparent;
+    }
+}
+// Badge Colors (Link)
+@each $name, $color in $theme-colors {
+    a.badge-#{$name} {
+        &:hover {
+            color: $white;
+            border-color: darken($color, 7);
+            background-color: darken($color, 7);
+        }
+        &-outline {
+            &:hover {
+                color: $white;
+                border-color: $color;
+                background-color: $color;
+            }
+        }
+    }
+}

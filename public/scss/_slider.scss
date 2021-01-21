@@ -1,0 +1,57 @@
+/*--
+    05. Hero Slider Css
+-----------------------------*/
+
+.slider-wrapper{
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    
+    display: flex;
+    align-items: center;
+    
+    @media #{$laptop-device}{
+        padding: 170px 0 200px 0;
+    }
+    @media #{$desktop-device}{
+        padding: 150px 0 180px 0;
+    }
+    @media #{$tablet-device}{
+        padding: 100px 0 130px 0;
+    }
+    @media #{$large-mobile}{
+        padding: 90px 0 120px 0;
+    }
+}
+
+
+.hero-text-content {
+    text-align: center;
+}
+
+
+
+.bg-overlay {
+    position: relative;
+    &::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,.6);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

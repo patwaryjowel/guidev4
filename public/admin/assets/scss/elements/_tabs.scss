@@ -1,0 +1,24 @@
+/*--
+    - Tab
+--------------------------------------*/
+.nav-tabs {
+    & .nav-item {
+        margin-top: 0;
+        & .nav-link {
+            line-height: 2;
+            &.active {
+                color: $primary;
+            }
+        }
+    }
+}
+.nav-pills {
+    & .nav-item {
+        margin-top: 0;
+        & .nav-link {
+            line-height: 2;
+            &.active {
+            }
+        }
+    }
+}

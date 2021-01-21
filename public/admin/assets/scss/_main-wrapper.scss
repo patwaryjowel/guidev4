@@ -1,0 +1,17 @@
+.main-wrapper {
+}
+.content-body {
+    margin-top: 80px;
+    margin-left: 270px;
+    padding: 40px 30px;
+
+    transition: all 0.3s ease 0s;
+    @media #{$tablet-device,
+    $large-mobile} {
+        margin-left: 0;
+    }
+    @media #{$large-mobile} {
+        margin-top: 60px;
+        padding: 30px 15px;
+    }
+}

@@ -1,0 +1,25 @@
+/*--
+    - List
+--------------------------------------*/
+/*List Group*/
+.list-group {
+    list-style: none;
+    & .list-group-item {
+        padding: 10px 20px;
+        &.active {
+            border-color: $primary;
+            background-color: $primary;
+        }
+        &.disabled {
+            color: $gray-600;
+        }
+        & .list-group {
+            margin-top: 0.75rem;
+        }
+        @each $name, $color in $theme-colors {
+            &-#{$name} {
+                background-color: rgba($color, 0.65);
+            }
+        }
+    }
+}

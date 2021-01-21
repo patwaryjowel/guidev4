@@ -1,0 +1,81 @@
+$sideNavMenuColor: #F2F2F2;
+/*--
+    02.02 - SideNav CSS
+--------------------------------------*/
+.sidenav-section {
+    position: fixed;
+    z-index: 9;
+    top: 80px;
+    left: 0;
+
+    width: 270px;
+    height: calc(100vh - 80px);
+    padding: 40px 0;
+
+    transition: transform 0.3s ease 0s;
+
+    background-color: $dark;
+    @media #{$tablet-device} {
+        transform: translateX(-100%);
+    }
+    @media #{$large-mobile} {
+        top: 60px;
+
+        height: calc(100vh - 60px);
+
+        transform: translateX(-100%);
+    }
+}
+.sidenav-open {
+    & .sidenav-section {
+        transform: translateX(0);
+    }
+}
+
+.sidenav-inner {
+    max-height: 100%;
+}
+.sidenav-menu {
+    padding: 0 30px;
+    & ul {
+        margin-bottom: 0;
+        padding-left: 0;
+
+        list-style: none;
+        & > li {
+            margin-top: 0;
+            & > a {
+                font-size: 16px;
+                font-weight: 400;
+
+                display: flex;
+
+                padding: 10px 0;
+
+                color: $sideNavMenuColor;
+                & .nav-icon {
+                    width: 18px;
+                    margin-right: 10px;
+                }
+                & .arrow {
+                    margin-left: auto;
+
+                    transition: $baseTransition;
+                }
+            }
+            &.open {
+                & > a {
+                    color: $primary;
+                    & .arrow {
+                        transform: rotateX(180deg);
+                    }
+                }
+            }
+        }
+        & .sub-menu {
+            display: none;
+
+            padding-left: 30px;
+        }
+    }
+}

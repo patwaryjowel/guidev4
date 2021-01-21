@@ -1,0 +1,252 @@
+/*--
+    - Data Table
+--------------------------------------*/
+
+/*Data Table Wrap*/
+.data-table-wrap {
+    margin-bottom: -20px;
+    & .table-responsive {
+        padding-bottom: 20px;
+    }
+}
+
+
+.dtr-select {
+    display: none;
+
+    & + span {
+        position: relative;
+
+        display: block;
+
+        width: 18px;
+        height: 18px;
+
+        transition: $transition-base;
+
+        border: 2px solid #C9C9C9;
+        border-radius: 3px;
+        &::before {
+            position: absolute;
+            top: 3px;
+            left: 1px;
+
+            width: 12px;
+            height: 6px;
+
+            content: "";
+            transition: $transition-base;
+            transform: rotate(-45deg);
+
+            opacity: 0;
+            border-color: $white;
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            border-left-width: 2px;
+            border-left-style: solid;
+        }
+    }
+    &:checked {
+        & + span {
+            border-color: $primary;
+            background-color: $primary;
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+    &:disabled {
+        & + span {
+            opacity: 0.35;
+        }
+    }
+}
+
+table.data-table {
+    flex: 1 0 100%;
+
+    width: 100% !important;
+    min-width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    border-collapse: collapse;
+    & thead,
+    & tbody,
+    & tfoot {
+        & tr {
+            & th,
+            & td {
+                box-sizing: border-box;
+                padding: 12px 20px;
+            }
+        }
+    }
+    & thead,
+    & tfoot {
+        & tr {
+            & th {
+                font-weight: 600;
+
+                color: $heading-color;
+                background-color: #F9F9F9;
+            }
+        }
+    }
+    &.datatable-selectable {
+        & thead {
+            & tr {
+                & th {
+                    & label {
+                        display: block;
+
+                        width: 18px;
+                    }
+                    &:nth-child(1) {
+                        background-image: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*Data Table Wrapper*/
+.dataTables_wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    // Export Buttons
+    & .dt-buttons {
+        display: flex;
+        flex-wrap: wrap;
+
+        margin-bottom: 6px;
+        & .dt-button {
+            margin-right: 6px;
+            margin-bottom: 4px;
+
+            background-image: none;
+
+@extend .btn;
+
+@extend .btn-secondary;
+
+@extend .btn-sm;
+
+            &:focus,
+            &:hover {
+                color: $white;
+                border-color: $primary;
+                background-color: $primary;
+                background-image: none;
+            }
+        }
+    }
+
+    // Length & Filter
+    & .dataTables_length,
+    .dataTables_filter {
+        display: flex;
+
+        margin-bottom: 10px;
+        & label {
+            display: flex;
+            align-items: center;
+
+            margin: 0;
+            & input {
+                margin-left: 6px;
+
+@extend .form-control;
+
+@extend .form-control-sm;
+            }
+            & select {
+                margin: 0 6px;
+
+@extend .form-select;
+
+@extend .form-select-sm;
+            }
+        }
+        // Responsive
+        @media #{$small-mobile} {
+            flex: 1 0 100%;
+        }
+    }
+
+    // Info
+    & .dataTables_info {
+        flex-grow: 1;
+    }
+
+    // Pagination
+    & .dataTables_paginate {
+        display: flex;
+        flex-wrap: wrap;
+
+        margin-top: 10px;
+        margin-bottom: -6px;
+        padding-top: 0;
+        & span {
+            & .paginate_button {
+                margin-right: 3px;
+                margin-left: 3px;
+                &:first-child {
+                    margin-left: 0;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+        & .paginate_button {
+            margin-right: 6px;
+            margin-bottom: 6px;
+            margin-left: 6px;
+            padding: 8px !important;
+
+            color: $dark;
+            background-color: $gray-200;
+            background-image: none !important;
+
+@extend .btn;
+
+@extend .btn-sm;
+
+@extend .btn-icon;
+
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+
+            & i {
+                font-size: 18px;
+            }
+
+            &:hover {
+                @extend .btn-secondary;
+            }
+            &.disabled {
+                opacity: 1;
+                color: $dark;
+                background-color: $gray-200;
+            }
+            &.current {
+                color: $white !important;
+
+@extend .btn-primary;
+
+                &:hover {
+                    color: $white !important;
+                }
+            }
+        }
+    }
+}

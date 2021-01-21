@@ -1,0 +1,238 @@
+/* Date Range Picker */
+.daterangepicker {
+    border-color: $border-color;
+    &.drop-up {
+        &::before {
+            border-top-color: $border-color;
+        }
+    }
+    &.drop-down {
+        &::before {
+            border-bottom-color: $border-color;
+        }
+    }
+    & .drp-calendar {
+        & .calendar-table {
+            & .table-condensed {
+                & thead {
+                    & tr {
+                        & th {
+                            &.available {
+                                transition: $baseTransition;
+                                & span {
+                                    border-width: 0 1px 1px 0;
+                                }
+                                &.prev {
+                                    & span {
+                                        margin-right: -4px;
+                                    }
+                                }
+                                &.next {
+                                    & span {
+                                        margin-left: -4px;
+                                    }
+                                }
+                                &:hover {
+                                    background-color: $primary;
+                                    & span {
+                                        border-color: $white;
+                                    }
+                                }
+                            }
+                            &.month {
+                                padding: 0;
+                                & select {
+                                    height: 28px;
+                                    padding: 2px 5px;
+
+                                    border: 1px solid $border-color;
+                                    border-radius: 3px;
+                                    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='grey' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>");
+                                    background-repeat: no-repeat;
+                                    background-position: right 4px center;
+                                    background-size: 12px 9px;
+
+                                    appearance: none;
+                                }
+                            }
+                        }
+                    }
+                }
+                & tbody {
+                    & tr {
+                        & td {
+                            padding-top: 2px;
+                            padding-bottom: 1px;
+                            &.active {
+                                background-color: $primary;
+                            }
+                            &:not(.off) {
+                                &.in-range {
+                                    background-color: rgba($primary, 0.15);
+                                    &.active {
+                                        background-color: $primary;
+                                    }
+                                }
+                            }
+                            &:not(.in-range):not(.active) {
+                                &:hover {
+                                    background-color: rgba($primary, 0.15);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & .drp-buttons {
+        border-top-color: $border-color;
+        & .btn {
+            height: auto;
+        }
+    }
+}
+
+/* Bootstrap Material DateTimePicker */
+.dtp {
+    & .dtp-content {
+        max-height: auto;
+        & .dtp-date-view {
+            & header.dtp-header {
+                background-color: darken($primary, 10);
+            }
+            & .dtp-date {
+                background-color: $primary;
+                & .dtp-actual-year {
+                    color: $white;
+                }
+                & a[class*="dtp-select"] {
+                    color: $white;
+                }
+            }
+            & .dtp-time {
+                background-color: $primary;
+            }
+            & .dtp-picker {
+                & .dtp-picker-calendar {
+                    & .table {
+                        & thead {
+                            & tr {
+                                & th {
+                                    color: $heading-color;
+                                    border-bottom-color: $border-color;
+                                }
+                            }
+                        }
+                        & tbody {
+                            & tr {
+                                & td {
+                                    & a {
+                                        color: rgba($body-color, 0.75);
+                                        &.selected {
+                                            color: $white;
+                                            background-color: $primary;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                & .dtp-picker-datetime {
+                    & .dtp-actual-meridien {
+                        display: flex;
+                        & > *:not(.clearfix) {
+                            &.left,
+                            &.right {
+                                display: flex;
+                                justify-content: center;
+                            }
+                            & a {
+                                top: 0;
+
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+
+                                width: 40px;
+                                height: 40px;
+                                padding: 5px;
+                                &.selected {
+                                    background-color: $primary;
+                                }
+                            }
+                        }
+                    }
+                    & .svg-clock {
+                        & circle {
+                            &[r="192"] {
+                                fill: $grey;
+                                stroke: $border-color;
+                            }
+                            &[r="15"] {
+                            }
+                            &.dtp-select-hour,
+                            &.dtp-select-minute {
+                                &:not([fill="transparent"]) {
+                                    fill: $primary;
+                                }
+                            }
+                        }
+                        & line {
+                            &.minute-hand {
+                                stroke: #BDBDBD;
+                            }
+                            &.hour-hand {
+                                stroke: $primary;
+                            }
+                        }
+                    }
+                }
+                & .dtp-picker-year {
+                    & .btn {
+                        height: 36px;
+                        padding: 6px 15px 4px;
+                    }
+                    & .year-picker-item {
+                        font-size: 16px;
+                        &.active {
+                            font-size: 20px;
+                        }
+                        &:hover,
+                        &.active {
+                            color: $primary;
+                        }
+                    }
+                }
+            }
+        }
+        & .dtp-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            margin-right: -6px;
+            & .btn {
+                font-size: 14px;
+
+                height: 36px;
+                margin-right: 6px;
+                padding: 6px 15px 4px;
+                &:focus {
+                    box-shadow: none !important;
+                }
+                &.dtp-btn-now {
+                }
+                &.dtp-btn-clear {
+                }
+                &.dtp-btn-cancel {
+                    @extend .btn-danger;
+                }
+                &.dtp-btn-ok {
+                    @extend .btn-primary;
+                }
+            }
+        }
+    }
+}

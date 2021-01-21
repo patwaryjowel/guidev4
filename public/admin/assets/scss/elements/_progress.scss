@@ -1,0 +1,19 @@
+/*--
+    - Progress
+--------------------------------------*/
+.progress {
+    height: 10px;
+
+    border-radius: 3px;
+    & + .progress {
+        margin-top: 15px;
+    }
+    & .progress-bar {
+    }
+    &.progress-round {
+        border-radius: 50px;
+        & .progress-bar {
+            border-radius: 50px;
+        }
+    }
+}

@@ -1,0 +1,106 @@
+.top-report-card {
+    & .card-head {
+        & .title {
+        }
+        & span {
+        }
+    }
+    & .card-body {
+        & .title {
+            @media #{$laptop-device} {
+                font-size: 24px;
+            }
+        }
+    }
+}
+.top-report-card-2 {
+    z-index: 1;
+
+    background-image: linear-gradient(135deg, #FEB5CE, #FFDBE9);
+    &::before {
+        position: absolute;
+        z-index: -1;
+        top: 5px;
+        right: 5px;
+        bottom: 5px;
+        left: 5px;
+
+        content: "";
+
+        border-radius: 10px;
+        background-color: $white;
+    }
+    & .card-head {
+        & .title {
+        }
+        & span {
+        }
+    }
+    & .card-body {
+        @media #{$extraBig-device,
+        $desktop-device,
+        $tablet-device} {
+            padding: 25px;
+        }
+        & .title {
+            @media #{$laptop-device,
+            $large-mobile} {
+                font-size: 18px;
+            }
+        }
+        & h4,
+        & .h4 {
+            @media #{$laptop-device,
+            $large-mobile} {
+                font-size: 16px;
+            }
+        }
+        & h5,
+        & .h5 {
+            @media #{$laptop-device,
+            $large-mobile} {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+
+.report-history {
+    margin-bottom: 0;
+    padding-left: 0;
+
+    list-style: none;
+    &[data-simplebar="init"] {
+        padding-right: 10px;
+    }
+    & .media {
+        & + .media {
+            margin-top: 15px;
+            padding-top: 15px;
+
+            border-top: 1px solid $border-color;
+        }
+        & .media-thumb {
+            width: 50px;
+            height: 50px;
+            & img {
+            }
+        }
+        & .media-body {
+            max-width: calc(100% - 50px);
+            padding-left: 20px;
+            & .media-title {
+                font-size: 14px;
+                font-weight: 600;
+
+                margin-bottom: 5px;
+                & span {
+                    text-transform: uppercase;
+
+                    color: #FF8787;
+                }
+            }
+        }
+    }
+}

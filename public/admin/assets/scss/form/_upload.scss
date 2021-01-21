@@ -1,0 +1,55 @@
+.dropify-wrapper {
+    border-color: $border-color;
+    & .dropify-message {
+        & .file-icon {
+            & p {
+                font-size: 14px;
+            }
+        }
+    }
+    & .dropify-preview {
+        & .dropify-render {
+            width: 100%;
+            height: 100%;
+            & img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+.dropzone {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+    padding: 10px;
+
+    border-color: $border-color;
+    & .dz-message {
+        width: 100%;
+        margin: 10px;
+    }
+    &.dz-started {
+        & .dz-preview {
+            flex: calc(25% - 20px);
+
+            width: calc(25% - 20px);
+            margin: 10px;
+
+            border-radius: 5px;
+            & .dz-image {
+                width: 100%;
+                height: auto;
+
+                border-radius: 5px;
+                & img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

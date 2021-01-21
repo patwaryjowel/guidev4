@@ -1,0 +1,60 @@
+.media {
+    display: flex;
+    flex-wrap: wrap;
+    & .media-thumb {
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+
+        width: 70px;
+        height: 70px;
+
+        border-radius: 50%;
+        & img {
+            width: 100%;
+        }
+        & i {
+            font-size: 20px;
+
+            width: auto;
+            margin: 0;
+        }
+        & svg.feather {
+            width: 20px;
+            height: 20px;
+            margin: 0;
+
+            transform: translateY(0);
+        }
+        &.small {
+            width: 40px;
+            height: 40px;
+            & i {
+                font-size: 16px;
+            }
+            & + .media-body {
+                max-width: calc(100% - 40px);
+            }
+        }
+        @each $name, $color in $theme-colors {
+            &.#{$name} {
+                color: $color;
+                background-color: rgba($color, 0.1);
+            }
+        }
+    }
+    & .media-body {
+        flex: 1 0 auto;
+
+        max-width: calc(100% - 70px);
+        padding-left: 15px;
+
+        white-space: normal;
+        & .media-title {
+            margin-bottom: 0;
+        }
+        & .media-text {
+        }
+    }
+}

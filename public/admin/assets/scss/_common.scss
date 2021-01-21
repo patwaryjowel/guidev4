@@ -1,0 +1,354 @@
+/*----------------------------------------*/
+/*  01. Template default CSS
+/*----------------------------------------*/
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+/*-- Google Font --*/
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+
+/*-- Common Style --*/
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    font-style: normal;
+
+    position: relative;
+
+    visibility: visible;
+
+    background-color: $grey;
+    &[dir="rtl"] {
+        text-align: right;
+    }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $heading-font;
+    font-weight: 600;
+    line-height: 1.5;
+
+    margin-top: 0;
+
+    color: $heading-color;
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-weight: inherit;
+    line-height: 1.5;
+
+    margin: 0;
+}
+h1,
+.h1 {
+    font-size: 36px;
+    @media #{$large-mobile} {
+        font-size: 30px;
+    }
+}
+h2,
+.h2 {
+    font-size: 30px;
+    @media #{$large-mobile} {
+        font-size: 24px;
+    }
+}
+h3,
+.h3 {
+    font-size: 24px;
+    @media #{$large-mobile} {
+        font-size: 20px;
+    }
+}
+h4,
+.h4 {
+    font-size: 18px;
+}
+h5,
+.h5 {
+    font-size: 16px;
+}
+h6,
+.h6 {
+    font-size: 14px;
+}
+
+.display-1 {
+    @media #{$large-mobile} {
+        font-size: 76px;
+    }
+    @media #{$extra-small-mobile} {
+        font-size: 60px;
+    }
+}
+.display-2 {
+    @media #{$large-mobile} {
+        font-size: 64px;
+    }
+    @media #{$extra-small-mobile} {
+        font-size: 52px;
+    }
+}
+.display-3 {
+    @media #{$large-mobile} {
+        font-size: 52px;
+    }
+    @media #{$extra-small-mobile} {
+        font-size: 44px;
+    }
+}
+.display-4 {
+    @media #{$large-mobile} {
+        font-size: 40px;
+    }
+    @media #{$extra-small-mobile} {
+        font-size: 36px;
+    }
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+a,
+button {
+    line-height: inherit;
+
+    display: inline-flex;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    color: inherit;
+}
+a,
+button,
+img,
+input {
+    transition: $baseTransition;
+}
+*:focus {
+    outline: none !important;
+}
+a:focus {
+    text-decoration: none;
+
+    color: inherit;
+    outline: none;
+}
+a:hover {
+    text-decoration: none;
+
+    color: $primary;
+}
+button,
+input[type="submit"] {
+    cursor: pointer;
+}
+img {
+    max-width: 100%;
+}
+ul,
+ol {
+    & li {
+        & + li {
+            margin-top: 5px;
+        }
+    }
+}
+
+/*--  Input Placeholder --*/
+input,
+textarea {
+    font-family: $body-font;
+
+@include placeholder {
+        opacity: 1;
+    }
+}
+
+/*-- Common Classes --*/
+.section,
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 100%;
+}
+
+.justify-content-between {
+    & > [class*="col"],
+    & > [class*="col-"] {
+        flex-grow: 0;
+    }
+}
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    & > .col,
+    & > [class*="col-"] {
+        margin: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+// [class*="border"] {
+//     border-color: $border-color !important;
+// }
+
+/*White Space*/
+.white-space-nowrap {
+    white-space: nowrap;
+}
+
+/*-- Tab Content & Pane Fix --*/
+.tab-content {
+    width: 100%;
+    & .tab-pane {
+        display: block;
+        visibility: hidden;
+        overflow: hidden;
+
+        max-width: 100%;
+        height: 0;
+
+        opacity: 0;
+        &.active {
+            visibility: visible;
+            overflow: visible;
+
+            height: auto;
+
+            opacity: 1;
+        }
+    }
+}
+
+/*Date Picker*/
+.datepicker {
+    padding: 10px !important;
+    &::before,
+    &::after {
+        display: none;
+    }
+    & table {
+        width: 100%;
+        & thead {
+            & tr {
+                & th {
+                    &.dow {
+                        font-size: 14px;
+                        line-height: 1;
+
+                        width: 35px;
+                        height: auto;
+                        padding: 10px 0;
+                    }
+                    &.prev,
+                    &.next {
+                        font-size: 16px;
+                        line-height: 30px;
+
+                        width: 35px;
+                        height: 34px;
+                        padding: 1px 0 3px;
+                    }
+                }
+            }
+        }
+        & tfoot {
+            position: relative;
+
+            height: 34px;
+            & tr {
+                & th {
+                    &.today {
+                        font-size: 14px;
+                        line-height: 1;
+
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+
+                        display: block !important;
+
+                        width: auto;
+                        height: auto;
+                        padding: 10px;
+                    }
+                    &.clear {
+                        font-size: 14px;
+                        line-height: 1;
+
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+
+                        display: block !important;
+
+                        width: auto;
+                        height: auto;
+                        padding: 10px;
+                    }
+                }
+            }
+        }
+        & tbody {
+            & tr {
+                & td {
+                    font-size: 14px;
+
+                    color: $body-color;
+                    &.day {
+                        &.active {
+                            background-color: $primary;
+                            &:hover {
+                                background-color: $primary;
+                            }
+                        }
+                        &.today {
+                            color: $white !important;
+                            background-color: $secondary;
+                            &:hover {
+                                color: $white !important;
+                                background-color: $secondary;
+                            }
+                        }
+                        &.new,
+                        &.old {
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

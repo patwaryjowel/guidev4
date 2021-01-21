@@ -1,0 +1,270 @@
+.covid12-summery {
+}
+.covid12-summery-head {
+    padding: 10px 10px 30px;
+
+    border-bottom: 1px solid $border-color;
+    & .title {
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 1;
+
+        margin-bottom: 5px;
+        @media #{$large-mobile} {
+            font-size: 22px;
+        }
+    }
+    & .p {
+        font-size: 13px;
+        font-weight: 400;
+    }
+    & .select2 {
+        width: 180px !important;
+    }
+}
+.covid19-summery-facts {
+    display: flex;
+    flex-wrap: wrap;
+    & .covid-fact {
+        flex: 1 0 25%;
+
+        max-width: 25%;
+        margin-top: 10px;
+        padding: 20px;
+        @media #{$laptop-device,
+        $large-mobile} {
+            flex: 1 0 50%;
+
+            max-width: 50%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            &:nth-child(2n + 1) {
+                border-left: none !important;
+            }
+        }
+        @media #{$extra-small-mobile} {
+            padding: 10px 15px;
+        }
+        & + .covid-fact {
+            border-left: 1px solid $border-color;
+        }
+        & .title {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1;
+
+            margin-bottom: 10px;
+        }
+        & .number {
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1;
+
+            margin-bottom: 0;
+            @media #{$desktop-device,
+            $tablet-device} {
+                font-size: 24px;
+            }
+            @media #{$large-mobile} {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+.covid19-graph-tab {
+    border-bottom: none;
+    & .nav-item {
+        & + .nav-item {
+            margin-left: 25px;
+            @media #{$small-mobile} {
+                margin-left: 15px;
+            }
+        }
+        & .nav-link {
+            position: relative;
+
+            padding: 3px 0;
+
+            color: #617287;
+            border: none;
+            &::before {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+
+                width: 0;
+                height: 2px;
+
+                content: "";
+                transition: $baseTransition;
+
+                background-color: #7886FF;
+            }
+            &.active {
+                color: #617287;
+                background-color: transparent;
+                &::before {
+                    right: auto;
+                    left: 0;
+
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.covid19-graph-select {
+    max-width: 130px;
+    & .select2 {
+        & .selection {
+            & .select2-selection {
+                padding: 0;
+
+                border: none;
+                & .select2-selection__rendered {
+                    color: #617287;
+                }
+                & .select2-selection__arrow {
+                    width: auto;
+                    height: 24px;
+                    padding: 0 5px;
+                    &::before {
+                        line-height: 24px;
+
+                        color: #617287;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.covid19-country-list {
+    margin: 0;
+    padding: 8px;
+
+    list-style: none;
+    & li {
+        display: flex;
+        justify-content: space-between;
+
+        padding: 10px 20px;
+
+        transition: $baseTransition;
+
+        border-radius: 5px;
+        background-color: transparent;
+        &:hover {
+            background-color: #E6EDF6;
+        }
+        & span {
+            &.name {
+                font-weight: 600;
+            }
+            &.number {
+            }
+        }
+    }
+}
+
+.covid19-details-table {
+    & .table {
+        & thead {
+            & tr {
+                & th {
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 1.5;
+
+                    padding: 10px 0;
+
+                    white-space: nowrap;
+
+                    border-bottom-color: #EBEBEB !important;
+                    & span {
+                        display: block;
+
+                        padding: 6px 20px;
+                    }
+                    & + th {
+                        text-align: center;
+                        & span {
+                            border-left: 1px solid #EBEBEB;
+                        }
+                    }
+                    &.region {
+                        min-width: 140px;
+                    }
+                    &.t_cases {
+                    }
+                    &.n_cases {
+                    }
+                    &.t_deaths {
+                    }
+                    &.deaths {
+                    }
+                    &.n_deaths {
+                    }
+                    &.t_recovered {
+                    }
+                    &.recovered {
+                    }
+                    &.a_cases {
+                    }
+                }
+            }
+        }
+        & tbody {
+            & tr {
+                &:last-child {
+                    & td {
+                        border-bottom: none;
+                    }
+                }
+                & td {
+                    font-size: 14px;
+                    line-height: 1.5;
+
+                    padding: 13px 20px;
+
+                    vertical-align: middle;
+
+                    border-bottom-color: #EBEBEB !important;
+                    & + td {
+                        text-align: center;
+                    }
+                    & .flag {
+                        margin-right: 10px;
+                    }
+                    &.region {
+                    }
+                    &.t_cases {
+                    }
+                    &.n_cases {
+                    }
+                    &.t_deaths {
+                        color: $danger;
+                    }
+                    &.deaths {
+                    }
+                    &.n_deaths {
+                    }
+                    &.t_recovered {
+                        color: $primary;
+                    }
+                    &.recovered {
+                    }
+                    &.a_cases {
+                    }
+                }
+                &:hover {
+                    & td {
+                        background-color: #E6EDF6;
+                    }
+                }
+            }
+        }
+    }
+}

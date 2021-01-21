@@ -1,0 +1,38 @@
+/*--
+    - Pagination
+--------------------------------------*/
+.pagination {
+    flex-wrap: wrap;
+
+    margin-right: -5px;
+    margin-bottom: -5px;
+    & .page-item {
+        margin-top: 0;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        & .page-link {
+            padding: 10px 16px;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+    &.pagination-lg {
+        & .page-item {
+            & .page-link {
+                font-size: 18px;
+
+                padding: 10px 20px;
+            }
+        }
+    }
+    &.pagination-sm {
+        & .page-item {
+            & .page-link {
+                font-size: 12px;
+
+                padding: 6px 12px;
+            }
+        }
+    }
+}

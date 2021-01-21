@@ -1,0 +1,196 @@
+/*--
+    10. Testimonial Css
+--------------------------------*/
+.grey-bg-image {
+    background: url("../images/bg/testimonial-bg-10.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.grey-bg-image_2 {
+    background: url("../images/bg/testimonial-bg-02.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.testimonial{
+    
+    &-wrap {
+        margin-top: 80px;
+        background: #fff;
+        padding: 100px 110px 60px;
+        @media #{$tablet-device , $desktop-device}{
+            padding: 100px 40px 60px;
+            margin-top: 60px;
+        }
+        @media #{$large-mobile}{
+            padding: 100px 5px 60px;
+            margin-top: 75px;
+        }
+    }
+    
+    &-image {
+        margin-top: -150px;
+        justify-content: center;
+        display: flex;
+        & img {
+            width: auto !important;
+        }
+    }
+    
+    &-info {
+        & .autor-info {
+            margin-top: 50px;
+            margin-bottom: 20px;
+            & h4 {
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            & h6 {
+                font-weight: 600;
+                color: $theme-color;
+            }
+        }
+        & p {
+            font-size: 16px;
+        }
+    }
+    
+    &-active {
+        & .owl-dots {
+            text-align: center;
+            margin-top: 30px;
+            & .owl-dot {
+                background: transparent;
+                border: 1px solid #242c42 !important;
+                width: 10px;
+                height: 10px;
+                margin: 0 5px;
+                border-radius: 100%;
+                &.active {
+                    background: #242c42;
+                }
+            } 
+            
+        }
+    }
+    
+}
+
+
+/*-- Testimonial Style two -*/
+
+.testimonial-area {
+	padding: 75px 0;
+	background-size: cover;
+	background-position: center center;
+}
+.single-testimonial-area {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 70%;
+	margin: 0 auto;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	max-width: 775px;
+}
+.single-testimonial-area .testimonial-image {
+	vertical-align: top;
+	border-radius: 100%;
+	float: left;
+	width: 104px;
+	height: 104px;
+	border: 2px solid #FFAE27;
+	margin-top: 13px;
+}
+.single-testimonial-area .testimonial-image img {
+	width: auto;
+}
+.single-testimonial-area .testimonial-content {
+	overflow: hidden;
+	text-align: left;
+	padding-left: 98px;
+	position: relative;
+}
+.single-testimonial-area .testimonial-content:before {
+	content: "â€œ";
+	font-size: 100px;
+	color: #363636;
+	position: absolute;
+	left: 10px;
+	top: -4px;
+	font-weight: 700;
+	font-style: italic;
+	line-height: 1;
+}
+.testimonial-content > p.author-desc {
+	margin: auto;
+	line-height: 28px;
+	padding: 15px 0;
+	color: #424242;
+	font-size: 14px;
+}
+.testimonial-content > p.testimonial-author {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #333;
+	margin: 7px 0 0 0;
+}
+/*testimonial Style 2 CSS*/
+
+.single-testimonial.testimonial-style-2 {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	position: relative;
+	box-shadow: 2px 5px 20px rgba(34, 30, 31, 0.15);
+	margin: 20px;
+    
+    @media #{$large-mobile}{
+        margin: 0px;
+        box-shadow: 2px 5px 20px rgba(34, 30, 31, 0.0);
+    }
+}
+.single-testimonial.testimonial-style-2 .des-testimonial {
+	padding: 30px 40px 0 40px;
+	font-size: 14px;
+	line-height: 26px;
+	position: relative;
+    margin-bottom: 25px;
+}
+.single-testimonial.testimonial-style-2 .des-testimonial:before {
+	content: "\f1b2";
+    font-family: Material-Design-Iconic-Font;
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	font-size: 28px;
+    transform: rotate(-180deg);
+}
+.single-testimonial.testimonial-style-2 .author-img {
+	float: right;
+	width: 80px;
+	position: relative;
+	top: -45px;
+	border: 5px solid #f5f5f5;
+	border-radius: 100%;
+	z-index: 9;
+}
+.single-testimonial.testimonial-style-2 .testimonial-author {
+	background: #f5f5f5f5;
+	padding: 20px 42px;
+	padding-bottom: 30px;
+}
+.single-testimonial.testimonial-style-2 .author-content {
+	overflow: hidden;
+}
+.single-testimonial.testimonial-style-2 .author-content h5{
+	font-size: 16px;
+    margin-bottom: 0;
+}
+.single-testimonial.testimonial-style-2 .author-content p {
+	margin-bottom: 0;
+}
+.single-testimonial.testimonial-style-2 .author-img img {
+	width: 100%;
+}

@@ -1,0 +1,82 @@
+/*--
+    - Button
+--------------------------------------*/
+.btn {
+    font-weight: 600;
+
+    display: inline-flex;
+    justify-content: center;
+
+    height: 50px;
+    padding: 13px 30px 11px;
+
+    text-decoration: none;
+    & i {
+        align-self: center;
+    }
+    &:focus {
+        box-shadow: none;
+    }
+    /* Shape */
+    &-square {
+        border-radius: 0;
+    }
+    &-round {
+        border-radius: 100px;
+    }
+    /* Icon */
+    &-icon {
+        width: 50px;
+        padding: 10px;
+        &.btn-sm {
+            width: 40px;
+            padding: 8px;
+        }
+        &.btn-lg {
+            width: 60px;
+            padding: 15px;
+        }
+    }
+    /* Size */
+    &-sm {
+        font-size: 14px;
+
+        height: 40px;
+        padding: 8px 20px 6px;
+    }
+    &-lg {
+        font-size: 16px;
+
+        height: 60px;
+        padding: 18px 40px 16px;
+    }
+    /* Link */
+    &-link {
+        font-weight: 400;
+
+        height: auto;
+        padding: 0;
+
+        border: none;
+        background-color: transparent;
+    }
+}
+.btn-close {
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+/* Social */
+@each $name, $color in $social-colors {
+    .btn-#{$name} {
+        color: $white;
+        border-color: $color;
+        background-color: $color;
+        &:hover {
+            color: $white;
+            border-color: darken($color, 7);
+            background-color: darken($color, 7);
+        }
+    }
+}

@@ -1,0 +1,71 @@
+/*--
+    - Section Title Css
+-------------------------------*/
+.section-title,.section-title-two {
+    text-align: center;
+    position: relative;
+    margin-bottom: 40px;
+    @media #{$large-mobile}{
+        margin-bottom: 15px;
+    }
+    @media #{$tablet-device}{
+        margin-bottom: 20px;
+    }
+    &::after {
+        content: url("../images/icon/title-01.png");
+    }
+    & h4 {
+        color: $theme-color;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: -5px;
+        margin-bottom: 10px;
+    }
+    & h3 {
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-top: -5px;
+        margin-bottom: 15px;
+    }
+    & p {
+        font-size: 16px;
+        margin-top: 13px;
+    }
+}
+.section-title-two {
+    &::after {
+        content: url("../images/icon/title-02.png");
+    }
+}
+.section-title-three {
+    text-align: center;
+    position: relative;
+    & h4 {
+        color: $theme-color;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: -5px;
+        margin-bottom: 10px;
+    }
+    & h3 {
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-top: -5px;
+        margin-bottom: 15px;
+    }
+    & p {
+        font-size: 16px;
+        margin-top: 13px;
+    }
+    &.mb--80 {
+        @media #{$desktop-device}{
+            margin-bottom: 35px;
+        }
+        @media #{$tablet-device}{
+            margin-bottom: 25px;
+        }
+        @media #{$large-mobile}{
+            margin-bottom: 15px;
+        }
+    }
+}

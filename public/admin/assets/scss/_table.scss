@@ -1,0 +1,39 @@
+/*----------------------------------------*/
+/*  04. Table CSS
+/*----------------------------------------*/
+
+/*Table Common Style*/
+.table {
+    white-space: nowrap;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    & thead {
+        & tr {
+            & th {
+                border-bottom-color: darken($border-color, 10) !important;
+            }
+        }
+    }
+    & tfoot {
+        & tr {
+            & th {
+                border-top-color: darken($border-color, 10) !important;
+            }
+        }
+    }
+    & thead,
+    & tbody,
+    & tfoot {
+        & tr {
+            & th,
+            & td {
+                padding: 10px 15px;
+
+                border-color: $border-color;
+            }
+        }
+    }
+}
+
+@import "table/datatable";

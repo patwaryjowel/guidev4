@@ -1,0 +1,119 @@
+.dropdown {
+    &.button-group {
+        & .btn {
+            &:first-child {
+                &:not(:last-child) {
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+            }
+            &.dropdown-toggle {
+                padding-right: 12px;
+                padding-left: 12px;
+
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                &::after {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    &:not(.dropup):not(.dropright):not(.dropleft) {
+        & .dropdown-menu {
+            top: 100% !important;
+            right: auto !important;
+            left: 0 !important;
+            &-right {
+                top: 100% !important;
+                right: 0 !important;
+                left: auto !important;
+            }
+        }
+    }
+    &.dropup {
+        & .dropdown-menu {
+            top: auto !important;
+            bottom: 100% !important;
+
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+    }
+    &.dropright {
+        & .dropdown-menu {
+            top: 0 !important;
+            bottom: auto !important;
+            left: 100% !important;
+
+            margin-top: 0;
+            margin-left: 20px;
+        }
+    }
+    &.dropleft {
+        & .dropdown-menu {
+            top: 0 !important;
+            right: 100% !important;
+            bottom: auto !important;
+            left: auto !important;
+
+            margin-top: 0;
+            margin-right: 20px;
+        }
+    }
+}
+
+.dropdown-toggle {
+    &::before,
+    &::after {
+        align-self: center;
+    }
+}
+.dropdown-menu {
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+
+    display: block !important;
+    visibility: hidden;
+
+    min-width: 200px;
+    max-width: 300px;
+    margin-top: 20px;
+    padding: 12px 0;
+
+    transition: $baseTransition;
+    transform: translate3d(0px, 0px, 0px) !important;
+
+    opacity: 0;
+    border: none;
+    background-color: $white;
+    box-shadow: 0 5px 15px rgba($black, 0.1);
+    &.show {
+        visibility: visible;
+
+        margin: 0 !important;
+
+        opacity: 1;
+    }
+    & .dropdown-item {
+        font-size: 14px;
+
+        padding: 8px 25px;
+        & i {
+            width: 16px;
+            margin-right: 6px;
+        }
+        & svg.feather {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+
+            transform: translateY(-2px);
+        }
+        &:hover {
+            background-color: rgba($primary, 0.05);
+        }
+    }
+}

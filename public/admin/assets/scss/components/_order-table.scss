@@ -1,0 +1,113 @@
+.order-table {
+    margin-bottom: 0;
+    & thead {
+        & tr {
+            & th {
+                border: none !important;
+                &.action {
+                    padding-right: 40px;
+
+                    text-align: right;
+                }
+            }
+        }
+    }
+    & tbody {
+        & tr {
+            &:last-child {
+                & td {
+                    padding-bottom: 20px;
+                }
+            }
+            & td {
+                padding: 20px 20px 0;
+
+                vertical-align: middle;
+                white-space: nowrap;
+
+                border: none;
+                &.products {
+                }
+                &.customers {
+                }
+                &.ship {
+                }
+                &.status {
+                }
+                &.price {
+                }
+                &.profit {
+                }
+                &.action {
+                    padding-right: 40px;
+                }
+
+                & .product-info,
+                & .customer-info,
+                & .ship-info {
+                    & .thumb {
+                        width: 70px;
+                        & img {
+                            width: 100%;
+                        }
+                        & + .content {
+                            width: calc(100% - 70px);
+                            padding-left: 20px;
+                        }
+                    }
+                    & .content {
+                        align-self: center;
+                        & .title {
+                            margin-bottom: 5px;
+                            & a {
+                                color: $heading-color;
+                            }
+                        }
+                        & p {
+                            color: $body-color;
+                        }
+                    }
+                }
+                & .product-status {
+                    & .badge {
+                        font-size: 14px;
+
+                        display: inline-flex;
+
+                        padding: 9px 15px 10px;
+
+                        border-radius: 5px;
+                    }
+                }
+                & .product-price,
+                & .product-profit {
+                    & .amount {
+                        font-weight: 600;
+                    }
+                }
+                & .product-action {
+                    display: flex;
+                    justify-content: flex-end;
+                    & .btn {
+                        padding: 5px;
+
+                        color: #C7C7C7;
+                        border: none;
+                        background-color: transparent;
+                        & + .btn {
+                            margin-left: 20px;
+                        }
+                        &:hover {
+                            &.edit {
+                                color: $primary;
+                            }
+                            &.delete {
+                                color: $danger;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,105 @@
+/*--
+    - Basic
+--------------------------------------*/
+/*Label*/
+.form-label {
+    line-height: 1;
+
+    display: block;
+
+    margin-bottom: 10px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/*Form Coltrol & Select*/
+.form-control,
+.form-select {
+    font-size: 14px;
+    line-height: 24px;
+
+    height: 46px;
+    padding: 6px 20px;
+
+    color: $body-color;
+    border: 1px solid $border-color;
+    &-sm {
+        font-size: 13px;
+
+        height: 36px;
+        padding: 6px 15px;
+    }
+    &-lg {
+        font-size: 16px;
+
+        height: 56px;
+        padding: 6px 25px;
+    }
+    &:focus {
+        border-color: $primary;
+        box-shadow: none;
+    }
+}
+/*Textarea*/
+textarea.form-control {
+    height: 120px;
+    padding: 10px 20px;
+}
+/*Select*/
+.form-select {
+    padding: 6px 16px;
+    padding-right: 30px;
+    &-sm {
+        padding: 5px 11px 6px;
+        padding-right: 30px;
+    }
+    &-lg {
+        padding: 6px 21px;
+        padding-right: 30px;
+    }
+    &:focus {
+        border-color: $border-color;
+    }
+    &[multiple] {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        & option {
+            padding: 4px;
+        }
+    }
+}
+
+/*Input Type Checkbox & Radio*/
+.form-check {
+    margin-bottom: 6px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    & input {
+        margin-top: 2px;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}
+
+/* File Upload */
+.form-file {
+    & .form-file-input {
+        height: 46px;
+    }
+    & .form-file-label {
+        height: 100%;
+        & .form-file-text {
+            padding: 10px 20px;
+        }
+        & .form-file-button {
+            padding: 11px 20px;
+
+            color: $white;
+            border-color: $primary;
+            background-color: $primary;
+        }
+    }
+}

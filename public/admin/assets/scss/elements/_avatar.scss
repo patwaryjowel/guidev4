@@ -1,0 +1,120 @@
+/*--
+    - Avatar
+--------------------------------------*/
+.avatar {
+    font-size: 12px;
+    font-weight: 600;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    text-transform: uppercase;
+
+    color: $primary;
+    border-radius: 50%;
+    background-color: $grey;
+    & img {
+        width: 100%;
+
+        border-radius: 50%;
+    }
+    & .status {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        display: block;
+
+        width: 8px;
+        height: 8px;
+
+        border-radius: 50%;
+        background-color: $gray-300;
+        box-shadow: 0 0 0 2px $white;
+    }
+    &.online {
+        & .status {
+            background-color: $success;
+        }
+    }
+    &.away {
+        & .status {
+            background-color: $warning;
+        }
+    }
+    &.donot {
+        & .status {
+            background-color: $danger;
+        }
+    }
+    &.invisible {
+        visibility: visible !important;
+        & .status {
+            border: 1px solid $gray-300;
+            background-color: $white;
+        }
+    }
+    // Sizes
+    &.avatar-xs {
+        font-size: 8px;
+
+        width: 26px;
+        height: 26px;
+        & .status {
+            bottom: 1px;
+
+            width: 6px;
+            height: 6px;
+        }
+    }
+    &.avatar-sm {
+        font-size: 10px;
+
+        width: 34px;
+        height: 34px;
+    }
+    &.avatar-lg {
+        font-size: 14px;
+
+        width: 50px;
+        height: 50px;
+        & .status {
+            width: 10px;
+            height: 10px;
+        }
+    }
+    &.avatar-xl {
+        font-size: 18px;
+
+        width: 65px;
+        height: 65px;
+        & .status {
+            right: 2px;
+            bottom: 2px;
+
+            width: 12px;
+            height: 12px;
+        }
+    }
+    &.avatar-xxl {
+        font-size: 24px;
+
+        width: 90px;
+        height: 90px;
+        & .status {
+            right: 3px;
+            bottom: 3px;
+
+            width: 16px;
+            height: 16px;
+
+            box-shadow: 0 0 0 3px $white;
+        }
+    }
+}
