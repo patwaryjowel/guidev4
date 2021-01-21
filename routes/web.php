@@ -188,3 +188,7 @@ Route::middleware(['auth:sanctum', 'verified' , 'authguide'])->get('/guide/dashb
     return view('guide.dashboard');
 })->name('guide.dashboard');
 
+
+//filters
+Route::middleware(['auth:sanctum', 'verified' , 'authadmin'])->get('/admin/filter-tours-place/{id}', [adminController::class, 'filterbydistrict'])->name('backend.filter.tourplacearea');
+

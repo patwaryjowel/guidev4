@@ -46,6 +46,8 @@ $users = User::where('utype', 'guide')->where('status', 1)->get();
                         <div class="card">
                             <div class="card-head border-bottom">
                                 <h4 class="title">Basic Form</h4>
+
+                                
                             </div>
                             <div class="card-body">
                                  <form method="post" action="{{route('backend.tourplacestore')}}"  enctype="multipart/form-data">
@@ -139,7 +141,20 @@ $users = User::where('utype', 'guide')->where('status', 1)->get();
                     <div class="col-xl-6 col-12 mb-6">
                         <div class="card">
                             <div class="card-head border-bottom">
-                                <h4 class="title">Basic Form</h4>
+                                <h4 class="title">Tour Places @if(isset($filter_location)) in - {{$filter_location->location}} @endif</h4>
+                                <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Filter By Division
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    @if(!is_null($locations))
+                                        @foreach($locations as $location)
+                                        <a class="dropdown-item" href="{{route('backend.filter.tourplacearea',$location->id)}}">{{$location->location}}</a>
+                                        @endforeach
+                                    @endif
+                                    
+                                </div>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="manage-table-wrap">

@@ -216,11 +216,30 @@ public function update(Request $request)
 
 
 
+    //edited start
+
      public function tourplacearea()
     {
-$tours = tour::all();
-        return view('backend.manage-tours-place' ,compact('tours'));
+    $locations = Location::all();
+    $tours = tour::all();
+        return view('backend.manage-tours-place' ,compact('tours','locations'));
     }
+
+
+
+    // tour place filter by district.
+
+    public function filterbydistrict($id)
+    {
+        $locations = Location::all();
+        $filter_location = Location::find($id);
+       $tours = Tour::where('location_id', $id)->get();
+        return view('backend.manage-tours-place' ,compact('tours','filter_location'));
+    }
+
+    //edited end
+
+
 
 
 
