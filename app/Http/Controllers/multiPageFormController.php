@@ -11,6 +11,7 @@ use Str;
 use Image;
 use delete;
 use Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -65,6 +66,14 @@ if (empty($request->user_id)) {
         $user->alternate_email_three = $request->alternate_email_three;
         $user->newsletter = $request->newsletter;
         $user->save();
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+        }
+
+
         }
 
 
@@ -77,12 +86,16 @@ $booking = new booking();
 $booking->user_id =  $user->id;
         }
 
+$selected_dates = array_unique(explode(',',$request->selected_dates));
+
+$unqe_dates = implode(',',$selected_dates);
+
 
 
 
 $booking->guide_user_id = $request->guide_user_id;
-$booking->tour_date_one = '01/19/2021';
-$booking->tour_date_two = '01/20/2021';
+$booking->tour_id = $request->tour_id;
+$booking->tour_date_one = $unqe_dates;
 $booking->tour_price = $request->tour_price;
 $booking->start_time = $request->start_time;
 $booking->number_of_people = $request->number_of_people;

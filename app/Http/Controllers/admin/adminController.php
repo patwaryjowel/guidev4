@@ -11,6 +11,7 @@ use App\Models\testimonial;
 use App\Models\location;
 use App\Models\guideapply;
 use App\Models\booking;
+use App\Models\Package;
 use Str;
 use Image;
 use delete;
@@ -274,6 +275,10 @@ public function update(Request $request)
         $member->location_id = $request->location_id;
         $member->guide_id = $request->guide_id;
         $member->map_link = $request->map_link;
+        $member->people = implode(',',$request->people);
+        $member->price = implode(',',$request->price);
+
+
 
         $member->status = 1;
         $member->created_at = date("Y/m/d");
@@ -526,7 +531,9 @@ public function tourplaceupdate(Request $request)
 
 
        
-     
+        $data->people = implode(',',$request->people);
+        $data->price = implode(',',$request->price);
+
         $data->title = $request->title;
         $data->location_id = $request->location_id;
       
@@ -534,7 +541,13 @@ public function tourplaceupdate(Request $request)
         $data->update();
       //  Session::flash('success','Updated Successfully !');
      //   return redirect ('category');
-        return redirect()->back()->with('success','Image uploaded successfully.');
+       
+     return redirect()->back()->with('success','Image uploaded successfully.');
+    }
+
+    public function managepackage() {
+        $packages = Package::all();
+        return view('backend.manage-package',compact('packages'));
     }
 
 

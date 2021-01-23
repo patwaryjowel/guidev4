@@ -80,6 +80,52 @@ $users = User::where('utype', 'guide')->where('status', 1)->get();
                     </div> -->
                 </div>
                 <!--TinyMCE End-->
+
+
+                <div class="field_wrapper">
+                    <div class="form-group col-md-8" style="padding-left: 0">
+                        <label>Package People and Price</label><br>
+                        <div class="row" style="margin: 0;">
+                        <input type="number" name="people[]" class="form-control col-3" placeholder="people" required="">
+                        <input type="number" name="price[]" class="form-control col-3" placeholder="Price (without sign)" required="">
+                        </div>
+                        <br>
+                        <a href="javascript:void(0);" class="add_button btn btn-success" title="Add field">Add More</a><br><br>
+                    </div>
+                </div>
+
+
+
+@section('customscripttwo')
+
+<script type="text/javascript">
+$(document).ready(function(){
+    var maxField = 10; //Input fields increment limitation
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('.field_wrapper'); //Input field wrapper
+    var fieldHTML = '<div class="form-group col-md-8" style="padding-left: 0"><label>People and Price</label><div class="row" style="margin: 0;"><input type="number" name="people[]" class="form-control col-3" placeholder="People" required=""><input type="number" name="price[]" class="form-control col-3" placeholder="Price (without tk)" required=""></div><br><a href="javascript:void(0);" class="remove_button btn btn-warning">Remove</a></div>'; //New input field html 
+    var x = 1; //Initial field counter is 1
+    
+    //Once add button is clicked
+    $(addButton).click(function(){
+        //Check maximum number of input fields
+        if(x < maxField){ 
+            x++; //Increment field counter
+            //$(wrapper).append(fieldHTML); //Add field html
+            $(wrapper).append('<div class="form-group col-md-8" style="padding-left: 0"><label>People and Price</label><input type="number" name="people[]" class="form-control" placeholder="People" required=""><br><input type="number" name="price[]" class="form-control" placeholder="Price" required=""><br><a href="javascript:void(0);" class="remove_button btn btn-warning">Remove</a></div>');
+        }
+    });
+    
+    //Once remove button is clicked
+    $(wrapper).on('click', '.remove_button', function(e){
+        e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+    });
+});
+</script>
+
+@endsection
             
 
 
@@ -291,7 +337,39 @@ $users = User::where('utype', 'guide')->where('status', 1)->get();
 
 
 
+                <div class="field_wrapper{{$tour->id}}">
+                    <div class="form-group col-md-8" style="padding-left: 0">
+                        <label>Package People and Price</label><br>
+                        
+                            @if(!is_null($tour->price))
+                                @php
+                                $prices = explode(',',$tour->price);
+                                $peoples = explode(',',$tour->people);
+                                $i = 0;
+                                @endphp
+                                @foreach($prices as $price)
+                                <div class="row" style="margin: 0;">
+                                <input type="number" name="people[]" class="form-control col-3" placeholder="people" required="" value="{{$peoples[$i]}}">
+                                <input type="number" name="price[]" class="form-control col-3" placeholder="Price (without sign)" required="" value="{{$price}}">
+                                </div>
+                                <br>
+                                @php
+                                    $i++;
+                                @endphp
+                                @endforeach
+                            
+                            @else
+                                <div class="row" style="margin: 0;">
+                                <input type="number" name="people[]" class="form-control col-3" placeholder="people" required="">
+                                <input type="number" name="price[]" class="form-control col-3" placeholder="Price (without sign)" required="">
+                                </div>
+                            @endif
 
+                       
+                        <br>
+                        <a href="javascript:void(0);" class="add_button{{$tour->id}} btn btn-success" title="Add field">Add More</a><br><br>
+                    </div>
+                </div>
                                    
 
 
@@ -368,6 +446,8 @@ $users = User::where('utype', 'guide')->where('status', 1)->get();
                                 </div>
                             </div>
                         </div>
+
+
 @endforeach
 
 
@@ -380,5 +460,38 @@ $users = User::where('utype', 'guide')->where('status', 1)->get();
 
         </div>
         <!-- Content Body End -->
+
+
+@section('customscriptthree')
+@foreach($tours as $tour)
+<script type="text/javascript">
+$(document).ready(function(){
+    var maxField = 10; //Input fields increment limitation
+    var addButton = $('.add_button{{$tour->id}}'); //Add button selector
+    var wrapper = $('.field_wrapper{{$tour->id}}'); //Input field wrapper
+    var fieldHTML = '<div class="form-group col-md-8" style="padding-left: 0"><label>People and Price</label><div class="row" style="margin: 0;"><input type="number" name="people[]" class="form-control col-3" placeholder="People" required=""><input type="number" name="price[]" class="form-control col-3" placeholder="Price (without tk)" required=""></div><br><a href="javascript:void(0);" class="remove_button btn btn-warning">Remove</a></div>'; //New input field html 
+    var x = 1; //Initial field counter is 1
+    
+    //Once add button is clicked
+    $(addButton).click(function(){
+        //Check maximum number of input fields
+        if(x < maxField){ 
+            x++; //Increment field counter
+            //$(wrapper).append(fieldHTML); //Add field html
+            $(wrapper).append('<div class="form-group col-md-8" style="padding-left: 0"><label>People and Price</label><input type="number" name="people[]" class="form-control" placeholder="People" required=""><br><input type="number" name="price[]" class="form-control" placeholder="Price" required=""><br><a href="javascript:void(0);" class="remove_button btn btn-warning">Remove</a></div>');
+        }
+    });
+    
+    //Once remove button is clicked
+    $(wrapper).on('click', '.remove_button', function(e){
+        e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+    });
+});
+</script>
+@endforeach
+
+@endsection
 
       

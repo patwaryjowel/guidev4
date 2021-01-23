@@ -283,6 +283,8 @@ display: none;
 
 <!-- jQuery JS -->
 <script src="{{asset('js/vendor/jquery-3.3.1.min.js')}}"></script>
+<!-- js cookie -->
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 <!-- Popper JS -->
 <script src="{{asset('js/popper.min.js')}}"></script>
 <!-- Bootstrap JS -->
@@ -295,6 +297,16 @@ display: none;
 <script src="{{asset('js/main.js')}}"></script>
 
 @yield('customscript')
+@yield('loginformscript')
+
+<script>
+ $('#msform input').keydown(function (e) {
+    if (e.keyCode == 13) {
+        e.preventDefault();
+        return false;
+    }
+});
+</script>
 
 </body>
 

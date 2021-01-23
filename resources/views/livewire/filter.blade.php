@@ -4,7 +4,7 @@
                             <div class="search_area lab-btn mr-0 d-block">
 
  <div class="row show" id="login">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6" style="display: none;">
                                             
                                                 <div class="form-section">
                                                     <div class="form-field">
@@ -23,6 +23,8 @@
                                                 </div>
 
 
+                                            
+
  @php
   $x = '';
 @endphp  
@@ -33,11 +35,15 @@
  @php
     $x = $user->id;
   @endphp 
+  <script>
+  $('.action-button').click();
+  </script>
 @endforeach
 
  @if(empty($x))
 <p id="foo" class="displaynone">These credentials do not match our records.</p>
 @endif 
+
      
  
      
@@ -71,6 +77,59 @@ function continueFunction() {
 
 
                                         </div>
+
+
+
+                                        <div class="col-lg-6">
+                                        <div class="form-section">
+                                                    <div class="form-field">
+                                                        <label>Email</label>
+                                                        <div class="input-holder">
+                                                            <input type="email"  class="form-control" placeholder="" id="login-form-email" />
+                                  
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-field">
+                                                        <label>Password</label>
+                                                        <div class="input-holder">
+                                                           <input type="password"  class="form-control" placeholder="" id="login-form-password" />
+                                                        </div>
+                                                    </div>
+                                                    <p id="login_message" style="display: none;">Login fail please try again.</p>
+                                                    <button type="button" class="btn btn-success" id='login-form-btn'>Login</button>
+                                                </div>
+                                        </div>
+
+                                        @section('loginformscript')
+                                        <script>
+                                        $( document ).ready(function() {
+                                            $('#login-form-btn').click(function(e) {
+                                                    e.preventDefault();
+                                                    var email = $('#login-form-email').val();
+                                                    var password = $('#login-form-password').val();
+                                                    
+                                                    $.ajax('/custom/login/get', {
+                                                    type: 'GET',  // http method
+                                                    data: { email: email, password: password },  // data to submit
+                                                    success: function (data, status, xhr) {
+                                                        console.log(data);
+                                                        if(data == 'success') {
+                                                            $('#authentiaction_form').find('.next').click();
+                                                            $('#login_message').hide();
+                                                        }else {
+                                                            $('#login_message').show();
+                                                        }
+                                                        
+                                                    },
+                                                    error: function (jqXhr, textStatus, errorMessage) {
+                                                            
+                                                    }
+                                                });
+                                            });
+                                        });
+
+                                        </script>
+                                        @endsection
                                         <div class="col-lg-6">
                                             
                                             <h4>I'm a New ToursByLocals Traveler</h4>
@@ -128,10 +187,7 @@ function continueFunction() {
                                                     <label for="item1" class="accordion-item-hd font-weight-bold">Alternate Emails</label>
                                                     <div class="accordion-item-bd">Alternate Email 1<div class="form-field"><input tabindex="9" type="text" name="alternate_email_one"></div>
                                                     </div>
-                                                    <div class="accordion-item-bd">Alternate Email 2<div class="form-field"><input tabindex="10" type="text" name="alternate_email_two"></div>
-                                                    </div>
-                                                    <div class="accordion-item-bd">Alternate Email 3<div class="form-field"><input tabindex="11" type="text" name="alternate_email_three"></div>
-                                                    </div>
+                                                    
                                                 </li>
                                             </ul>
             

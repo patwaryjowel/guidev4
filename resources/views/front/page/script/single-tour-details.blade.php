@@ -146,45 +146,99 @@
     
         
         
-    // var red = ["2020-12-11","2020-12-04","2020-12-18","2020-12-25" ];
-    // var yellow = ["2020-12-12"];
-    // var green = ["2020-12-10","2020-12-14"];
+//     // var red = ["2020-12-11","2020-12-04","2020-12-18","2020-12-25" ];
+//     // var yellow = ["2020-12-12"];
+//     // var green = ["2020-12-10","2020-12-14"];
 
-    var dateToday = new Date();
-    var weekend_strtday = 0;
-    var weekend_endday =  6;
+//     var dateToday = new Date();
+//     var weekend_strtday = 0;
+//     var weekend_endday =  6;
 
-  /*  $("#calendar").datepicker({
+//   /*  $("#calendar").datepicker({
+//         defaultDate: new Date(),      // Just for this demo longevity on SO ;)
+//         minDate: dateToday,
+//         beforeShowDay: $.datepicker.noWeekends
+        
+//     });*/
+
+//     // multi Select DatesPicker
+//   //  $('#calendar').multiDatesPicker();
+
+
+//    /* $('#calendar').multiDatesPicker({
+//     minDate: 0,
+//     maxDate: 30,
+//     altField: '.altField',
+//     addDates: ['1/14/2021'],
+//     defaultDate: '1/1/2021',
+    
+// });*/
+    
+
+// $('#calendar').multiDatesPicker({
+//     minDate: 0,
+//     maxDate: 30,
+//     altField: '.altField',
+//     addDates: ['1/14/2021' , '1/15/2021'],
+//     defaultDate: '1/1/2021',
+    
+// });
+
+// //get date from click on calendar
+// $( document ).ready(function() {
+//     $('#calendar').datepicker({
+//         onSelect: function(dateText, inst) { 
+//             console.log(dateText,inst,"good");
+//         }
+//     });
+// });
+
+
+ // var red = ["2020-12-11","2020-12-04","2020-12-18","2020-12-25" ];
+     // var yellow = ["2020-12-12"];
+     // var green = ["2020-12-10","2020-12-14"];
+ 
+     var dateToday = new Date();
+     var weekend_strtday = 0;
+     var weekend_endday =  6;
+     var selectedDate = [];
+     
+ 
+    $("#calendar").datepicker({
         defaultDate: new Date(),      // Just for this demo longevity on SO ;)
         minDate: dateToday,
         beforeShowDay: $.datepicker.noWeekends
-        
-    });*/
+    });
+ 
+     // multi Select DatesPicker
+     $('#calendar').multiDatesPicker({
+        dateFormat: "y-m-d",
+        onSelect: function(dateText, inst){
+            selectedDate.push(dateText);
+            Cookies.set('selected_dates', selectedDate);
+            $('#selected_dates').val(selectedDate);
+            console.log(selectedDate);
+        },
+        beforeShowDay: function(date) {
+            var today = new Date(), maxDate;
+            today.setHours(0,0,0,0);
+            maxDate = new Date().setDate(today.getDate() + 1);
+            if (date <= maxDate && date >= today ) {
+                return [true, 'myClass'];
+            }
+            return [true, ''];
+        }
+     });
+     
+    console.log(Cookies.get('selected_dates'));
 
-    // multi Select DatesPicker
-  //  $('#calendar').multiDatesPicker();
-
-
-   /* $('#calendar').multiDatesPicker({
-    minDate: 0,
-    maxDate: 30,
-    altField: '.altField',
-    addDates: ['1/14/2021'],
-    defaultDate: '1/1/2021',
-    
-});*/
-    
-
-$('#calendar').multiDatesPicker({
-    minDate: 0,
-    maxDate: 30,
-    altField: '.altField',
-    addDates: ['1/14/2021' , '1/15/2021'],
-    defaultDate: '1/1/2021',
-    
-});
-
-</script>
+ </script>
+      <style>
+        .ui-datepicker-week-end {
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+    </style>
 
 
 

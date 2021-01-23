@@ -351,6 +351,8 @@
     <script src="{{asset('admin/assets/js/plugins/simplebar.min.js')}}"></script>
 
      @yield('customscript')
+     @yield('customscripttwo')
+     @yield('customscriptthree')
 
     
 

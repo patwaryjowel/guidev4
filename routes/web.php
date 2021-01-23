@@ -9,6 +9,7 @@ use App\Http\Controllers\toureGuideController;
 use App\Http\Controllers\multiPageFormController;
 use App\Http\Controllers\guide\guideController;
 use App\Http\Controllers\newAuthController;
+use App\Http\Controllers\customAuthController;
  
 
 
@@ -112,6 +113,8 @@ Route::middleware(['auth:sanctum', 'verified' , 'authadmin'])->get('/admin/guide
 
 
 Route::middleware(['auth:sanctum', 'verified' , 'authadmin'])->get('/admin/manage-order', [adminController::class, 'manageorder'])->name('backend.manageorder');
+Route::middleware(['auth:sanctum', 'verified' , 'authadmin'])->get('/admin/manage-package', [adminController::class, 'managepackage'])->name('backend.managepackage');
+Route::middleware(['auth:sanctum', 'verified' , 'authadmin'])->post('/admin/manage-package', [adminController::class, 'packagestore'])->name('package.store');
 
 Route::post('/admin/approve-order', [adminController::class, 'approveorder'])->name('backend.approveorder');
 Route::post('/admin/approve-payment', [adminController::class, 'approvepayment'])->name('backend.approvepayment');
@@ -192,3 +195,9 @@ Route::middleware(['auth:sanctum', 'verified' , 'authguide'])->get('/guide/dashb
 //filters
 Route::middleware(['auth:sanctum', 'verified' , 'authadmin'])->get('/admin/filter-tours-place/{id}', [adminController::class, 'filterbydistrict'])->name('backend.filter.tourplacearea');
 
+Route::get('/custom/login', function() {
+    return view('login');
+
+})->name('custome.login');
+
+Route::get('/custom/login/get', [customAuthController::class, 'boot'])->name('custom.login.post');

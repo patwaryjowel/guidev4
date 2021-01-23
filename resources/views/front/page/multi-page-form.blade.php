@@ -75,6 +75,8 @@
                         	 <form id="msform" method="post" action="{{route('front.multipageformstore')}}"  enctype="multipart/form-data">
                                         @csrf
 
+                            <input type="hidden" value="{{$member->id}}" name="tour_id">
+
                             <!-- progressbar -->
                             <ul id="progressbar">
                                 <li class="active">Tour Date</li>
@@ -115,7 +117,7 @@
 
 
 
-
+                                <input type="hidden" value="" name="selected_dates" id="selected_dates"/>
 
 
 <div class="box">
@@ -123,10 +125,20 @@
                                     <h5 class="font-weight-bold">TOUR PRICE</h5>
                                 </div>
                                 <select name="tour_price" class="mb-5 book-select-box">
-                                    <option  value="0">$2,600 USD for 4 people</option>
-                                    <option value="1">$2,100 USD for 3 people</option>
-                                    <option value="2">$1,600 USD for 2 people</option>
-                                    <option selected="selected" value="3">$1,100 USD for 1 person</option>
+                                    @if(!is_null($member->people))
+                                        @php
+                                        $peoples = explode(',', $member->people);
+                                        $prices = explode(',', $member->price);
+                                        $i = 0;
+                                        @endphp
+
+                                        @foreach($peoples as $people)
+                                        <option  value="${{$prices[$i]}} USD for {{$people}} people">${{$prices[$i]}} USD for {{$people}} people</option>
+                                        @php
+                                        $i++;
+                                        @endphp
+                                        @endforeach
+                                    @endif
                                 </select>
                             </div>
 
@@ -243,7 +255,7 @@
                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                                 <input type="button" name="next" class="next action-button" value="Next"/>
                             </fieldset>
-                            <fieldset>
+                            <fieldset id="authentiaction_form">
                                 <div class="guide-traveler-login-box">
 
 
@@ -252,7 +264,9 @@
                       @include('front.page.part.your-detail')
                           
                         @else
-                                    {{ Auth::User()->name }} 
+                                <div class="login-welcome-box">
+                                   Welcome {{ Auth::User()->name }} click next button to continue.
+                                </div>
 
                                      <input type="text" value="{{ Auth::User()->id }}" name="user_id" style="display: none;" placeholder="From"/>
                                      </div>
