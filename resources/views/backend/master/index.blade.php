@@ -231,92 +231,17 @@
             <div class="sidenav-inner">
                 <nav class="sidenav-menu" id="sidenav-menu">
                     <ul>
-                        <li class="has-sub-menu">
-                            <a href="#"><i data-feather="home" class="nav-icon"></i>Dashdoards<span class="arrow"><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="index.html">BD locals tours</a></li>
-                                <li><a href="{{route('backend.manageslider')}}">Manage Slider</a></li>
-                                <li><a href="{{route('backend.tourplacearea')}}">Manage tours Place</a></li>
-                                <li><a href="{{route('backend.managetestimonial')}}">Manage Testimonials</a></li>
-                                 <li><a href="{{route('backend.manageguide')}}">Manage Guide</a></li>
-
-
-                                  <li><a href="{{route('backend.manageorder')}}">Manage Order</a></li>
-
-                                  <li><a href="{{route('backend.addlocation')}}">Manage Location</a></li>
-                            </ul>
+                        <li>
+                            <a href="#"><i data-feather="home" class="nav-icon"></i>Dashdoards</a>
+                            
                         </li>
-                        <li class="has-sub-menu">
-                            <a href="#"><i data-feather="gift" class="nav-icon"></i>Apps<span class="arrow"><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Mail</a></li>
-                                <li><a href="#">Single Mail</a></li>
-                                <li><a href="#">Calendar</a></li>
-                                <li><a href="#">Chat</a></li>
-                                <li><a href="#">Todo</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-sub-menu">
-                            <a href="#"><i data-feather="box" class="nav-icon"></i>Elements<span class="arrow"><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="elements-alerts.html">Alerts</a></li>
-                                <li><a href="elements-accordions.html">Accordions</a></li>
-                                <li><a href="elements-avatar.html">Avatar</a></li>
-                                <li><a href="elements-badge.html">Badge</a></li>
-                                <li><a href="elements-buttons.html">Buttons</a></li>
-                                <li><a href="elements-carousel.html">Carousel</a></li>
-                                <li><a href="elements-dropdown.html">Dropdown</a></li>
-                                <li><a href="elements-list-group.html">List Group</a></li>
-                                <li><a href="elements-modal.html">Modal</a></li>
-                                <li><a href="elements-pagination.html">Pagination</a></li>
-                                <li><a href="elements-progress.html">Progress Bar</a></li>
-                                <li><a href="elements-spinners.html">Spinners</a></li>
-                                <li><a href="elements-tabs.html">Tabs</a></li>
-                                <li><a href="elements-tooltip.html">Tooltip</a></li>
-                                <li><a href="elements-popovers.html">Popovers</a></li>
-                                <li><a href="elements-typography.html">Typography</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#"><i data-feather="disc" class="nav-icon"></i>Forms<span class="arrow"><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="form-basic.html">Basic Form</a></li>
-                                <li><a href="form-advance.html">Advance Form</a></li>
-                                <li><a href="form-editors.html">Editors</a></li>
-                                <li><a href="form-wizard.html">Wizard</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#"><i data-feather="columns" class="nav-icon"></i>Tables<span class="arrow"><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="table-basic.html">Basic Table</a></li>
-                                <li><a href="data-table.html">Data Table</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#"><i data-feather="bar-chart-2" class="nav-icon"></i>Charts<span class="arrow"><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="chart-apexchart.html"><span>Apexchart</span></a></li>
-                                <li><a href="chart-chartjs.html"><span>ChartJs</span></a></li>
-                                <li><a href="chart-morris.html"><span>Morris  Chart</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#"><i data-feather="grid" class="nav-icon"></i>Icons<span class="arrow"><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="icons-cryptocurrency.html">Cryptocurrency</a></li>
-                                <li><a href="icons-fontawesome.html">Font Awesome</a></li>
-                                <li><a href="icons-feather.html">Feather</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub-menu">
-                            <a href="#"><i data-feather="map" class="nav-icon"></i>Maps<span class="arrow"><i class="fa fa-angle-down"></i></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="map-google.html"><span>Google Map</span></a></li>
-                                <li><a href="map-vector.html"><span>Vector Map</span></a></li>
-                            </ul>
-                        </li>
+                        <!-- <li><a href="index.html">BD locals tours</a></li> -->
+                        <li><a href="{{route('backend.manageslider')}}">Manage Slider</a></li>
+                        <li><a href="{{route('backend.tourplacearea')}}">Manage tours Place</a></li>
+                        <li><a href="{{route('backend.managetestimonial')}}">Manage Testimonials</a></li>
+                        <li><a href="{{route('backend.manageguide')}}">Manage Guide</a></li>
+                        <li><a href="{{route('backend.manageorder')}}">Manage Order</a></li>
+                        <li><a href="{{route('backend.addlocation')}}">Manage Location</a></li>
                     </ul>
                 </nav>
             </div>
