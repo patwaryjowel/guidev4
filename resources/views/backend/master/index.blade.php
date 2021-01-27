@@ -231,10 +231,7 @@
             <div class="sidenav-inner">
                 <nav class="sidenav-menu" id="sidenav-menu">
                     <ul>
-                        <li>
-                            <a href="#"><i data-feather="home" class="nav-icon"></i>Dashdoards</a>
-                            
-                        </li>
+                        <li><a href="#"><i data-feather="home" class="nav-icon"></i>Dashdoards</a></li>
                         <!-- <li><a href="index.html">BD locals tours</a></li> -->
                         <li><a href="{{route('backend.manageslider')}}">Manage Slider</a></li>
                         <li><a href="{{route('backend.tourplacearea')}}">Manage tours Place</a></li>
