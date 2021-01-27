@@ -10,6 +10,7 @@ use App\Http\Controllers\multiPageFormController;
 use App\Http\Controllers\guide\guideController;
 use App\Http\Controllers\newAuthController;
 use App\Http\Controllers\customAuthController;
+use App\Http\Controllers\SslCommerzPaymentController;
  
 
 
@@ -201,3 +202,19 @@ Route::get('/custom/login', function() {
 })->name('custome.login');
 
 Route::get('/custom/login/get', [customAuthController::class, 'boot'])->name('custom.login.post');
+
+
+// SSLCOMMERZ Start
+Route::get('/example1',[SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2',[SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay',[SslCommerzPaymentController::class, 'index'] )->name('ssl.pay');
+Route::post('/pay-via-ajax',[SslCommerzPaymentController::class, 'payViaAjax']);
+Route::get('/pay-via-ajax',[SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success',[SslCommerzPaymentController::class, 'success']);
+Route::post('/fail',[SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel',[SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn',[SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END

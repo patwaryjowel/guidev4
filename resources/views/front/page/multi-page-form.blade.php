@@ -76,6 +76,7 @@
                                         @csrf
 
                             <input type="hidden" value="{{$member->id}}" name="tour_id">
+                            <input type="hidden" value="" name="total_amount" id="total_amount">
 
                             <!-- progressbar -->
                             <ul id="progressbar">
@@ -124,7 +125,7 @@
                                 <div class="title text-center mb-2">
                                     <h5 class="font-weight-bold">TOUR PRICE</h5>
                                 </div>
-                                <select name="tour_price" class="mb-5 book-select-box">
+                                <select name="tour_price" class="mb-5 book-select-box" id="tour_price">
                                     @if(!is_null($member->people))
                                         @php
                                         $peoples = explode(',', $member->people);
@@ -133,7 +134,7 @@
                                         @endphp
 
                                         @foreach($peoples as $people)
-                                        <option  value="${{$prices[$i]}} USD for {{$people}} people">${{$prices[$i]}} USD for {{$people}} people</option>
+                                        <option  value="${{$prices[$i]}}USD for {{$people}} people">${{$prices[$i]}} USD for {{$people}} people</option>
                                         @php
                                         $i++;
                                         @endphp
@@ -152,10 +153,10 @@
                             <fieldset>
 
                                 <div class="form-resived-select-area">
-                                    <h2 class="fs-title">Social Profiles</h2>
+                                    <h2 class="fs-title">Meeting Information</h2>
                                     
                                     <div class="row ">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-12">
                                             <div class="single-row mb-3">
                                                 <label>START TIME</label>
                                                 <select class="input-box date-select" name="start_time" id="select">
@@ -167,17 +168,7 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="col-lg-6">
-                                            <div class="single-row mb-3">
-                                                <label>NUMBER OF PEOPLE IN PARTY</label>
-                                                <select class="input-box date-select" name="number_of_people" id="select">
-                                                    <option  selected="selected" value="01">Select...</option>
-                                                    <option value="02">01</option>
-                                                    <option value="03">02</option>
-                                                    <option value="04">03</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                     
 
@@ -315,5 +306,23 @@
     </div>
     
 
+@section('paymentscript')
+<script>
+
+function pricecalculation() {
+var str = $('#tour_price :selected').val();
+var price = str.slice(1, str.indexOf("USD"));
+console.log('Amount'+price);
+
+$('#total_amount').val(price);
+}
+pricecalculation();
+
+$('#tour_price').click(function() {
+    pricecalculation();
+});
+</script>
+
+@endsection
 
 

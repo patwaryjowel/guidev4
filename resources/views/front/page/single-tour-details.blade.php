@@ -111,6 +111,45 @@
                                 {{ strlen(strip_tags($user->credentials)) > 100 ? "..." : "" }}</p>
                           
                                 @endif
+
+                                <ul class="tour-language-list bar-chart-lists">
+
+                          
+                           
+                            @if(!empty($user->bangla))
+                                 <li>
+                                <b class="language"><small>Bangla</small></b>
+                                <div data-level="2" class="bar-chart-level"><span></span><span></span><span></span><span></span><b><small>{{$user->bangla}}</small></b></div>
+                            </li>
+                            @endif
+
+                             @if(!empty($user->english))
+                                 <li>
+                                <b class="language"><small>English</small></b>
+                                <div data-level="2" class="bar-chart-level"><span></span><span></span><span></span><span></span><b><small>{{$user->english}}</small></b></div>
+                            </li>
+                            @endif
+
+                             @if(!empty($user->arabic))
+                                 <li>
+                                <b class="language"><small>Arabic</small></b>
+                                <div data-level="2" class="bar-chart-level"><span></span><span></span><span></span><span></span><b><small>{{$user->arabic}}</small></b></div>
+                            </li>
+                            @endif
+
+                             @if(!empty($user->hindi))
+                                 <li>
+                                <b class="language"><small>Hindi</small></b>
+                                <div data-level="2" class="bar-chart-level"><span></span><span></span><span></span><span></span><b><small>{{$user->hindi}}</small></b></div>
+                            </li>
+                            @endif
+                      
+
+                           
+
+                           
+
+                        </ul>
                             <a href="/single-guide-details/{{$user->id}}">More info</a>
                                 
                                
@@ -140,31 +179,7 @@
 
 
 
-                            <div class="box">
-                                <div class="title text-center mb-2">
-                                    <h5 class="font-weight-bold">TOUR PRICE</h5>
-                                </div>
-                                <select class="mb-5 book-select-box">
-                                    <option value="0">$2,600 USD for 4 people</option>
-                                    <option value="1">$2,100 USD for 3 people</option>
-                                    <option value="2">$1,600 USD for 2 people</option>
-                                    <option selected="selected" value="3">$1,100 USD for 1 person</option>
-                                </select>
-                            </div>
                             
-
-                            <div id="calendar"></div>
-
-
- 
-                    
-
-
-                            <div class="div-table-row">
-                                <div class="single-cell cell-is-available"><small>Available</small></div>
-                                <div class="single-cell cell-is-unavailable"><small>Unavailable</small></div>
-                                <div class="single-cell cell-is-past"><small>Past</small></div>
-                            </div>
                         </div>
 
 
