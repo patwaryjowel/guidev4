@@ -83,7 +83,7 @@
                                 <li class="active">Tour Date</li>
                                 <li>Time & Meeting Location</li>
                                 <li>Your Details</li>
-                                <li>Tour Details</li>
+                                <!-- <li>Tour Details</li> -->
                                 <li>Payment Details</li>
                             </ul>
                             <!-- fieldsets -->
@@ -270,7 +270,7 @@
                             </fieldset> 
 
                               
-                            <fieldset>
+                            <!-- <fieldset>
                                 <h2 class="fs-title">TOUR DETAILS</h2>
                                 <br>
                                 <label>From*</label>
@@ -280,7 +280,7 @@
                                 <input type="text" name="tour_details_to" placeholder="To"/>
                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                                 <input type="button" name="next" class="next action-button" value="Next"/>
-                            </fieldset>
+                            </fieldset> -->
                             <fieldset>
                                 <h2 class="fs-title">Create your account</h2>
                                 <h3 class="fs-subtitle">Fill in your credentials</h3>
