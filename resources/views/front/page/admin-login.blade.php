@@ -7,7 +7,7 @@
             <div class="in-breadcrumb">
                 <div class="row">
                     <div class="col">
-                        <h3>Tour Guide Login</h3>
+                        <h3>Admin Login</h3>
                         <!-- breadcrumb-list start -->
                         <ul class="breadcrumb-list">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -26,16 +26,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 ml-auto mr-auto">
-
-<!-- <p> Travel Agents, please use the <a class="theme-color" href="{{route('front.guidelogin')}}"> TRAVEL AGENT login</a> </p>
-<p> Travelers, please use the  <a class="theme-color" href="{{route('front.travelerlogin')}}"> TRAVELER login.</a> </p> -->
-
                     <form name="theForm" method="post" class="login-form background-form" action="{{ route('login') }}">
-
-
-
-
-            @csrf
+                    @csrf
                         <div class="form-section">
                             <div class="form-field">
                                 <label>Email</label>
@@ -50,22 +42,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center">
+                        
+                        <input type="checkbox" name="31.11" value="31.11">&nbsp;Remember login on this computer
+                        <input type="hidden" name="wosid" value="#">
+
+                        <div class="text-left mt-2">
                             <input tabindex="3" class="button green" type="submit" value="Login" name="31.7">
                         </div>
                         <br>
-
-
-                     
-
-              
-                 
-                  
-           
-                        <a href="{{ route('password.request') }}">forgot password?</a>
-                            <br><br>
-                            <input type="checkbox" name="31.11" value="31.11">&nbsp;Remember login on this computer
-                        <input type="hidden" name="wosid" value="#">
+                        <!-- <a href="{{ route('password.request') }}">forgot password?</a> -->
+                            
+                            
                     </form>
                   <!--   <p>If you are a passionate and enthusiastic person with local knowledge and expertise, <a href="{{route('guide.apply')}}" class="theme-color">join&nbsp;our&nbsp;system</a> and become a ToursByLocals tour guide!</p> -->
                 </div>

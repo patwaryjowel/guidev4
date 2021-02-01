@@ -373,13 +373,17 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 /*---- Breadcrumb One ----*/
+.in-breadcrumb {
+  text-align: center;
+}
 .breadcrumb-area {
-  padding: 78px 0;
-  background: url(../images/bg/breadcrumb-bg-02.jpg);
+  padding: 50px 0;
+  background: #f1f1f1;
+  /* background: url(../images/bg/breadcrumb-bg-02.jpg); */
 }
 @media only screen and (max-width: 767px) {
   .breadcrumb-area {
-    padding: 60px 0;
+    padding: 40px 0;
   }
 }
 .breadcrumb-area h3 {
@@ -387,7 +391,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   font-weight: 700;
   margin-top: -5px;
   font-weight: 600;
-  color: #ffffff;
+  color: #333;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .breadcrumb-area h3 {
@@ -402,20 +406,19 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 .breadcrumb-list .breadcrumb-item {
   font-size: 14px;
-  color: #ffffff;
+  color: #333;
   text-transform: capitalize;
   line-height: 1;
   display: inline-block;
 }
 .breadcrumb-list .breadcrumb-item.active {
-  color: #ffffff;
+  color: #ff5951;
 }
 .breadcrumb-list .breadcrumb-item a:hover {
   color: #ff5951;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
-  color: #ffffff;
   content: ">";
   display: inline-block;
   padding-right: 10px;
@@ -1565,19 +1568,30 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 form.login-form.background-form {
-  background: #ddd;
-  padding: 40px;
+  background: #f1f1f1;
+  padding: 60px 40px;
+  border-radius: 5px;
 }
-
+button, input[type=submit] {
+  cursor: pointer;
+  border: none;
+}
 input[type=text],
 input[type=email],
 input[type=password] {
   width: 100%;
   margin-bottom: 20px;
 }
+.input-holder input {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
 
-
-
+.footer-bottom {
+  background: #0a0a0a;
+  padding: 10px;
+}
 
 
 
@@ -2113,8 +2127,49 @@ button:hover {
   
 }
 
+.join-text {margin-top: 40px;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+}
+.register-form-box .form-field {
+  margin-bottom: 12px;
+}
+.register-form-box .form-field label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.register-form-box .form-field label .must {
+  color: red;
+}
+.register-form-box .form-field input,
+.register-form-box .form-field select {
+  font-size: 14px;
+  margin-bottom: 2px;
+  width: 100%;
+  padding: 5px 10px;
+  height: 38px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+.register-form-box .form-field select{
+
+}
 
 
+.register-form-box  .accordion-item .accordion-item-hd {
+    font-weight: 600;
+    margin-top: 15px;
+    font-size: 16px;
+}
 
-
-/*# sourceMappingURL=style.css.map */
+.register-form-box textarea{
+    font-size: 14px;
+    margin-bottom: 2px;
+    width: 100%;
+    padding: 5px 10px;
+    height: 148px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
