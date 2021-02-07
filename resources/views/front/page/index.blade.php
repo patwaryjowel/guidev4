@@ -9,6 +9,9 @@
                         <div class="col-lg-8 ml-auto mr-auto">
                             <div class="hero-text-content">
                                 <h1 class="text-white">{{$slider->title}} </h1>
+                                <div class="slider-button-box">
+                                    <a title="Tour now" href="{{route('front.fortour')}}" class="slier-btn">Tour Now</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,7 +55,7 @@
                         </div>
                         <div class="tour-small-info">
                             
-                             <h4 class="title-post"><a href="./single-tour-details/{{$tour->id}}" rel="bookmark">{{ $tour->title }}</a></h4>
+                            <h4 class="title-post"><a href="./single-tour-details/{{$tour->id}}" rel="bookmark">{{ $tour->title }}</a></h4>
                             
                             <p>
                                 {{ substr(strip_tags($tour->details), 0, 200) }}
@@ -64,14 +67,16 @@
                  @endforeach
                
                
-               
-                
-                
-                
-                
-              
+            </div>
 
-
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="all-item-show-button-box text-center mt-5">
+                        <a href="{{route('front.fortour')}}" class="button">
+                            See ALL Tour Place
+                        </a>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -94,22 +99,15 @@
                 </div>
             </div>
            
-            
-            
             <div class="row">
                 <div class="testimonial-slider-2 owl-carousel">
-                   
                 @php 
                 use Illuminate\Support\Facades\DB;
                 use Illuminate\Database\Eloquent\Model;
                 $testimonials = DB::table('testimonials')->orderBy('id','desc')->paginate(10);
                 @endphp
 
-
                 @foreach($testimonials as $testimonial)
-
-               
-
                     <div class="col-12">
                         <div class="single-testimonial testimonial-style-2">
                             <div class="des-testimonial">
@@ -126,16 +124,9 @@
                             </div>
                         </div>
                     </div>
-
                 @endforeach
-
-
-
-                 
                 </div>
             </div>
-            
-            
         </div>
     </div>
     <!--// Testimonials Area -->

@@ -28,14 +28,15 @@
                    
                     <div class="place-item-gallery  owl-carousel">
                         <div class="single-gallery-img mb--30">
-                            <a href="{{asset('assets/images/tour-place/'.$member->image)}}" data-fancybox="gallery=images"><img src="{{asset('assets/images/tour-place/'.$member->image)}}" alt=""></a>
+                            <a href="{{asset('assets/images/tour-place/'.$member->image)}}" data-fancybox="gallery=images">
+                                <img src="{{asset('assets/images/tour-place/'.$member->image)}}" alt="">
+                            </a>
                         </div>
                         <div class="single-gallery-img mb--30">
-                            <a href="{{asset('assets/images/tour-place/'.$member->image)}}" data-fancybox="gallery=images"><img src="{{asset('assets/images/tour-place/'.$member->image)}}" alt=""></a>
+                            <a href="{{asset('assets/images/tour-place/'.$member->image)}}" data-fancybox="gallery=images">
+                                <img src="{{asset('assets/images/tour-place/'.$member->image)}}" alt="">
+                            </a>
                         </div>
-                       <!--  <div class="single-gallery-img mb--30">
-                            <a href="{{asset('images/gallery/gallery1.jpg')}}" data-fancybox="gallery=images"><img src="{{asset('images/gallery/gallery1.jpg')}}" alt=""></a>
-                        </div> -->
                     </div>
                     
                     <div class="tour-title">

@@ -12,9 +12,6 @@
                         <div class="content">
                             <h4 class="title">{{$location->heading}}</h4>
                             <p>{{$location->subheading}}</p>
-
-
-
                         </div>
                     </div>
 
@@ -35,33 +32,30 @@
                 <div class="col-lg-8">
                    
                     <div class="row clearfix masonry-wrap">
-               
-               @foreach($tours as $tour)
-                        <div class="col-lg-6 col-md-6 masonary-item">
-                            <article class="single-tour-place">
-                                <div class="image-thumb"> 
-                                    <a class="featured_image" href="/single-tour-details/{{$tour->id}}" title="Curzon Hall">
-                                      <img src="{{asset('images/tour-place/ahsan-Manjil-Dhaka.jpg')}}" alt="">
-                                    </a>
-                                    <div class="location">
-                                        <i class="fa fa-map-marker"></i><a href="#" rel="category tag">{{$tour->title}}</a>
+                        @foreach($tours as $tour)
+                            <div class="col-lg-6 col-md-6 masonary-item">
+                                <article class="single-tour-place">
+                                    <div class="image-thumb"> 
+                                        <a class="featured_image" href="/single-tour-details/{{$tour->id}}" title="Curzon Hall">
+                                        <img src="{{asset('images/tour-place/ahsan-Manjil-Dhaka.jpg')}}" alt="">
+                                        </a>
+                                        <div class="location">
+                                            <i class="fa fa-map-marker"></i><a href="#" rel="category tag">{{$tour->title}}</a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="tour-small-info">
+                                    <div class="tour-small-info">
+                                        <h4 class="title-post"><a href="/single-tour-details/{{$tour->id}}" rel="bookmark">{{$tour->title}}</a></h4>
+                                        
+                                        <p>
+                                            {{ substr(strip_tags($tour->details), 0, 200) }}
+                                            {{ strlen(strip_tags($tour->details)) > 200 ? "..." : "" }}
+                                        </p>
+                                        <a class="read-more" href="/single-tour-details/{{$tour->id}}">{{ strlen(strip_tags($tour->details)) > 200 ? "Read More" : "" }}</a>
                                     
-                                    <h4 class="title-post"><a href="/single-tour-details/{{$tour->id}}" rel="bookmark">{{$tour->title}}</a></h4>
-                                    
-                                     <p>
-                                {{ substr(strip_tags($tour->details), 0, 200) }}
-                                {{ strlen(strip_tags($tour->details)) > 200 ? "..." : "" }}</p>
-                            <a class="read-more" href="/single-tour-details/{{$tour->id}}">{{ strlen(strip_tags($tour->details)) > 200 ? "Read More" : "" }}</a>
-                                   <!--  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum hic, ipsa nam pariatur! Mollitia impedit fugit quaerat… 
-                                    <a class="read-more" href="single-tour-details.html">Read More</a></p> -->
-                                </div>
-                            </article>
-                        </div>
+                                    </div>
+                                </article>
+                            </div>
                         @endforeach
-                      
 
                     </div>
 

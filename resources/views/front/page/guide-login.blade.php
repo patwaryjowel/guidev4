@@ -53,7 +53,7 @@
                         <!-- <a href="{{ route('password.request') }}">forgot password?</a> -->
                             
                     </form>
-                    <p class="join-text">If you are a passionate and enthusiastic person with local knowledge and expertise, <a href="{{route('guide.apply')}}" class="theme-color">join&nbsp;our&nbsp;system</a> and become a ToursByLocals tour guide!</p>
+                    <p class="join-text">If you are a passionate and enthusiastic person with local knowledge and expertise, <a href="{{route('guide.apply')}}" class="theme-color">join&nbsp;our&nbsp;system</a> and become a Tours By Locals tour guide!</p>
                 </div>
             </div>
         </div>

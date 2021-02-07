@@ -1,4 +1,20 @@
-
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="in-breadcrumb">
+                <div class="row">
+                    <div class="col">
+                        <h3>Tours Place</h3>
+                        <!-- breadcrumb-list start -->
+                        <ul class="breadcrumb-list">
+                            <li class="breadcrumb-item"><a href="{{route('front.index')}}">Home</a></li>
+                            <li class="breadcrumb-item active">Tours Place</li>
+                        </ul>
+                        <!-- breadcrumb-list end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- Tour Place Area Start -->
     <div class="tour-place-area masonry-activation section-ptb">

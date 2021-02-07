@@ -70,8 +70,8 @@ display: none;
                                 <nav class="main-navigation">
                                     <ul>
                                         <li class="active"><a href="{{route('front.index')}}">Home</a></li>
-                                        <li><a href="{{route('front.forguide')}}">For Guids</a></li>
-                                        <li><a href="{{route('front.fortour')}}">For Tour</a>
+                                        <li><a href="{{route('front.forguide')}}">Our Guids</a></li>
+                                        <li><a href="{{route('front.fortour')}}">For Tour Place</a>
                                             <ul class="sub-menu">
 
                                                 @php
@@ -89,7 +89,7 @@ display: none;
                                             </ul>
                                         </li>
                                         <!--<li><a href="about.html">About</a></li>-->
-                                        <li><a href="{{route('front.packagelist')}}">Package</a></li>
+                                        <!-- <li><a href="{{route('front.packagelist')}}">Package</a></li> -->
                                       
 
 
