@@ -203,6 +203,10 @@ Route::get('/custom/login', function() {
 
 Route::get('/custom/login/get', [customAuthController::class, 'boot'])->name('custom.login.post');
 
+Route::get('/booking/success', function() {
+    return view('success');
+
+})->name('orders.success');
 
 // SSLCOMMERZ Start
 Route::get('/example1',[SslCommerzPaymentController::class, 'exampleEasyCheckout']);

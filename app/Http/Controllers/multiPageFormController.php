@@ -129,11 +129,12 @@ $tran_id = uniqid();
 $order = new Order;
 $order->booking_id = $booking->id;
 $order->transaction_id = $tran_id;
+$order->status = 'Processing';
 $order->save();
 				//sslcommerze payment gateway start
 						
                     $post_data = array();
-                    $post_data['total_amount'] = $total_price; # You cant not pay less than 10
+                    $post_data['total_amount'] = 1000.00; # You cant not pay less than 10
                     $post_data['currency'] = "USD";
                     $post_data['tran_id'] = $tran_id; // tran_id must be unique
 

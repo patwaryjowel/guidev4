@@ -84,6 +84,57 @@
     <!-- Tour Place Area End  -->
 
 
+    <!-- Tour Place Area Start -->
+    <div class="tour-place-area section-pb">
+        <div class="container-fluid pl-0 pr-0">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title text-center mb-5">
+                        <h3>Most popular place</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row no-gutters">
+                <div class="col-lg-3">
+                    <a class="single-item-most-popular-place">
+                        <img src="assets/images/gallery/private-guided-experiences-1608106323.jpg" alt="">
+                        <div class="heading">
+                            <h4>Most popular place in Dhaka </h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="single-item-most-popular-place">
+                        <img src="assets/images/gallery/private-guided-experiences-1608106323.jpg" alt="">
+                        <div class="heading">
+                            <h4>Most popular place in </h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a class="single-item-most-popular-place">
+                        <img src="assets/images/gallery/private-guided-experiences-1608106323.jpg" alt="">
+                        <div class="heading">
+                            <h4>Most popular place in</h4>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3">
+                    <a class="single-item-most-popular-place">
+                        <img src="assets/images/gallery/private-guided-experiences-1608106323.jpg" alt="">
+                        <div class="heading">
+                            <h4>Most popular place in</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tour Place Area End  -->
+
 
     
     <!-- Testimonials Area -->
