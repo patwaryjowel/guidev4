@@ -46,24 +46,12 @@ $guide = User::where('id', $gid)->get();
                                                 </div>
                                                 <table class="table table-bordered mt-5">
 
-                                                    <tr><td>Guide User Name & Id</td><td> 
-                                                        @foreach($guide as $basic)
-                                                            {{$basic->name}}
-                                                        @endforeach
-                                                        ({{$booking->guide_user_id}})
-
-                                                    </td> </tr>
-                                                    <tr><td>User Name & Id</td>
-                                                        <td>
-                                                        @foreach($user as $basic)
-                                                            {{$basic->name}}
-                                                        @endforeach
-                                                        ({{$booking->user_id}})
-                                                    </td> </tr>
-                                                    
-<!-- 
                                                     <tr><td>Guide User Id</td><td>{{$booking->guide_user_id}}</td> </tr>
-                                                    <tr><td>User Id</td><td>{{$booking->user_id}}</td> </tr> -->
+                                                    <tr><td>User Id</td><td>{{$booking->user_id}}</td> </tr>
+                                                    
+
+                                                    <tr><td>Guide User Id</td><td>{{$booking->guide_user_id}}</td> </tr>
+                                                    <tr><td>User Id</td><td>{{$booking->user_id}}</td> </tr>
 
 
 

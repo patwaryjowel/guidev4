@@ -37,7 +37,7 @@
                                 <article class="single-tour-place">
                                     <div class="image-thumb"> 
                                         <a class="featured_image" href="/single-tour-details/{{$tour->id}}" title="Curzon Hall">
-                                        <img src="{{asset('images/tour-place/ahsan-Manjil-Dhaka.jpg')}}" alt="">
+                                        <img src="{{asset('assets/images/tour-place/'.$tour->image)}}" alt="">
                                         </a>
                                         <div class="location">
                                             <i class="fa fa-map-marker"></i><a href="#" rel="category tag">{{$tour->title}}</a>
@@ -102,7 +102,7 @@
                                                 <h6><a href="/single-guide-details/{{$user->id}}" class="font-width-bold">{{$user->name}} </a></h6>
                                             </strong>
                                             <div class="guide-addres">
-                                                {{$user->city}}, {{$user->country}}
+                                                {{$user->location}}, {{$user->country}}
                                             </div>
                                             <div class="rating-holder orange">
                                                 <a class="fancybox" href="#">

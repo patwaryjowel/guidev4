@@ -3,6 +3,12 @@
 @include('backend.page.manageorder')
 @endsection
 
+@section('notification')
+@include('backend.notification.manageorder')
+@endsection
+
+
+
 
 @section('customcss')
  <!-- Plugin CSS (Plugins Files for only this Page) -->

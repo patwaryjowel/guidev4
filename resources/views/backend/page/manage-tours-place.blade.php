@@ -70,16 +70,22 @@ $users = User::where('utype', 'guide')->where('status', 1)->get();
               
 
                 <!--TinyMCE Start-->
-                <div class="col-12 mb-6">
+                <div class="col-12 mb-6 textarea-select">
                    <!--  <div class="card">
                        
                         <div class="card-body"> -->
                             <label class="form-label" for="details">Tours Detsils</label>
-                            <textarea name="details" class="tinymce">Next, use our Get Started docs to setup Tiny!</textarea>
+                            <textarea name="details" id="tour_detailsone">Next, use our Get Started docs to setup Tiny!</textarea>
                       <!--   </div>
                     </div> -->
                 </div>
                 <!--TinyMCE End-->
+                <style>
+                    .textarea-select .note-editor .note-editing-area {
+                        position: relative;
+                        min-height: 218px;
+                    }
+                </style>
 
 
                 <div class="field_wrapper">
@@ -158,8 +164,8 @@ $(document).ready(function(){
                                         
                                         </div>
 
-<div class="col-12 mb-4">
-            <label class="form-label" for="guide_id">Tours Guide</label>
+<!-- <div class="col-12 mb-4">
+            <label class="form-label" for="guide_id">Guide Select</label>
                 <select class="form-select" name="guide_id">
                     <option value="">Select</option>
                     @foreach($users as $user)
@@ -167,12 +173,12 @@ $(document).ready(function(){
                     <option value="{{$user->id}}">{{$user->name}} - {{$user->location}} ({{$user->guidenumber}}) </option>
                     @endforeach
                 </select>
-        </div>
+        </div> -->
 
 
                                         <div class="col-12 mb-4">
-                                            <label class="form-label" for="map_link">Tours Map Link</label>
-                                            <input type="text" name="map_link" class="form-control" placeholder="Tours Map Link">
+                                            <label class="form-label" for="map_link">Tours Map Lat,Long</label>
+                                            <input type="text" name="map_link" class="form-control" placeholder="23.810331,90.412521">
                                         </div>
 
                                         <div class="col-12 mb-4">
@@ -211,6 +217,7 @@ $(document).ready(function(){
                                                 <th scope="col">Image</th>
                                                 <th scope="col">Location</th>
                                                 <th scope="col">Title</th>
+                                                <th scope="col">Guides</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -242,13 +249,15 @@ $(document).ready(function(){
                                                     </div>
                                                 </td>
 
-
+                                                <td>
+                                                    <a href="{{route('backend.manageguidefortour', $tour->id)}}">View</a>
+                                                </td>
                                                
 
 
                                                 <td>
                                                     <div class="button-box">
-                                                         <a href="/admin/manage-guide-for-tour/{{$tour->id}}"  class="btn-sm btn btn-primary mr-1 mb-1">Guide Select</a>
+                                                         <!-- <a href="/admin/manage-guide-for-tour/{{$tour->id}}"  class="btn-sm btn btn-primary mr-1 mb-1">Guide Select</a> -->
                                                         <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$tour->id}}" class="btn-sm btn btn-primary mr-1 mb-1">Edit</a>
                                                         <a href="/admin/manage-tours-place/{{$tour->id}}" class="btn-sm btn btn-danger mr-1 mb-1">Delete</a>
                                                     </div>
@@ -321,8 +330,8 @@ $(document).ready(function(){
                        <!--  <div class="card-body"> -->
                             <label class="form-label" for="details">Tours Details</label>
                            
-                            <textarea name="details" class="tinymce">
-                           
+                            <textarea name="details" id="tour_detailstwo{{$tour->id}}">
+
                                 {!!$tour->details!!} 
                              </textarea>
                        <!--  </div> -->
@@ -410,8 +419,8 @@ $(document).ready(function(){
        
 
 
-        <div class="col-12 mb-4">
-            <label class="form-label" for="guide_id">Tours Guide</label>
+       <!--  <div class="col-12 mb-4">
+            <label class="form-label" for="guide_id">Guide Select</label>
                 <select class="form-select" name="guide_id">
                     <option value="">Select</option>
                     @foreach($users as $user)
@@ -419,19 +428,19 @@ $(document).ready(function(){
                     <option value="{{$user->id}}">{{$user->name}} - {{$user->location}} ({{$user->guidenumber}}) </option>
                     @endforeach
                 </select>
-        </div>
+        </div> -->
 
 
 
 
 
                                         <div class="col-12 mb-4">
-                                            <label class="form-label" for="map_link">Tours Map Link</label>
-                                            <input type="text" name="map_link" class="form-control" value="{{$tour->map_link}}" placeholder="Tours Map Link">
+                                            <label class="form-label" for="map_link">Tours Map Lat,Long</label>
+                                            <input type="text" name="map_link" class="form-control" value="{{$tour->map_link}}" placeholder="23.810331,90.412521">
                                         </div>
 
                                         <div class="col-12 mb-4">
-                                            <input type="submit" value="Add Now" class="btn btn-primary">
+                                            <input type="submit" value="Update" class="btn btn-primary">
                                             <input type="submit" value="Cancle" class="btn btn-danger">
                                         </div>
                                     </div>
@@ -492,6 +501,30 @@ $(document).ready(function(){
 </script>
 @endforeach
 
+<!-- include libraries(jQuery, bootstrap) -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $('#tour_detailsone').summernote();
+    $('#tour_detailstwo').summernote();
+    
+    });
+</script>
+
+@foreach($tours as $tour)
+<script>
+    $(document).ready(function() {
+    $('#tour_detailstwo{{$tour->id}}').summernote();
+    
+    });
+</script>
+@endforeach
 @endsection
 
       

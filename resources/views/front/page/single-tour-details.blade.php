@@ -26,12 +26,7 @@
             <div class="row">
                 <div class="col-lg-8">
                    
-                    <div class="place-item-gallery  owl-carousel">
-                        <div class="single-gallery-img mb--30">
-                            <a href="{{asset('assets/images/tour-place/'.$member->image)}}" data-fancybox="gallery=images">
-                                <img src="{{asset('assets/images/tour-place/'.$member->image)}}" alt="">
-                            </a>
-                        </div>
+                    <div class="">
                         <div class="single-gallery-img mb--30">
                             <a href="{{asset('assets/images/tour-place/'.$member->image)}}" data-fancybox="gallery=images">
                                 <img src="{{asset('assets/images/tour-place/'.$member->image)}}" alt="">
@@ -39,7 +34,7 @@
                         </div>
                     </div>
                     
-                    <div class="tour-title">
+                    <div class="tour-title mt-5">
                         <h4> {{$member->title}}</h4>
                     </div>
                     <div class="tour-details">
@@ -54,8 +49,35 @@
                 </div>
                 
                 <div class="col-lg-4">
-                    
-                    
+                    <div class="map">
+
+                        <style>
+                            .googleMap-1 {
+                                height: 500px;
+                            }
+
+                            @media only screen and (max-width: 767px) {
+                                .googleMap-1 {
+                                    height: 1000px;
+                                }
+                            }
+                        </style>
+                        @if(!is_null($member->map_link))
+                            @if(str_contains($member->map_link, ','))
+                            @php
+                                $string_to_array = explode(',', $member->map_link);
+                            @endphp
+                            <div class="google-map">
+                                <div class="embed-responsive-item googleMap-1" data-lat="{{$string_to_array[0]}}" data-Long="{{$string_to_array[1]}}"></div>
+                            </div>
+                            @endif
+                        @endif
+                        
+
+
+
+
+                    </div>
                     <div class="widget about-guide">
                         <h4 class="mb-3 font-weight-bold text-center">
                             <span class="tblGreen ">Meet Your Guide</span>
@@ -90,7 +112,7 @@
                                                 </a></h6>
                                             </strong>
                                             <div class="guide-addres">
-                                                {{$user->city}}, {{$user->country}}
+                                                {{$user->location}}, {{$user->country}}
                                             </div>
                                            <!--  <div class="rating-holder orange">
                                                 <a class="fancybox" href="#">
@@ -225,7 +247,132 @@
     
     
  
+@section('customscript')
 
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script>
 
 
+    <script>
+
+    
+/*--
+Google Map
+-----------------------------------*/
+
+// Google Map For Single Property Map
+$('.googleMap-1').each(function(i) {
+
+if ($(this).length) {
+    var $this = $(this);
+    var $lat = $this.data('lat');
+    var $long = $this.data('long');
+
+    function initialize() {
+        var mapOptions = {
+            zoom: 14,
+            scrollwheel: false,
+            center: new google.maps.LatLng($lat, $long),
+            
+        };
+        var mapDoms = document.getElementsByClassName('googleMap-1');
+        
+        var map = new google.maps.Map(mapDoms[i], mapOptions);
+        var marker = new google.maps.Marker({
+            position: map.getCenter(),
+            icon: 'assets/images/icons/map_pointer_small.png',
+            map: map,
+            overlay: {
+                values: [{
+                    address: "40.7590615,-73.969231",
+                    position: 'center',
+                    options: {
+                        content: '',
+                    }
+                }, ],
+                events: {
+                    mouseover: function(overlay, event, context) {
+                        var target = overlay.getDOMElement();
+
+                        target.style.zIndex = 2;
+
+                        var info = $(target).find('.gmap-info-wrapper');
+                        info.find('.gmap-info-template').show();
+                    },
+                    mouseout: function(overlay) {
+                        var target = overlay.getDOMElement();
+
+                        target.style.zIndex = 1;
+
+                        var info = $(target).find('.gmap-info-wrapper');
+                        info.find('.gmap-info-template').hide();
+                    }
+                }
+            },
+        });
+    };
+    google.maps.event.addDomListener(window, 'load', initialize);
+}
+});
+
+
+    
+// Google Map For Single Property Map
+$('.googleMap-2').each(function(i) {
+
+if ($(this).length) {
+    var $this = $(this);
+    var $lat = $this.data('lat');
+    var $long = $this.data('long');
+
+    function initialize() {
+        var mapOptions = {
+            zoom: 14,
+            scrollwheel: false,
+            center: new google.maps.LatLng($lat, $long),
+            
+        };
+        var mapDoms = document.getElementsByClassName('googleMap-2');
+        
+        var map = new google.maps.Map(mapDoms[i], mapOptions);
+        var marker = new google.maps.Marker({
+            position: map.getCenter(),
+            icon: 'assets/images/icons/map_pointer_small.png',
+            map: map,
+            overlay: {
+                values: [{
+                    address: "40.7590615,-73.969231",
+                    position: 'center',
+                    options: {
+                        content: '',
+                    }
+                }, ],
+                events: {
+                    mouseover: function(overlay, event, context) {
+                        var target = overlay.getDOMElement();
+
+                        target.style.zIndex = 2;
+
+                        var info = $(target).find('.gmap-info-wrapper');
+                        info.find('.gmap-info-template').show();
+                    },
+                    mouseout: function(overlay) {
+                        var target = overlay.getDOMElement();
+
+                        target.style.zIndex = 1;
+
+                        var info = $(target).find('.gmap-info-wrapper');
+                        info.find('.gmap-info-template').hide();
+                    }
+                }
+            },
+        });
+    };
+    google.maps.event.addDomListener(window, 'load', initialize);
+}
+});
+
+    
+
+</script>
+@endsection

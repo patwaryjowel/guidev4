@@ -34,7 +34,7 @@ public function store(Request $request)
         $data->arabic = $request->arabic;
         $data->hindi = $request->hindi;
         $data->save();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
     }
 
 
@@ -53,7 +53,7 @@ public function store(Request $request)
         $data->arabic = $request->arabic;
         $data->hindi = $request->hindi;
         $data->update();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
     }
 
 
@@ -107,7 +107,7 @@ public function store(Request $request)
         $member->detail = $request->detail;
         $member->notes = $request->notes;
         $member->save();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
     }
 
 public function guideapplyupdate(Request $request)
@@ -132,7 +132,7 @@ public function guideapplyupdate(Request $request)
         $member->detail = $request->detail;
         $member->notes = $request->notes;
         $member->update();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
     }
 
     public function userprofileupdate(Request $request)
@@ -168,7 +168,7 @@ public function guideapplyupdate(Request $request)
         $user->alternate_email_three= $request->alternate_email_three;
         $user->newsletter= $request->newsletter;
         $user->update();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
     }
 
  public function personalimageupdate(Request $request)
@@ -185,7 +185,7 @@ public function guideapplyupdate(Request $request)
         $member = user::findorfail($id);
         $member->image = $imageName;
         $member->update();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
     }
 
 

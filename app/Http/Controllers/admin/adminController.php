@@ -83,7 +83,7 @@ class adminController extends Controller
         $member->details = $request->details;
         $member->image = $imageName;
         $member->save();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
     }
 
 public function locationupdate(Request $request)
@@ -103,7 +103,7 @@ public function locationupdate(Request $request)
         $member->details = $request->details;
        
         $member->update();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
 
  
     }
@@ -144,7 +144,7 @@ public function store(Request $request)
         $member->created_at = date("Y/m/d");
         $member->updated_at = date("Y/m/d");
         $member->save();
-      	return redirect()->back()->with('success','Image uploaded successfully.');
+      	return redirect()->back()->with('success','Successfully');
     }
 
  
@@ -192,7 +192,7 @@ public function update(Request $request)
         $data->update();
       //  Session::flash('success','Updated Successfully !');
      //   return redirect ('category');
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
     }
 
 
@@ -251,8 +251,6 @@ public function update(Request $request)
         'image' => 'required',
         'details' => 'required',
         'location_id' => 'required',
-        'guide_id' => 'required',
-        'map_link' => 'required',
  
     ]);
 
@@ -273,7 +271,7 @@ public function update(Request $request)
         $member->image = $imageName;
         $member->details = $request->details;
         $member->location_id = $request->location_id;
-        $member->guide_id = $request->guide_id;
+        $member->guide_id = '';
         $member->map_link = $request->map_link;
         $member->people = implode(',',$request->people);
         $member->price = implode(',',$request->price);
@@ -284,7 +282,7 @@ public function update(Request $request)
         $member->created_at = date("Y/m/d");
         $member->updated_at = date("Y/m/d");
         $member->save();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
     }
 
 
@@ -327,7 +325,7 @@ public function update(Request $request)
         $member->created_at = date("Y/m/d");
         $member->updated_at = date("Y/m/d");
         $member->save();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
     }
 
  public function testimonialdestroy($id)
@@ -375,7 +373,7 @@ public function testimonialupdate(Request $request)
         $data->update();
       //  Session::flash('success','Updated Successfully !');
      //   return redirect ('category');
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
     }
 
 
@@ -427,7 +425,7 @@ public function approveguide(Request $request){
         $user->location = $location->location;
         $user->guidenumber = $request->guidenumber;
         $user->update();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
 
 }
 
@@ -437,7 +435,7 @@ public function approvetourguide(Request $request){
         $tour = tour::findorfail($id);
         $tour->guide_id = $request->guide_id;
         $tour->update();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
 
 }
 
@@ -481,7 +479,7 @@ public function approvetourguide(Request $request){
         $booking = booking::findorfail($id);
         $booking->status = 1;
         $booking->update();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
 
 }
 
@@ -490,7 +488,7 @@ public function approvepayment(Request $request){
         $booking = booking::findorfail($id);
         $booking->payment = 1;
         $booking->update();
-        return redirect()->back()->with('success','Image uploaded successfully.');
+        return redirect()->back()->with('success','Successfully');
 
 }
 
@@ -535,20 +533,23 @@ public function tourplaceupdate(Request $request)
         $data->price = implode(',',$request->price);
 
         $data->title = $request->title;
+        $data->details = $request->details;
         $data->location_id = $request->location_id;
+        $data->map_link = $request->map_link;
       
         
         $data->update();
       //  Session::flash('success','Updated Successfully !');
      //   return redirect ('category');
        
-     return redirect()->back()->with('success','Image uploaded successfully.');
+     return redirect()->back()->with('success','Successfully');
     }
 
     public function managepackage() {
         $packages = Package::all();
         return view('backend.manage-package',compact('packages'));
     }
+
 
 
 

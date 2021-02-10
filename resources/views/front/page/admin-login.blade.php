@@ -10,7 +10,7 @@
                         <h3>Admin Login</h3>
                         <!-- breadcrumb-list start -->
                         <ul class="breadcrumb-list">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('front.index')}}">Home</a></li>
                             <li class="breadcrumb-item active">Become a Guide</li>
                         </ul>
                         <!-- breadcrumb-list end -->

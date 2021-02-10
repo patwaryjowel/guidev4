@@ -40,6 +40,7 @@
 @php         
 use App\Models\User;
 use App\Models\location;
+use App\Models\tour;
 
 
 $locations = location::get();
@@ -63,9 +64,11 @@ $users = User::where('utype', 'guide')->get();
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Name</th>
-                                                <th scope="col">Country</th>
+                                               <!--  <th scope="col">Country</th>
                                                 <th scope="col">City</th>
-                                                <th scope="col">User status</th>
+                                                <th scope="col">User status</th> -->
+                                                <th scope="col">Apply Tour Place</th>
+                                                 <th scope="col">Approve Tour Location</th>
                                                 <th scope="col">View</th>
                                                 <th scope="col">Approve</th>
                                                 <th scope="col">Delete</th>
@@ -86,7 +89,7 @@ $users = User::where('utype', 'guide')->get();
                                                 </td>
 
 
-                                                <td>
+                                               <!--  <td>
                                                     <div class="country">
                                                         <h6>{{$user->country}}</h6>
                                                     </div>
@@ -102,7 +105,36 @@ $users = User::where('utype', 'guide')->get();
                                                     <div class="country">
                                                          <h6>{{ $user->status}}</h6>
                                                     </div>
+                                                </td> -->
+
+                                                
+    @php
+    $tours = tour::where('id', $user->tour_place_id)->get();
+
+    @endphp
+                                                 <td>
+    @foreach($tours as $tour)
+    @php
+    $tourlocation = location::where('id', $tour->location_id)->get();
+    @endphp
+     @foreach($tourlocation as $tourlocation)
+                                               
+                                                    <div class="country">
+                                                         <h6>{{$tour->title}} - {{$tourlocation->location}}</h6>
+                                                    </div>
+                                                
+                                                @endforeach
+                                                  @endforeach
                                                 </td>
+
+<td>
+                                                    <div class="name">
+                                                        <h6>{{$user->location}}</h6>
+                                                    </div>
+                                                </td>
+
+
+
                                                 <td>
                                                     <div class="button-box">
                                                          <a href="/admin/view/{{$user->id}}/show" class="btn-sm btn btn-primary mr-1 mb-1">View</a>
@@ -112,7 +144,17 @@ $users = User::where('utype', 'guide')->get();
                                                  
                                                 <td>
                                                     <div class="button-box">
-                                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}" class="btn-sm btn btn-primary mr-1 mb-1">Approve</a>
+                                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}" class="btn-sm btn btn-primary mr-1 mb-1">Approve
+
+
+ @php
+                                                 $x = $user->status;
+
+                                                 @endphp  
+                                                            @if($x == 1)
+                                                            it
+                                                            @endif
+                                                        </a>
                                                      
                                                     </div>
                                                 </td>

@@ -50,7 +50,8 @@
                               <img src="{{asset('assets/images/tour-place/'.$tour->image)}}" alt="{{ $tour->title }}">
                             </a>
                             <div class="location">
-                                <i class="fa fa-map-marker"></i><a href="./single-tour-details/{{$tour->id}}" rel="category tag">{{ $tour->title }}</a>
+                                <!-- <a href="{{$tour->map_link}}"><i class="fa fa-map-marker"></i></a><a href="/single-tour-details/{{$tour->id}}" rel="category tag">{{ $tour->title }}</a> -->
+                                <!-- <a href="{{$tour->map_link}}" rel="category tag"> <i class="fa fa-map-marker"></i> Map Link</a> -->
                             </div>
                         </div>
                         <div class="tour-small-info">
@@ -98,7 +99,7 @@
 
             <div class="row no-gutters">
                 <div class="col-lg-3">
-                    <a class="single-item-most-popular-place">
+                    <a href="http://localhost:8000/single-tour-details/17" class="single-item-most-popular-place">
                         <img src="assets/images/gallery/private-guided-experiences-1608106323.jpg" alt="">
                         <div class="heading">
                             <h4>Most popular place in Dhaka </h4>
@@ -106,7 +107,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3">
-                    <a class="single-item-most-popular-place">
+                    <a href="http://localhost:8000/single-tour-details/18" class="single-item-most-popular-place">
                         <img src="assets/images/gallery/private-guided-experiences-1608106323.jpg" alt="">
                         <div class="heading">
                             <h4>Most popular place in </h4>

@@ -56,11 +56,11 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
             <!-- /.card -->
 
             <!-- About Me Box -->
-            <div class="card card-primary">
+            <!-- <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">About Me</h3>
               </div>
-              <!-- /.card-header -->
+             
               <div class="card-body">
                 <strong><i class="fas fa-book mr-1"></i> Education</strong>
 
@@ -92,12 +92,32 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
 
                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
               </div>
-              <!-- /.card-body -->
-            </div>
+            
+            </div> -->
             <!-- /.card -->
           </div>
           <!-- /.col -->
-          <div class="col-md-9">
+
+
+
+
+@php
+$x = User::where('id', Auth::user()->id)->where('utype', 'guide')->count();
+@endphp
+
+
+
+
+         <div class="col-md-9 @if($x == 0) d-none @endif">
+            <div class="card">
+              <div class="card-header p-2">
+
+                <h2>Some Message</h2>
+              </div>
+            </div>
+          </div>
+
+           <div class="col-md-9 @if($x == 1) d-none @endif">
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
@@ -299,7 +319,7 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
   </div>
 </div> -->
 
- <div class="form-group row">
+<!--  <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
       <h2>Languages</h2> 
        </div>
@@ -425,7 +445,7 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->notes}}" name="notes" id="notes" placeholder="notes">
   </div>
-</div>
+</div> -->
 
 
 

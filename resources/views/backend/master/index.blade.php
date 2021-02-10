@@ -70,6 +70,8 @@
                             <!-- Header Actions (Header Right) Start -->
                             <div class="col-auto">
                                 <ul class="header-right-action nav">
+
+                                    @yield('notification')
                                     
                                     <!-- User Start -->
                                     <li class="nav-item dropdown user">
@@ -81,10 +83,10 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="{{route('profile.admin-show')}}"><i data-feather="user"></i> Profile</a>
-                                           <!--  <a class="dropdown-item" href="#"><i data-feather="mail"></i> Inbox</a>
-                                            <a class="dropdown-item" href="#"><i data-feather="lock"></i> Lock Screen</a> -->
-                                           <!--  <a class="dropdown-item" href="#"><i data-feather="log-out"></i>Sign Out</a>
- -->
+                                          <!--   <a class="dropdown-item" href="#"><i data-feather="mail"></i> Inbox</a>
+                                            <a class="dropdown-item" href="#"><i data-feather="lock"></i> Lock Screen</a>
+                                          <a class="dropdown-item" href="#"><i data-feather="log-out"></i>Sign Out</a> -->
+
 
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

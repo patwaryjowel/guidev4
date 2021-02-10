@@ -104,8 +104,29 @@ use App\Models\User;
             </div>
             <!-- /.card -->
           </div>
+
+
+@php
+$x = Auth::user()->status;
+@endphp 
+
+
+
+
+
+
+         <div class="col-md-9 @if($x == 1) d-none @endif">
+            <div class="card">
+              <div class="card-header p-2">
+
+                <h2>Some Message</h2>
+              </div>
+            </div>
+          </div>
+
+
           <!-- /.col -->
-          <div class="col-md-9">
+          <div class="col-md-9 @if($x == 0) d-none @endif">
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">

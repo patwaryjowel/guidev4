@@ -24,6 +24,6 @@ class newAuthController extends Controller
         $member->utype = $request->utype;
         $member->password =  Hash::make($request->password);
         $member->save();
-      	return redirect()->route('profile.guide-show')->with('success','Image uploaded successfully.');
+      	return redirect()->route('profile.guide-show')->with('success','Successfully');
     }
 }

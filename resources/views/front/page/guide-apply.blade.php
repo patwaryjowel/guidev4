@@ -9,7 +9,7 @@
                         <h3>Become a Guide</h3>
                         <!-- breadcrumb-list start -->
                         <ul class="breadcrumb-list">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('front.index')}}">Home</a></li>
                             <li class="breadcrumb-item active">Become a Guide</li>
                         </ul>
                         <!-- breadcrumb-list end -->
@@ -94,15 +94,22 @@
 
                         @php
                           use App\Models\tour;
+                          use App\Models\location;
                           $tours = tour::get();
+                          
                         @endphp
                          <div class="col-lg-12">
                             <p class="form-field">
-                                <label>Tour Palace</label>
+                                <label>Choose Your Guide Palace <span class="must">*</span></label>
                                 <select name="tour_place_id">
                                     <option value="">choose...</option>
                                     @foreach($tours as $tour)
-                                    <option value="{{$tour->id}}">{{$tour->title}}</option>
+                                    @php
+                                    $locations = location::where('id', $tour->location_id)->get();
+                                    @endphp
+                                    @foreach($locations as $location)
+                                    <option value="{{$tour->id}}">{{$tour->title}} - {{$location->location}} </option>
+                                    @endforeach
                                     @endforeach
                                 </select>
                             </p>

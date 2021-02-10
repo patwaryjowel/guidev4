@@ -67,8 +67,8 @@ $users = User::where('utype', 'guide')->get();
                                                 <th scope="col">Guide Name</th>
                                                 <th scope="col">User Name</th>
                                                 <th scope="col">Booking Date</th>
-                                                <th scope="col">Booking status</th>
-                                                 <th scope="col">Payment</th>
+                                              
+       
                                                 <th scope="col">View</th>
                                                 <th scope="col">Approve</th>
                                                <th scope="col">Payment</th>
@@ -132,16 +132,8 @@ $users = User::where('utype', 'guide')->get();
                                                     </div>
                                                 </td>
                                               
-                                                <td>
-                                                    <div class="country">
-                                                        {{$booking->status}}
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="country">
-                                                        {{$booking->payment}}
-                                                    </div>
-                                                </td>
+                                                
+                                               
                                                 <td>
                                                     <div class="button-box">
                                                          <a href="/admin/view/order/{{$booking->id}}/show" class="btn-sm btn btn-primary mr-1 mb-1">View</a>
@@ -149,16 +141,46 @@ $users = User::where('utype', 'guide')->get();
                                                     </div>
                                                 </td>
                                                  
+                                                 
+
+
+
                                                 <td>
                                                     <div class="button-box">
-                                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$booking->id}}" class="btn-sm btn btn-primary mr-1 mb-1">Approve</a>
+                                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$booking->id}}" class="btn-sm btn btn-primary mr-1 mb-1">Approve
+                                                        @php
+                                                 $x = $booking->status;
+
+                                                 @endphp  
+                                                            @if($x == 1)
+                                                            it
+                                                            @endif
+                                             </a>
+
+
+
                                                      
                                                     </div>
                                                 </td>
 
+                                               
+
                                                  <td>
                                                     <div class="button-box">
-                                                        <a href="#" data-toggle="modal" data-target="#exampleModalPayment{{$booking->id}}" class="btn-sm btn btn-primary mr-1 mb-1">Payment</a>
+                                                        <a href="#" data-toggle="modal" data-target="#exampleModalPayment{{$booking->id}}" class="btn-sm btn btn-primary mr-1 mb-1">
+
+                                                             @php
+                                                 $x = $booking->payment;
+
+                                                 @endphp  
+                                                            @if($x == 1)
+                                                            paid
+                                                            @else
+                                                            unpaid
+                                                            @endif
+
+
+                                                        </a>
                                                      
                                                     </div>
                                                 </td>
@@ -186,7 +208,7 @@ $users = User::where('utype', 'guide')->get();
                     <div class="col-md-12">
                         <!-- Modal -->
  @foreach($bookings as $user)
-                        <div class="modal fade" id="exampleModalDetail{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal fade" id="exampleModalDetail{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalDetailTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -238,7 +260,7 @@ $users = User::where('utype', 'guide')->get();
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Modal -->
-@foreach($bookings as $user)
+@foreach($bookings as $booking)
                         <div class="modal fade" id="exampleModalCenter{{$booking->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -312,7 +334,7 @@ $users = User::where('utype', 'guide')->get();
 <div class="row">
                     <div class="col-md-12">
                         <!-- Modal -->
-@foreach($bookings as $user)
+@foreach($bookings as $booking)
                         <div class="modal fade" id="exampleModalPayment{{$booking->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalPaymentTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">

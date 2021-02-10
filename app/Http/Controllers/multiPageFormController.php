@@ -178,8 +178,6 @@ $order->save();
                     $payment_options = $sslc->makePayment($post_data, 'hosted');
 
 
-
-//return redirect()->back()->with('success','Image uploaded successfully.');
     }
 
 

@@ -152,9 +152,9 @@ display: none;
                                         <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
                                     </li>
 
-                                     <li>
+                                    <!--  <li>
                                     <a class="nav-link" href="{{ route('guide.apply') }}">Guide Apply</a>
-                                </li>
+                                </li> -->
                                 @endif
                             @endif
 
@@ -265,7 +265,7 @@ display: none;
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="copy-right pt-30 pb-30 text-center text-white">
-                            <p>Copyright© 2020 <a href="#">EduHas</a>, Designed by <span>Jowel</span></p>
+                            <p>© Copyright 2021 <a href="#">Local BD Guide</a>, Designed by <span>Jowel</span></p>
                         </div>
                     </div>
                 </div>
@@ -295,10 +295,12 @@ display: none;
 <script src="{{asset('js/plugins.js')}}"></script>
 <!-- Main JS -->
 <script src="{{asset('js/main.js')}}"></script>
-
 @yield('customscript')
 @yield('paymentscript')
 @yield('loginformscript')
+
+
+
 
 <script>
  $('#msform input').keydown(function (e) {

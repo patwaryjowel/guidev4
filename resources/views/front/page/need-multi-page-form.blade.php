@@ -176,13 +176,13 @@
                                         <div class="single-row">
                                         <label>MEETING LOCATION</label>
                                             <select class="input-box  recevice-select" name="metting_location" id="select">
-                                                <option  selected="selected" value="">Select...</option>
-                                                <option value="1">Address or Intersection</option>
-                                                <option value="2">Airport</option>
-                                                <option value="3">Ask Guide to suggest a location</option>
-                                                <option value="4">Cruise Ship Port</option>
-                                                <option value="5">Hotel</option>
-                                                <option value="6">Monument/Building</option>
+                                                <option  selected="selected" value="default_select">Select...</option>
+                                                <option value="one">Address or Intersection</option>
+                                                <option value="two">Airport</option>
+                                                <option value="three">Ask Guide to suggest a location</option>
+                                                <option value="four">Cruise Ship Port</option>
+                                                <option value="five">Hotel</option>
+                                                <option value="six">Monument/Building</option>
                                             </select>
                                         </div>
 
@@ -306,5 +306,23 @@
     </div>
     
 
+@section('paymentscript')
+<script>
+
+function pricecalculation() {
+var str = $('#tour_price :selected').val();
+var price = str.slice(1, str.indexOf("USD"));
+console.log('Amount'+price);
+
+$('#total_amount').val(price);
+}
+pricecalculation();
+
+$('#tour_price').click(function() {
+    pricecalculation();
+});
+</script>
+
+@endsection
 
 

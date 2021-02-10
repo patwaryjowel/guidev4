@@ -35,12 +35,12 @@
                                 </div>
                                 <div class="tab-pane fade" id="profile2">
                                 	<table class="table table-bordered">
-                                  
+                           
 <tr><td>prefix</td><td>{{$user->prefix}}</td> </tr>
 <tr><td>name</td><td>{{$user->name}}</td> </tr>
 <tr><td>email</td><td>{{$user->email}}</td> </tr>
-<tr><td>utype</td><td>{{$user->utype}}</td> </tr>
-<tr><td>token</td><td>{{$user->token}}</td> </tr>
+<!-- <tr><td>utype</td><td>{{$user->utype}}</td> </tr>
+<tr><td>token</td><td>{{$user->token}}</td> </tr> -->
 <tr><td>country</td><td>{{$user->country}}</td> </tr>
 <tr><td>birthday</td><td>{{$user->birthday}}</td> </tr>
 <tr><td>city</td><td>{{$user->city}}</td> </tr>
@@ -55,7 +55,20 @@
 <tr><td>licensedetail</td><td>{{$user->licensedetail}}</td> </tr>
 <tr><td>detail</td><td>{{$user->detail}}</td> </tr>
 <tr><td>notes</td><td>{{$user->notes}}</td> </tr>
-<tr><td>status</td><td>{{$user->status}}</td> </tr>
+<tr><td>status</td><td>
+
+ 
+@php
+$x = $user->status;
+@endphp
+   @if($x == 1)
+   Approved
+   @else
+   Not Approve
+   @endif
+
+
+</td> </tr>
 </table>
                                 </div>
                                 <div class="tab-pane fade" id="contact2">

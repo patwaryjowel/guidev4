@@ -45,29 +45,8 @@ $guide = User::where('id', $gid)->get();
                                                     <h4 class="title">Basic Info</h4>
                                                 </div>
                                                 <table class="table table-bordered mt-5">
-
-                                                    <tr><td>Guide User Name & Id</td><td> 
-                                                        @foreach($guide as $basic)
-                                                            {{$basic->name}}
-                                                        @endforeach
-                                                        ({{$booking->guide_user_id}})
-
-                                                    </td> </tr>
-                                                    <tr><td>User Name & Id</td>
-                                                        <td>
-                                                        @foreach($user as $basic)
-                                                            {{$basic->name}}
-                                                        @endforeach
-                                                        ({{$booking->user_id}})
-                                                    </td> </tr>
-                                                    
-<!-- 
                                                     <tr><td>Guide User Id</td><td>{{$booking->guide_user_id}}</td> </tr>
-                                                    <tr><td>User Id</td><td>{{$booking->user_id}}</td> </tr> -->
-
-
-
-
+                                                    <tr><td>User Id</td><td>{{$booking->user_id}}</td> </tr>
                                                     
                                                     <!-- <tr><td>tour_date_two</td><td>{{$booking->tour_date_two}}</td> </tr>
                                                     <tr><td>tour_date_three</td><td>{{$booking->tour_date_three}}</td> </tr>
@@ -105,6 +84,7 @@ $guide = User::where('id', $gid)->get();
 
 @php
 $x = $booking->metting_location;
+$x = 2;
 @endphp
 
 @if( $x == 1)
@@ -129,26 +109,27 @@ $x = $booking->metting_location;
 
                                                     </td> 
 
-</tr>
+                                                    </tr>
 
+                                                     <tr class="@if( $x == 1) d-block @else d-none @endif"><td>Address / Intersection</td><td>{{$booking->address_one}}</td> 
 
-<tr class="@if( $x == 1)@else d-none @endif"><td>Address / Intersection</td><td>{{$booking->address_one}}</td> 
-</tr>
+                                                    </tr>
 
-<tr class="@if( $x == 1)@else d-none @endif"><td>Google Map Link</td><td>{{$booking->map_link_one}}</td> </tr>
+                                                     <tr class="@if( $x == 1) d-block @else d-none @endif"><td>Google Map Link</td><td>{{$booking->map_link_one}}</td> </tr>
 
-<tr class="@if( $x == 2)@else d-none @endif"><td>Airport Name</td><td>{{$booking->airport_two}}</td> </tr>
-<tr class="@if( $x == 2)@else d-none @endif"><td>FLIGHT Number</td><td>{{$booking->flight_two}}</td> </tr>
-<tr class="@if( $x == 2)@else d-none @endif"><td>ARRIVAL TIME</td><td>{{$booking->arrival_time_two}}</td> </tr>
-<tr class="@if( $x == 3)@else d-none @endif"><td>hotel_three</td><td>{{$booking->hotel_three}}</td> </tr>
-<tr class="@if( $x == 3)@else d-none @endif"><td>name_booked_three</td><td>{{$booking->name_booked_three}}</td> </tr>
-<tr class="@if( $x == 3)@else d-none @endif"><td>hotel_address_three</td><td>{{$booking->hotel_address_three}}</td> </tr>
-<tr class="@if( $x == 4)@else d-none @endif"><td>address_four_one</td><td>{{$booking->address_four_one}}</td> </tr>
-<tr class="@if( $x == 4)@else d-none @endif"><td>address_four_two</td><td>{{$booking->address_four_two}}</td> </tr>
-<tr class="@if( $x == 5)@else d-none @endif"><td>address_five_one</td><td>{{$booking->address_five_one}}</td> </tr>
-<tr class="@if( $x == 5)@else d-none @endif"><td>address_five_two</td><td>{{$booking->address_five_two}}</td> </tr>
-<tr class="@if( $x == 6)@else d-none @endif"><td>address_six_one</td><td>{{$booking->address_six_one}}</td> </tr>
-<tr class="@if( $x == 6)@else d-none @endif"><td>address_six_two</td><td>{{$booking->address_six_two}}</td> </tr>
+                                                     <tr class="@if( $x == 2) d-block @else d-none @endif"><td>Airport Name</td><td>{{$booking->airport_two}}</td> </tr>
+                                                     <tr class="@if( $x == 2) d-block @else d-none @endif"><td>FLIGHT Number</td><td>{{$booking->flight_two}}</td> </tr>
+                                                     <tr class="@if( $x == 1) d-block @else d-none @endif"><td>ARRIVAL TIME</td><td>{{$booking->arrival_time_two}}</td> </tr>
+
+                                                    <tr><td>hotel_three</td><td>{{$booking->hotel_three}}</td> </tr>
+                                                    <tr><td>name_booked_three</td><td>{{$booking->name_booked_three}}</td> </tr>
+                                                    <tr><td>hotel_address_three</td><td>{{$booking->hotel_address_three}}</td> </tr>
+                                                    <tr><td>address_four_one</td><td>{{$booking->address_four_one}}</td> </tr>
+                                                    <tr><td>address_four_two</td><td>{{$booking->address_four_two}}</td> </tr>
+                                                    <tr><td>address_five_one</td><td>{{$booking->address_five_one}}</td> </tr>
+                                                    <tr><td>address_five_two</td><td>{{$booking->address_five_two}}</td> </tr>
+                                                    <tr><td>address_six_one</td><td>{{$booking->address_six_one}}</td> </tr>
+                                                    <tr><td>address_six_two</td><td>{{$booking->address_six_two}}</td> </tr>
 
 
 

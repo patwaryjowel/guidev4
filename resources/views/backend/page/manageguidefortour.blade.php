@@ -1,7 +1,7 @@
 
 
 
-      
+    
 
 
         <!-- Content Body Start -->
@@ -40,6 +40,7 @@
 @php         
 use App\Models\User;
 use App\Models\location;
+use App\Models\tour;
 
 
 $locations = location::get();
@@ -54,7 +55,7 @@ $users = User::where('utype', 'guide')->where('tour_place_id', $member->id)->get
                     <div class="col-12 mb-6">
                         <div class="card">
                             <div class="card-head border-bottom">
-                                <h4 class="title">Basic Form</h4>
+                                <h4 class="title">Guides for - {{$member->title}}</h4>
                             </div>
                             <div class="card-body">
                                 <div class="manage-table-wrap">
@@ -64,8 +65,10 @@ $users = User::where('utype', 'guide')->where('tour_place_id', $member->id)->get
                                                 <th scope="col">#</th>
                                                 <th scope="col">Name</th>
                                                 <th scope="col">Country</th>
-                                                <th scope="col">City</th>
-                                                <th scope="col">User status</th>
+                                               <!--  <th scope="col">City</th> -->
+                                               
+                                                <th scope="col">Apply Tour Place</th>
+                                                 <th scope="col">Approve Tour Location</th>
                                                 <th scope="col">View</th>
                                                 <th scope="col">Approve</th>
                                                 <th scope="col">Delete</th>
@@ -92,15 +95,32 @@ $users = User::where('utype', 'guide')->where('tour_place_id', $member->id)->get
                                                     </div>
                                                 </td>
                                                 
-                                                <td>
-                                                    <div class="name">
-                                                        <h6>{{$user->city}}</h6>
-                                                    </div>
-                                                </td>
+                                               
                                               
-                                                <td>
+                                              
+
+
+                                                  @php
+    $tours = tour::where('id', $user->tour_place_id)->get();
+
+    @endphp
+                                                 <td>
+    @foreach($tours as $tour)
+    @php
+    $tourlocation = location::where('id', $tour->location_id)->get();
+    @endphp
+     @foreach($tourlocation as $tourlocation)
+                                               
                                                     <div class="country">
-                                                         <h6>{{ $user->status}}</h6>
+                                                         <h6>{{$tour->title}} - {{$tourlocation->location}}</h6>
+                                                    </div>
+                                                
+                                                @endforeach
+                                                  @endforeach
+                                                </td>
+                                                 <td>
+                                                    <div class="name">
+                                                        <h6>{{$user->location}}</h6>
                                                     </div>
                                                 </td>
                                                 <td>
@@ -112,7 +132,19 @@ $users = User::where('utype', 'guide')->where('tour_place_id', $member->id)->get
                                                  
                                                 <td>
                                                     <div class="button-box">
-                                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}" class="btn-sm btn btn-primary mr-1 mb-1">Approve</a>
+                                                        @if($member->guide_id == $user->id)
+                                                        
+                                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}" class="btn-sm btn btn-success mr-1 mb-1">
+                                                            Approved</span>
+                                                        </a>
+                                                        @else
+                                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}" class="btn-sm btn btn-primary mr-1 mb-1">
+                                                            Approve</span>
+                                                        </a>
+
+                                                        @endif
+
+                                                
                                                      
                                                     </div>
                                                 </td>
