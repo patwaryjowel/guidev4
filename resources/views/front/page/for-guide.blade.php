@@ -80,21 +80,21 @@
                                 @endif
 
 
-                                @if(!empty('$user->biography'))
+                               
                                 <p>
                                 <b>Biography:</b>&nbsp;
                                 {{$user->biography}}
                                  </p>
-                                @endif
+                              
 
-                                 @if(!empty('$user->credentials'))
+                                
                                 <p>
                                 <b>credentials:</b>&nbsp;
                                  {{ substr(strip_tags($user->credentials), 0, 200) }}
                                 {{ strlen(strip_tags($user->credentials)) > 200 ? "..." : "" }}</p>
                             <a class="read-more" href="/single-guide-details/{{$user->id}}">{{ strlen(strip_tags($user->credentials)) > 200 ? "Read More" : "" }}</a>
                                 
-                                @endif
+                               
                        
                             </div>
                     </div>

@@ -53,6 +53,8 @@ class User extends Authenticatable
         'status',
         'location_id',
         'tour_place_id',
+        'biography',
+        'credentials',
     ];
 
     /**
