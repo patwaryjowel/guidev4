@@ -46,7 +46,7 @@ Route::get('/newregister', function () {return view('front.register');})->name('
 
 
 Route::get('/multi-page-form/{id}', [multiPageFormController::class, 'index'])->name('front.multipageform');
-Route::post('/multi-page-form-success', [multiPageFormController::class, 'store'])->name('front.multipageformstore');
+Route::get('/multi-page-form-success', [multiPageFormController::class, 'store'])->name('front.multipageformstore');
 
 
 
@@ -182,6 +182,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/profile/setting', functio
 Route::middleware(['auth:sanctum', 'verified'])->get('/user/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+//user profile
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/user/orders', function () {
+    return view('profile.user-orders');
+})->name('user.orders');
 
 
 Route::middleware(['auth:sanctum', 'verified' , 'authadmin'])->get('/admin/dashboard', function () {

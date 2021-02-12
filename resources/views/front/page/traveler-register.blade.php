@@ -98,10 +98,7 @@
                                             <label for="item1" class="accordion-item-hd">Alternate Emails</label>
                                             <div class="accordion-item-bd">Alternate Email 1<div class="form-field"><input tabindex="9" type="text" name="alternate_email_one"></div>
                                             </div>
-                                            <div class="accordion-item-bd">Alternate Email 2<div class="form-field"><input tabindex="10" type="text" name="alternate_email_two"></div>
-                                            </div>
-                                            <div class="accordion-item-bd">Alternate Email 3<div class="form-field"><input tabindex="11" type="text" name="alternate_email_three"></div>
-                                            </div>
+                                            
                                         </li>
                                     </ul>
 
@@ -120,6 +117,7 @@
                                             <input tabindex="14" class="button square green" type="submit" value="Register" name="25.3.7.29">
                                         </div>
                                     </div>
+                                    <input type="hidden" name="newsletter" value="newsletter">
                                 </div>
                             </div>
                             <input type="hidden" name="wosid" value="9E9q7Gsr2zSDm0V6gJe5l0">

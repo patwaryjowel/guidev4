@@ -41,7 +41,7 @@ use App\Models\User;
                   {{$guidedetail->country}}
                 @endforeach`
     
-                  Software Engineer
+                  Tour Guide
                 </p>
 
               </div>
@@ -78,26 +78,25 @@ use App\Models\User;
               <div class="card-body">
                 <div class="tab-content">
                   
-                  <!-- /.tab-pane -->
-                
-<div class="tab-pane"  id="image">
+                  <!-- /.tab-pane -->        
+                  <div class="tab-pane"  id="image">
 
 
-@foreach($users as $user)
-  <form method="post"  action="{{route('guide.personalimageupdate')}}" enctype="multipart/form-data">
-    <input type="text" class="d-none" value="{{Auth::user()->id}}" name="id">
-@csrf
- <input type="text" class="d-none" value="{{$user->name}}" name="name" id="name" placeholder="name">
+                    @foreach($users as $user)
+                      <form method="post"  action="{{route('guide.personalimageupdate')}}" enctype="multipart/form-data">
+                        <input type="text" class="d-none" value="{{Auth::user()->id}}" name="id">
+                    @csrf
+                    <input type="text" class="d-none" value="{{$user->name}}" name="name" id="name" placeholder="name">
 
-<div class="form-group row">
-  <label for="image" class="col-sm-2 col-form-label">image</label>
-  <div class="col-sm-10">
-    <input type="file" class="form-control"  name="image" id="image" placeholder="image">
-  </div>
-</div>
+                    <div class="form-group row">
+                      <label for="image" class="col-sm-2 col-form-label">image</label>
+                      <div class="col-sm-10">
+                        <input type="file" class="form-control"  name="image" id="image" placeholder="image">
+                      </div>
+                    </div>
 
 
- <div class="form-group row">
+                    <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
                           <button type="submit" class="btn btn-danger">Submit</button>
                         </div>
@@ -267,13 +266,11 @@ use App\Models\User;
   </div>
 </div> -->
 
- <div class="form-group row">
-      <div class="offset-sm-2 col-sm-10">
-      <h2>Languages</h2> 
-       </div>
-  </div>
-
-
+                <div class="form-group row">
+                      <div class="offset-sm-2 col-sm-10">
+                      <h2>Languages</h2> 
+                      </div>
+                  </div>
                   <div class="form-group row">
                  
                   <div class="col-sm-3">
@@ -283,19 +280,31 @@ use App\Models\User;
                      </div>
                      <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" value="Basic" name="bangla">
+                          <input class="form-check-input" type="radio" value="Basic" name="bangla" 
+                          @if(Auth::user()->bangla == 'Basic')
+                            checked
+                          @endif
+                          >
                           <label class="form-check-label">Basic</label>
                         </div>
                      </div>
                       <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="Fluent" type="radio" name="bangla">
+                          <input class="form-check-input" value="Fluent" type="radio" name="bangla"
+                          @if(Auth::user()->bangla == 'Fluent')
+                            checked
+                          @endif
+                          >
                           <label class="form-check-label">Fluent</label>
                         </div>
                          </div>
                           <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="Conversational" type="radio" name="english">
+                          <input class="form-check-input" value="Conversational" type="radio" name="bangla"
+                          @if(Auth::user()->bangla == 'Conversational')
+                            checked
+                          @endif
+                          >
                           <label class="form-check-label">conversational</label>
                         </div>
                          
@@ -311,19 +320,30 @@ use App\Models\User;
                      </div>
                      <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" value="Basic" name="english">
+                          <input class="form-check-input" type="radio" value="Basic" name="english"
+                          @if(Auth::user()->english == 'Basic')
+                            checked
+                          @endif
+                          >
                           <label class="form-check-label">Basic</label>
                         </div>
                      </div>
                       <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="Fluent" type="radio" name="english">
+                          <input class="form-check-input" value="Fluent" type="radio" name="english"
+                          @if(Auth::user()->english == 'Fluent')
+                            checked
+                          @endif>
                           <label class="form-check-label">Fluent</label>
                         </div>
                          </div>
                           <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="Conversational" type="radio" name="english">
+                          <input class="form-check-input" value="Conversational" type="radio" name="english"
+                          @if(Auth::user()->english == 'Conversational')
+                            checked
+                          @endif>
+                          
                           <label class="form-check-label">conversational</label>
                         </div>
                          
@@ -340,19 +360,31 @@ use App\Models\User;
                      </div>
                      <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" value="Basic" name="arabic">
+                          <input class="form-check-input" type="radio" value="Basic" name="arabic"
+                          @if(Auth::user()->arabic == 'Basic')
+                            checked
+                          @endif>
+                          
                           <label class="form-check-label">Basic</label>
                         </div>
                      </div>
                       <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="Fluent" type="radio" name="arabic">
+                          <input class="form-check-input" value="Fluent" type="radio" name="arabic"
+                          @if(Auth::user()->arabic == 'Fluent')
+                            checked
+                          @endif>
+                          
                           <label class="form-check-label">Fluent</label>
                         </div>
                          </div>
                           <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="Conversational" type="radio" name="arabic">
+                          <input class="form-check-input" value="Conversational" type="radio" name="arabic"
+                          @if(Auth::user()->arabic == 'Conversational')
+                            checked
+                          @endif>
+                          
                           <label class="form-check-label">conversational</label>
                         </div>
                          
@@ -368,19 +400,30 @@ use App\Models\User;
                      </div>
                      <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" value="Basic" name="hindi">
+                          <input class="form-check-input" type="radio" value="Basic" name="hindi"
+                          @if(Auth::user()->hindi == 'Basic')
+                            checked
+                          @endif>
+                          
                           <label class="form-check-label">Basic</label>
                         </div>
                      </div>
                       <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="Fluent" type="radio" name="hindi">
+                          <input class="form-check-input" value="Fluent" type="radio" name="hindi"
+                          @if(Auth::user()->hindi == 'Fluent')
+                            checked
+                          @endif
+                          >
                           <label class="form-check-label">Fluent</label>
                         </div>
                          </div>
                           <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="Conversational" type="radio" name="hindi">
+                          <input class="form-check-input" value="Conversational" type="radio" name="hindi"
+                          @if(Auth::user()->hindi == 'Conversational')
+                            checked
+                          @endif>
                           <label class="form-check-label">conversational</label>
                         </div>
                          
@@ -395,24 +438,9 @@ use App\Models\User;
                       </div>
                     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- <div class="form-group row">
+                      <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Submit</button>
+                          <button type="submit" class="btn btn-danger">Update</button>
                         </div>
                       </div>
                     </form>

@@ -21999,6 +21999,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   margin: 0 auto;
   padding: 3px;
   width: 100px;
+  height: 100px;
 }
 
 .profile-username {

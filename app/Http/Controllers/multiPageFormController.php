@@ -45,7 +45,7 @@ class multiPageFormController extends Controller
         
     ]);
         
-if (empty($request->user_id)) {
+/* if (empty($request->user_id)) {
     $validated = $request->validate([
            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
            'password' => 'required',
@@ -76,16 +76,13 @@ if (empty($request->user_id)) {
 
 
         }
-
+ */
 
 $booking = new booking();
 
 
- if (!empty($request->user_id)) {
-           $booking->user_id = $request->user_id;
-        }else{
-$booking->user_id =  $user->id;
-        }
+$booking->user_id =  Auth::user()->id;
+
 
 $selected_dates = array_unique(explode(',',$request->selected_dates));
 

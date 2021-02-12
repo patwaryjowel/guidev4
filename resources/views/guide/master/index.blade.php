@@ -6,7 +6,8 @@
   <title>Guide User Dashboard</title>
 
   @yield('stylesheet')
-</head>
+ 
+  </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -30,29 +31,6 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
-      
-
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-
-          <a class="dropdown-item" href="{{route('profile.guide-show')}}"><i data-feather="user"></i> Profile </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-              <i data-feather="log-out"></i>Sign Out
-          </a>
-
-          <form id="logout-form" action="{{ route('logout') }}" method="POST">
-              @csrf
-          </form>
-     
-        </div>
-      </li>
-
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -63,7 +41,6 @@
     </ul>
   </nav>
   <!-- /.navbar -->
-
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -93,7 +70,9 @@
                 <i data-feather="log-out"></i> <p> Sign Out</p> 
             </a>
           </li>
-          
+          <form id="logout-form" action="{{ route('logout') }}" method="POST">
+              @csrf
+          </form>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

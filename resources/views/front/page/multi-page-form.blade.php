@@ -72,7 +72,7 @@
                       
 
 
-                        	 <form id="msform" method="post" action="{{route('front.multipageformstore')}}"  enctype="multipart/form-data">
+                        	 <form id="msform" method="get" action="{{route('front.multipageformstore')}}">
                                         @csrf
 
                             <input type="hidden" value="{{$member->id}}" name="tour_id">

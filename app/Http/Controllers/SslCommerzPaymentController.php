@@ -190,7 +190,7 @@ class SslCommerzPaymentController extends Controller
 
 
                 echo "<br >Transaction is successfully Completed";
-                return redirect()->route('orders.success');
+                return redirect()->route('dashboard');
             } else {
                 /*
                 That means IPN did not work or IPN URL was not set in your merchant panel and Transation validation failed.
@@ -206,7 +206,7 @@ class SslCommerzPaymentController extends Controller
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
             echo "Transaction is successfully Completed";
-            return redirect()->route('orders.success');
+            return redirect()->route('dashboard');
         } else {
             #That means something wrong happened. You can redirect customer to your product page.
             echo "Invalid Transaction";
