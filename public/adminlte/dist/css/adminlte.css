@@ -11525,7 +11525,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
 }
 
 .content-header {
-  padding: 15px 0.5rem;
+  padding: 20px 1rem;
 }
 
 .text-sm .content-header {
@@ -11593,8 +11593,22 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .main-header::bef
   z-index: 1034;
 }
 
+.supper-admin-profile .thumbnail {
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  margin-left: 10px;
+}
+.supper-admin-profile .thumbnail img {
+  border-radius: 12px;
+}
+.supper-admin-profile .name {
+  font-weight: 600;
+  color: #333;
+}
+
 .main-header .nav-link {
-  height: 2.5rem;
   position: relative;
 }
 

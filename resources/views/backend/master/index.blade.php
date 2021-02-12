@@ -39,16 +39,14 @@
                     <div class="header-logo col-auto d-none d-sm-flex">
                         <a href="{{route('front.index')}}">
                             <span class="logo-icon">
-						<img src="{{asset('admin/assets/images/logo/logo-icon.png')}}" alt="Logo Icon" />
-						<img src="{{asset('admin/assets/images/logo/logo-icon-light.png')}}" class="light" alt="Logo Icon" />
-					</span>
+                                <img src="{{asset('admin/assets/images/logo/logo-icon.png')}}" alt="Logo Icon" />
+                                <img src="{{asset('admin/assets/images/logo/logo-icon-light.png')}}" class="light" alt="Logo Icon" />
+					        </span>
                            
                             <span class="logo-default">
-						<img src="{{asset('admin/assets/images/logo/logo-default.png')}}" alt="Logo Default" />
-						<img src="{{asset('admin/assets/images/logo/logo-default-light.png')}}" class="light" alt="Logo Default" />
-					</span>
-
-
+                                <img src="{{asset('admin/assets/images/logo/logo-default.png')}}" alt="Logo Default" />
+                                <img src="{{asset('admin/assets/images/logo/logo-default-light.png')}}" class="light" alt="Logo Default" />
+                            </span>
                         </a>
 
 
