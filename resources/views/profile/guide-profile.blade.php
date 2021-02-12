@@ -36,90 +36,28 @@ use App\Models\User;
                 <h3 class="profile-username text-center">{{Auth::user()->name}}  </h3>
 
                 <p class="text-muted text-center"> 
-
-     
-@foreach($guidedetails as $guidedetail)
-{{$guidedetail->country}}
-@endforeach
+             
+                @foreach($guidedetails as $guidedetail)
+                  {{$guidedetail->country}}
+                @endforeach`
     
                   Software Engineer
                 </p>
 
-                <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
-                  </li>
-                </ul>
-
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-
-           <!--  About Me Box -->
-           <!--  <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">About Me</h3>
-              </div>
-             
-              <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-                <p class="text-muted">
-                  B.S. in Computer Science from the University of Tennessee at Knoxville
-                </p>
-
-                <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted">Malibu, California</p>
-
-                <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                <p class="text-muted">
-                  <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span>
-                </p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-              </div>
-             
-            </div>  -->
-            <!-- /.card -->
           </div>
 
-
-@php
-$x = Auth::user()->status;
-@endphp 
-
-
-
-
-
-
+        @php
+        $x = Auth::user()->status;
+        @endphp 
          <div class="col-md-9 @if($x == 1) d-none @endif">
             <div class="card">
               <div class="card-header p-2">
-
-                <h2>Some Message</h2>
+                <h3>Thank You </h3>
+                <p>Your Application under review. Please Wait for Approved.</p>
               </div>
             </div>
           </div>
@@ -184,19 +122,19 @@ $x = Auth::user()->status;
 
 
 <div class="form-group row">
-  <label for="prefix" class="col-sm-2 col-form-label">prefix</label>
+  <label for="prefix" class="col-sm-2 col-form-label">Prefix</label>
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->prefix}}" name="prefix" id="prefix" placeholder="prefix">
   </div>
 </div> 
 <div class="form-group row">
-  <label for="name" class="col-sm-2 col-form-label">name</label>
+  <label for="name" class="col-sm-2 col-form-label">Name</label>
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->name}}" name="name" id="name" placeholder="name">
   </div>
 </div> 
 <div class="form-group row">
-  <label for="email" class="col-sm-2 col-form-label">email</label>
+  <label for="email" class="col-sm-2 col-form-label">Email</label>
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->email}}" name="email" id="email" placeholder="email">
   </div>
@@ -206,21 +144,21 @@ $x = Auth::user()->status;
 
 
 <div class="form-group row">
-  <label for="address" class="col-sm-2 col-form-label">address</label>
+  <label for="address" class="col-sm-2 col-form-label">Address</label>
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->address}}" name="address" id="address" placeholder="address">
   </div>
 </div>
 
 <div class="form-group row">
-  <label for="zip" class="col-sm-2 col-form-label">zip</label>
+  <label for="zip" class="col-sm-2 col-form-label">ZIP</label>
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->zip}}" name="zip" id="zip" placeholder="zip">
   </div>
 </div> 
 
 <div class="form-group row">
-  <label for="city" class="col-sm-2 col-form-label">city</label>
+  <label for="city" class="col-sm-2 col-form-label">City</label>
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->city}}" name="city" id="city" placeholder="city">
   </div>
@@ -235,7 +173,7 @@ $x = Auth::user()->status;
 
 
 <div class="form-group row">
-  <label for="birthday" class="col-sm-2 col-form-label">birthday</label>
+  <label for="birthday" class="col-sm-2 col-form-label">Birthday</label>
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->birthday}}" name="birthday" id="birthday" placeholder="birthday">
   </div>
@@ -245,7 +183,7 @@ $x = Auth::user()->status;
 
 
 <div class="form-group row">
-  <label for="homephone" class="col-sm-2 col-form-label">homephone</label>
+  <label for="homephone" class="col-sm-2 col-form-label">Homephone</label>
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->homephone}}" name="homephone" id="homephone" placeholder="homephone">
   </div>
@@ -259,7 +197,7 @@ $x = Auth::user()->status;
 </div> 
 
 <div class="form-group row">
-  <label for="skypename" class="col-sm-2 col-form-label">skypename</label>
+  <label for="skypename" class="col-sm-2 col-form-label">Skypename</label>
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->skypename}}" name="skypename" id="skypename" placeholder="skypename">
   </div>
@@ -273,21 +211,21 @@ $x = Auth::user()->status;
 </div> 
 
 <div class="form-group row">
-  <label for="licensed" class="col-sm-2 col-form-label">licensed</label>
+  <label for="licensed" class="col-sm-2 col-form-label">Licensed</label>
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->licensed}}" name="licensed" id="licensed" placeholder="licensed">
   </div>
 </div> 
 
 <div class="form-group row">
-  <label for="licensedetail" class="col-sm-2 col-form-label">licensedetail</label>
+  <label for="licensedetail" class="col-sm-2 col-form-label">Licensedetail</label>
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->licensedetail}}" name="licensedetail" id="licensedetail" placeholder="licensedetail">
   </div>
 </div> 
 
 <div class="form-group row">
-  <label for="detail" class="col-sm-2 col-form-label">detail</label>
+  <label for="detail" class="col-sm-2 col-form-label">Detail</label>
   <div class="col-sm-10">
     <input type="text" class="form-control" value="{{$user->detail}}" name="detail" id="detail" placeholder="detail">
   </div>
@@ -306,16 +244,21 @@ $x = Auth::user()->status;
   </div>
 </div> -->
 <div class="form-group row">
-  <label for="biography" class="col-sm-2 col-form-label">biography</label>
+  <label for="biography" class="col-sm-2 col-form-label">Biography</label>
   <div class="col-sm-10">
-    <input type="text" class="form-control" value="{{$user->biography}}" name="biography" id="biography" placeholder="biography">
+    <!-- <input type="text" class="form-control" value="{{$user->biography}}" name="biography" id="biography" placeholder="biography"> -->
+    <textarea  class="form-control" name="biography" id="" cols="30" rows="10" placeholder="Biography">{{$user->biography}}</textarea>
   </div>
 </div>
 <div class="form-group row">
   <label for="credentials" class="col-sm-2 col-form-label">credentials</label>
   <div class="col-sm-10">
-    <input type="text" class="form-control" value="{{$user->credentials}}" name="credentials" id="credentials" placeholder="credentials">
+    <!-- <input type="text" class="form-control" value="{{$user->credentials}}" name="credentials" id="credentials" placeholder="credentials"> -->
+    <textarea  class="form-control" name="credentials" id="" cols="30" rows="10" placeholder="Credentials">{{$user->credentials}}</textarea>
   </div>
+  
+
+  
 </div>
 <!-- <div class="form-group row">
   <label for="guidenumber" class="col-sm-2 col-form-label">guidenumber</label>
@@ -340,19 +283,19 @@ $x = Auth::user()->status;
                      </div>
                      <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" value="basic" name="bangla">
+                          <input class="form-check-input" type="radio" value="Basic" name="bangla">
                           <label class="form-check-label">Basic</label>
                         </div>
                      </div>
                       <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="fluent" type="radio" name="bangla">
+                          <input class="form-check-input" value="Fluent" type="radio" name="bangla">
                           <label class="form-check-label">Fluent</label>
                         </div>
                          </div>
                           <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="conversational" type="radio" name="english">
+                          <input class="form-check-input" value="Conversational" type="radio" name="english">
                           <label class="form-check-label">conversational</label>
                         </div>
                          
@@ -368,19 +311,19 @@ $x = Auth::user()->status;
                      </div>
                      <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" value="basic" name="english">
+                          <input class="form-check-input" type="radio" value="Basic" name="english">
                           <label class="form-check-label">Basic</label>
                         </div>
                      </div>
                       <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="fluent" type="radio" name="english">
+                          <input class="form-check-input" value="Fluent" type="radio" name="english">
                           <label class="form-check-label">Fluent</label>
                         </div>
                          </div>
                           <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="conversational" type="radio" name="english">
+                          <input class="form-check-input" value="Conversational" type="radio" name="english">
                           <label class="form-check-label">conversational</label>
                         </div>
                          
@@ -397,19 +340,19 @@ $x = Auth::user()->status;
                      </div>
                      <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" value="basic" name="arabic">
+                          <input class="form-check-input" type="radio" value="Basic" name="arabic">
                           <label class="form-check-label">Basic</label>
                         </div>
                      </div>
                       <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="fluent" type="radio" name="arabic">
+                          <input class="form-check-input" value="Fluent" type="radio" name="arabic">
                           <label class="form-check-label">Fluent</label>
                         </div>
                          </div>
                           <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="conversational" type="radio" name="arabic">
+                          <input class="form-check-input" value="Conversational" type="radio" name="arabic">
                           <label class="form-check-label">conversational</label>
                         </div>
                          
@@ -425,19 +368,19 @@ $x = Auth::user()->status;
                      </div>
                      <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" value="basic" name="hindi">
+                          <input class="form-check-input" type="radio" value="Basic" name="hindi">
                           <label class="form-check-label">Basic</label>
                         </div>
                      </div>
                       <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="fluent" type="radio" name="hindi">
+                          <input class="form-check-input" value="Fluent" type="radio" name="hindi">
                           <label class="form-check-label">Fluent</label>
                         </div>
                          </div>
                           <div class="col-sm-3">
                         <div class="form-check">
-                          <input class="form-check-input" value="conversational" type="radio" name="hindi">
+                          <input class="form-check-input" value="Conversational" type="radio" name="hindi">
                           <label class="form-check-label">conversational</label>
                         </div>
                          
@@ -445,12 +388,12 @@ $x = Auth::user()->status;
                     </div>
 
 
-<div class="form-group row">
-  <label for="notes" class="col-sm-2 col-form-label">notes</label>
-  <div class="col-sm-10">
-    <input type="text" class="form-control" value="{{$user->notes}}" name="notes" id="notes" placeholder="notes">
-  </div>
-</div>
+                    <div class="form-group row">
+                      <label for="notes" class="col-sm-2 col-form-label">notes</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" value="{{$user->notes}}" name="notes" id="notes" placeholder="notes">
+                      </div>
+                    </div>
 
 
 

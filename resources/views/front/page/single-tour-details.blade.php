@@ -40,12 +40,6 @@
                     <div class="tour-details">
                         {!!$member->details!!}
                     </div>
-
-                 
-
-
-
-
                 </div>
                 
                 <div class="col-lg-4">
@@ -53,12 +47,12 @@
 
                         <style>
                             .googleMap-1 {
-                                height: 500px;
+                                height: 400px;
                             }
 
                             @media only screen and (max-width: 767px) {
                                 .googleMap-1 {
-                                    height: 1000px;
+                                    height: 300px;
                                 }
                             }
                         </style>
@@ -276,11 +270,11 @@ if ($(this).length) {
             
         };
         var mapDoms = document.getElementsByClassName('googleMap-1');
-        
+        var mapImage = "{{asset('assets/images/icon/map-icon.png')}}";
         var map = new google.maps.Map(mapDoms[i], mapOptions);
         var marker = new google.maps.Marker({
             position: map.getCenter(),
-            icon: 'assets/images/icons/map_pointer_small.png',
+            icon: mapImage,
             map: map,
             overlay: {
                 values: [{
@@ -316,61 +310,6 @@ if ($(this).length) {
 });
 
 
-    
-// Google Map For Single Property Map
-$('.googleMap-2').each(function(i) {
-
-if ($(this).length) {
-    var $this = $(this);
-    var $lat = $this.data('lat');
-    var $long = $this.data('long');
-
-    function initialize() {
-        var mapOptions = {
-            zoom: 14,
-            scrollwheel: false,
-            center: new google.maps.LatLng($lat, $long),
-            
-        };
-        var mapDoms = document.getElementsByClassName('googleMap-2');
-        
-        var map = new google.maps.Map(mapDoms[i], mapOptions);
-        var marker = new google.maps.Marker({
-            position: map.getCenter(),
-            icon: 'assets/images/icons/map_pointer_small.png',
-            map: map,
-            overlay: {
-                values: [{
-                    address: "40.7590615,-73.969231",
-                    position: 'center',
-                    options: {
-                        content: '',
-                    }
-                }, ],
-                events: {
-                    mouseover: function(overlay, event, context) {
-                        var target = overlay.getDOMElement();
-
-                        target.style.zIndex = 2;
-
-                        var info = $(target).find('.gmap-info-wrapper');
-                        info.find('.gmap-info-template').show();
-                    },
-                    mouseout: function(overlay) {
-                        var target = overlay.getDOMElement();
-
-                        target.style.zIndex = 1;
-
-                        var info = $(target).find('.gmap-info-wrapper');
-                        info.find('.gmap-info-template').hide();
-                    }
-                }
-            },
-        });
-    };
-    google.maps.event.addDomListener(window, 'load', initialize);
-}
-});
 
     
 

@@ -31,25 +31,8 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
                 <h3 class="profile-username text-center">{{Auth::user()->name}}  </h3>
 
                 <p class="text-muted text-center"> 
-
-     
-
-                  Software Engineer
+                  Welcome New Tour Guide 
                 </p>
-
-                <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
-                  </li>
-                </ul>
-
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
               </div>
               <!-- /.card-body -->
             </div>
@@ -101,9 +84,9 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
 
 
 
-@php
-$x = User::where('id', Auth::user()->id)->where('utype', 'guide')->count();
-@endphp
+          @php
+          $x = User::where('id', Auth::user()->id)->where('utype', 'guide')->count();
+          @endphp
 
 
 
@@ -111,8 +94,8 @@ $x = User::where('id', Auth::user()->id)->where('utype', 'guide')->count();
          <div class="col-md-9 @if($x == 0) d-none @endif">
             <div class="card">
               <div class="card-header p-2">
-
-                <h2>Some Message</h2>
+                <h3>Thanks Your</h3>
+                <p>Your Application under review. Please Wait for Approved.</p>
               </div>
             </div>
           </div>

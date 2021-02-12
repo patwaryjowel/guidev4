@@ -1785,6 +1785,10 @@ input[type=password] {
   pointer-events: none;
 }
 
+td.ui-datepicker-days-cell-over.ui-state-highlight.myClass.ui-datepicker-current-day.ui-datepicker-today a {
+  color: #fff;
+  background: green;
+}
 
 
 
@@ -2321,3 +2325,4 @@ button:hover {
   background-color: #fff;
   height: 2px;
 }
+

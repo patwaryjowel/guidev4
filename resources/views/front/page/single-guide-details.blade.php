@@ -11,7 +11,7 @@
                         <!-- breadcrumb-list start -->
                         <ul class="breadcrumb-list">
                             <li class="breadcrumb-item"><a href="{{route('front.index')}}">Home</a></li>
-                            <li class="breadcrumb-item active">For a Guide</li>
+                            <li class="breadcrumb-item active">Tours with {{$user->name}}</li>
                         </ul>
                         <!-- breadcrumb-list end -->
                     </div>
@@ -84,19 +84,12 @@
                             <h4 class="text-center font-weight-bold">GUIDE DETAILS</h4>
                         </div>
 
-                        <div class="guide-retaing">
-                            <h5 class="font-weigth-bold">GUIDE RATING</h5>
-                        </div>
                         <div class="live">
                             <b>LIVES IN</b>
                             <p> {{$user->city}},  {{$user->country}}</p>
                         </div>
                         
-                        
                         <ul class="tour-language-list bar-chart-lists">
-
-                          
-                           
                             @if(!empty($user->bangla))
                                  <li>
                                 <b class="language"><small>Bangla</small></b>
@@ -107,8 +100,8 @@
                              @if(!empty($user->english))
                                  <li>
                                 <b class="language"><small>English</small></b>
-                                <div data-level="2" class="bar-chart-level"><span></span><span></span><span></span><span></span><b><small>{{$user->english}}</small></b></div>
-                            </li>
+                                    <div data-level="2" class="bar-chart-level"><span></span><span></span><span></span><span></span><b><small>{{$user->english}}</small></b></div>
+                                </li>
                             @endif
 
                              @if(!empty($user->arabic))
@@ -124,23 +117,12 @@
                                 <div data-level="2" class="bar-chart-level"><span></span><span></span><span></span><span></span><b><small>{{$user->hindi}}</small></b></div>
                             </li>
                             @endif
-                      
-
-                           
-
-                           
-
                         </ul>
                         
-                        <div class="guide-tours-given">
-                            <div class="tour-scroe"><span>18</span></div>
-                            <p><b>First tour on</b><br><i>Jan 18, 2019</i></p>
-                        </div>
                         
-                        
-                        <div class="guide-id text-center">
+                        <div class="guide-id text-center mt-5">
                             <h4 class="font-weight-bold ">GUIDE NUMBER</h4>
-                            <b>#{{$user->guidenumber}}</b>
+                            <b>#0016{{$user->guidenumber}}</b>
                         </div>
                     </div>
                 </div>

@@ -2,21 +2,39 @@
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex">
+        <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('admin.dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                    <a href="@if(Auth::user()->utype == 'admin')
+                    {{ route('admin.dashboard') }}
+                    @elseif(Auth::user()->utype == 'guide')
+                    {{ route('guide.dashboard') }}
+                    @else
+                    {{ route('dashboard') }}
+                    @endif">
+                       <img src="{{asset('images/logo/logo.png')}}" alt="">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-jet-nav-link>
+                <div class="hidden space-x-8 mt-2 sm:-my-px sm:ml-10 sm:flex">
+                    <a href="
+                    @if(Auth::user()->utype == 'admin')
+                    {{ route('admin.dashboard') }}
+                    @elseif(Auth::user()->utype == 'guide')
+                    {{ route('guide.dashboard') }}
+                    @else
+                    {{ route('dashboard') }}
+                    @endif
+                    ">Dashboard</a>
+                    
                 </div>
             </div>
+            <style> 
+            .mt-2 {
+                margin-top: 20px;
+            }
+            </style>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -24,7 +42,7 @@
                     <x-slot name="trigger">
                         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                             <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                                <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                <img class="h-8 w-8 rounded-full object-cover" src="{{asset('assets/images/user/'.Auth::user()->image)}}" alt="{{ Auth::user()->name }}" />
                             </button>
                         @else
                             <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
@@ -49,11 +67,11 @@
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
-                        @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                        <!-- @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-jet-dropdown-link href="{{ route('api-tokens.admin-index') }}">
                                 {{ __('API Tokens') }}
                             </x-jet-dropdown-link>
-                        @endif
+                        @endif -->
 
                         <div class="border-t border-gray-100"></div>
 

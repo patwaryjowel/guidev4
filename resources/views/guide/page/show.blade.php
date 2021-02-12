@@ -11,7 +11,13 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="@if(Auth::user()->utype == 'admin')
+                    {{ route('admin.dashboard') }}
+                    @elseif(Auth::user()->utype == 'guide')
+                    {{ route('guide.dashboard') }}
+                    @else
+                    {{ route('dashboard') }}
+                    @endif">Home</a></li>
               <li class="breadcrumb-item active">User Profile</li>
             </ol>
           </div>
@@ -19,14 +25,12 @@
       </div><!-- /.container-fluid -->
     </section>
 
-@php
-use App\Models\booking;
-$id = $user->id;
-$guide_id = Auth::user()->id;
-$bookings = booking::where('user_id', $id)->where('guide_user_id', $guide_id)->where('status', 1)->get(); 
-@endphp
-
-
+    @php
+    use App\Models\booking;
+    $id = $user->id;
+    $guide_id = Auth::user()->id;
+    $bookings = booking::where('user_id', $id)->where('guide_user_id', $guide_id)->where('status', 1)->get(); 
+    @endphp
 
     <!-- Main content -->
     <section class="content">
@@ -47,126 +51,66 @@ $bookings = booking::where('user_id', $id)->where('guide_user_id', $guide_id)->w
 
                 <p class="text-muted text-center">Software Engineer</p>
 
-                <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
-                  </li>
-                </ul>
-
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
 
-            <!-- About Me Box -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">About Me</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-                <p class="text-muted">
-                  B.S. in Computer Science from the University of Tennessee at Knoxville
-                </p>
-
-                <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted">Malibu, California</p>
-
-                <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                <p class="text-muted">
-                  <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span>
-                </p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
           </div>
           <!-- /.col -->
           <div class="col-md-9">
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-
-                   <li class="nav-item"><a class="nav-link  active" href="#detail" data-toggle="tab">Tour Info</a></li>
+                    <li class="nav-item"><a class="nav-link  active" href="#detail" data-toggle="tab">Tour Info</a></li>
                     <li class="nav-item"><a class="nav-link" href="#userinfo" data-toggle="tab">User Info</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#contact2" data-toggle="tab">Contact</a></li>
-                 
-                 
-
+                    <li class="nav-item"><a class="nav-link" href="#contact2" data-toggle="tab">Contact</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
                   <div class="tab-pane" id="userinfo">
-                   <table class="table table-bordered">
-                                  
-<tr><td>prefix</td><td>{{$user->prefix}}</td> </tr>
-<tr><td>name</td><td>{{$user->name}}</td> </tr>
-<tr><td>email</td><td>{{$user->email}}</td> </tr>
-<tr><td>utype</td><td>{{$user->utype}}</td> </tr>
-<tr><td>token</td><td>{{$user->token}}</td> </tr>
-<tr><td>country</td><td>{{$user->country}}</td> </tr>
-<tr><td>birthday</td><td>{{$user->birthday}}</td> </tr>
-<tr><td>city</td><td>{{$user->city}}</td> </tr>
-<tr><td>country</td><td>{{$user->country}}</td> </tr>
-<tr><td>address</td><td>{{$user->address}}</td> </tr>
-<tr><td>zip</td><td>{{$user->zip}}</td> </tr>
-<tr><td>homephone</td><td>{{$user->homephone}}</td> </tr>
-<tr><td>cellphone</td><td>{{$user->cellphone}}</td> </tr>
-<tr><td>skypename</td><td>{{$user->skypename}}</td> </tr>
-<tr><td>contacttime</td><td>{{$user->contacttime}}</td> </tr>
-<tr><td>licensed</td><td>{{$user->licensed}}</td> </tr>
-<tr><td>licensedetail</td><td>{{$user->licensedetail}}</td> </tr>
-<tr><td>detail</td><td>{{$user->detail}}</td> </tr>
-<tr><td>notes</td><td>{{$user->notes}}</td> </tr>
-<tr><td>status</td><td>{{$user->status}}</td> </tr>
-</table>
+                   <table class="table table-bordered">              
+                      <tr><td>prefix</td><td>{{$user->prefix}}</td> </tr>
+                      <tr><td>name</td><td>{{$user->name}}</td> </tr>
+                      <tr><td>email</td><td>{{$user->email}}</td> </tr>
+                      <tr><td>utype</td><td>{{$user->utype}}</td> </tr>
+                      <tr><td>token</td><td>{{$user->token}}</td> </tr>
+                      <tr><td>country</td><td>{{$user->country}}</td> </tr>
+                      <tr><td>birthday</td><td>{{$user->birthday}}</td> </tr>
+                      <tr><td>city</td><td>{{$user->city}}</td> </tr>
+                      <tr><td>country</td><td>{{$user->country}}</td> </tr>
+                      <tr><td>address</td><td>{{$user->address}}</td> </tr>
+                      <tr><td>zip</td><td>{{$user->zip}}</td> </tr>
+                      <tr><td>homephone</td><td>{{$user->homephone}}</td> </tr>
+                      <tr><td>cellphone</td><td>{{$user->cellphone}}</td> </tr>
+                      <tr><td>skypename</td><td>{{$user->skypename}}</td> </tr>
+                      <tr><td>contacttime</td><td>{{$user->contacttime}}</td> </tr>
+                      <tr><td>licensed</td><td>{{$user->licensed}}</td> </tr>
+                      <tr><td>licensedetail</td><td>{{$user->licensedetail}}</td> </tr>
+                      <tr><td>detail</td><td>{{$user->detail}}</td> </tr>
+                      <tr><td>notes</td><td>{{$user->notes}}</td> </tr>
+                      <tr><td>status</td><td>{{$user->status}}</td> </tr>
+                      </table>
                   </div>
                   <!-- /.tab-pane -->
 
-                   <div class="tab-pane fade" id="contact2">
-                                    <table class="table table-bordered">
-                                  
-
-<tr><td>email</td><td>{{$user->email}}</td> </tr>
-<tr><td>home phone</td><td>{{$user->homephone}}</td> </tr>
-<tr><td>cell phone</td><td>{{$user->cellphone}}</td> </tr>
-<tr><td>Skype Name</td><td>{{$user->skypename}}</td> </tr>
-</table>
-                                </div>
+                        <div class="tab-pane fade" id="contact2">
+                          <table class="table table-bordered">
+                              <tr><td>email</td><td>{{$user->email}}</td> </tr>
+                              <tr><td>home phone</td><td>{{$user->homephone}}</td> </tr>
+                              <tr><td>cell phone</td><td>{{$user->cellphone}}</td> </tr>
+                              <tr><td>Skype Name</td><td>{{$user->skypename}}</td> </tr>
+                          </table>
+                        </div>
                  
                   <div class="active tab-pane" id="detail">
                     <!-- Main content -->
                     @foreach($bookings as $booking)
 
-@php
-$x = $booking->metting_location;
-@endphp
+                    @php
+                    $x = $booking->metting_location;
+                    @endphp
 
 
             <div class="card">
@@ -235,96 +179,87 @@ $x = $booking->metting_location;
                      
                     </tr>
                   
-                     
+         
+              @if ( $x == 'one')
+              <tr>
+              <td>3.</td>
+              <td>Metting Location (Address or Intersection)</td>
+              <td>
+                ADDRESS/INTERSECTION : {{$booking->address_one}}, <br>
+              GOOGLE MAP LINK : {{$booking->map_link_one}} <br>
+              </td>
+              </tr>
+            @endif
+
+              @if ( $x == 'two')
+              <tr>
+              <td>3.</td>
+              <td>Metting Location (AIRPORT)</td>
+              <td>
+                AIRPORT : {{$booking->airport_two}}, <br>
+              FLIGHT : {{$booking->flight_two}}, <br>
+              ARRIVAL TIME : {{$booking->arrival_time_two}}
+              </td>
+              </tr>
+            @endif
 
 
 
-                     
-        
+              @if ( $x == 'three')
+              <tr>
+              <td>3.</td>
+              <td>Metting Location (Ask Guide to suggest a location)</td>
+              <td>
+              HOTEL : {{$booking->hotel_three}}, <br>
+              NAME BOOKED UNDER : {{$booking->name_booked_three}}, <br>
+              HOTEL ADDRESS : {{$booking->hotel_address_three}}
+              </td>
+              </tr>
+            @endif
+
+            @if ( $x == 'four')
+              <tr>
+              <td>3.</td>
+              <td>Metting Location (Cruise Ship Port)</td>
+              <td>
+              Address 01 : {{$booking->address_four_one}}, <br>
+              Address 02 : {{$booking->address_four_two}}
+              </td>
+              </tr>
+            @endif
+
+            @if ( $x == 'five')
+              <tr>
+              <td>3.</td>
+              <td>Metting Location (Hotel)</td>
+              <td>
+              Address 01 : {{$booking->address_five_one}}, <br>
+              Address 02 : {{$booking->address_five_two}}
+              </td>
+              </tr>
+            @endif
+
+              @if ( $x == 'six')
+              <tr>
+              <td>3.</td>
+              <td>Metting Location (Monument/Building)</td>
+              <td>
+              Address 01 : {{$booking->address_six_one}}, <br>
+              Address 02 : {{$booking->address_six_two}}
+              </td>
+              </tr>
+            @endif
 
 
 
-
-  @if ( $x == 'one')
-  <tr>
-   <td>3.</td>
-   <td>Metting Location (Address or Intersection)</td>
-  <td>
-    ADDRESS/INTERSECTION : {{$booking->address_one}}, <br>
-   GOOGLE MAP LINK : {{$booking->map_link_one}} <br>
-  </td>
-   </tr>
- @endif
-
-  @if ( $x == 'two')
-  <tr>
-   <td>3.</td>
-   <td>Metting Location (AIRPORT)</td>
-  <td>
-    AIRPORT : {{$booking->airport_two}}, <br>
-   FLIGHT : {{$booking->flight_two}}, <br>
-   ARRIVAL TIME : {{$booking->arrival_time_two}}
-  </td>
-   </tr>
- @endif
-
-
-
-  @if ( $x == 'three')
-  <tr>
-   <td>3.</td>
-   <td>Metting Location (Ask Guide to suggest a location)</td>
-  <td>
-   HOTEL : {{$booking->hotel_three}}, <br>
-   NAME BOOKED UNDER : {{$booking->name_booked_three}}, <br>
-   HOTEL ADDRESS : {{$booking->hotel_address_three}}
-  </td>
-   </tr>
- @endif
-
- @if ( $x == 'four')
-  <tr>
-   <td>3.</td>
-   <td>Metting Location (Cruise Ship Port)</td>
-  <td>
-   Address 01 : {{$booking->address_four_one}}, <br>
-   Address 02 : {{$booking->address_four_two}}
-  </td>
-   </tr>
- @endif
-
- @if ( $x == 'five')
-  <tr>
-   <td>3.</td>
-   <td>Metting Location (Hotel)</td>
-  <td>
-   Address 01 : {{$booking->address_five_one}}, <br>
-   Address 02 : {{$booking->address_five_two}}
-  </td>
-   </tr>
- @endif
-
-  @if ( $x == 'six')
-  <tr>
-   <td>3.</td>
-   <td>Metting Location (Monument/Building)</td>
-  <td>
-   Address 01 : {{$booking->address_six_one}}, <br>
-   Address 02 : {{$booking->address_six_two}}
-  </td>
-   </tr>
- @endif
-
-
-
-  <tr>
-   <td>4.</td>
-   <td>TOUR DETAILS</td>
-  <td>
-   From : {{$booking->tour_details_from}}, <br>
-   To : {{$booking->tour_details_to}}
-  </td>
-   </tr>
+              <tr>
+              <td>4.</td>
+              <td>TOUR DETAILS</td>
+              <td>
+                From : {{$booking->tour_details_from}}, <br>
+                To : {{$booking->tour_details_to}}
+              </td>
+              </tr>
 
    
 
