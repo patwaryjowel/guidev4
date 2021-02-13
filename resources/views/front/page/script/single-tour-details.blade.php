@@ -6,49 +6,6 @@
                          $bookings = booking::where('guide_user_id', $member->guide_id)->get();
 
  @endphp
- 
-                    [@foreach($bookings as $booking)    
-                    @if (!empty($booking->tour_date_one))
-                    '{{$booking->tour_date_one}}',  
-                    @endif
-                    @if (!empty($booking->tour_date_two))
-                     '{{$booking->tour_date_two}}',  
-                    @endif
-                    @if (!empty($booking->tour_date_three))
-                     '{{$booking->tour_date_three}}', 
-                    @endif
-                    @if (!empty($booking->tour_date_four))
-                     '{{$booking->tour_date_four}}', 
-                    @endif
-                    @if (!empty($booking->tour_date_five))
-                     '{{$booking->tour_date_five}}',  
-                    @endif
-                    @if (!empty($booking->tour_date_six))
-                     '{{$booking->tour_date_six}}', 
-                    @endif
-                    @if (!empty($booking->tour_date_seven))
-                     '{{$booking->tour_date_seven}}', 
-                    @endif
-                    @if (!empty($booking->tour_date_eight))
-                     '{{$booking->tour_date_eight}}', 
-                    @endif
-                    @if (!empty($booking->tour_date_nine))
-                     '{{$booking->tour_date_nine}}', 
-                    @endif
-                    @if (!empty($booking->tour_date_ten))
-                     '{{$booking->tour_date_ten}}', 
-                    @endif
-                   
-
-
-
-                         
- @endforeach]
-
-                        $string = 15/1/2021;  
-                        $tourDates = preg_split ("/\,/", $string);
-                       $tourDates = $string; 
-                         @endphp
 
 <script>
        

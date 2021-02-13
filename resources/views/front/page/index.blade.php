@@ -127,7 +127,7 @@
                     <a class="single-item-most-popular-place">
                         <img src="assets/images/bg/barisal.jpg" alt="">
                         <div class="heading">
-                            <h4>Most popular place in Chittagong</h4>
+                            <h4>Most popular place in Barisal</h4>
                         </div>
                     </a>
                 </div>

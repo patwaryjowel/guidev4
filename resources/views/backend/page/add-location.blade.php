@@ -43,34 +43,34 @@
                     <div class="col-xl-6 col-12 mb-6">
                         <div class="card">
                             <div class="card-head border-bottom">
-                                <h4 class="title">Basic Form</h4>
+                                <h4 class="title">Add Location</h4>
                             </div>
                             <div class="card-body">
                                 <form method="post" action="{{route('backend.locationstore')}}"  enctype="multipart/form-data">
                                         @csrf
                                     <div class="row mb-n4">
                                        <div class="col-12 mb-4">
-                                        <label class="form-label" for="location">location</label>
+                                        <label class="form-label" for="location">Location</label>
                                         <input type="text" name="location" class="form-control" placeholder="location">
                                     </div>
                                     <div class="col-12 mb-4">
-                                        <label class="form-label" for="image">Image</label>
+                                        <label class="form-label" for="image">Location Hero Image</label>
                                         <input id="image" class="form-control" name="image"  type="file">
                                     </div>
                                     <div class="col-12 mb-4">
-                                        <label class="form-label" for="heading">heading</label>
+                                        <label class="form-label" for="heading">Heading</label>
                                         <input type="text" name="heading" class="form-control" placeholder="heading">
                                     </div>
                                     <div class="col-12 mb-4">
-                                        <label class="form-label" for="subheading">subheading</label>
+                                        <label class="form-label" for="subheading">Subheading</label>
                                         <input type="text" name="subheading" class="form-control" placeholder="subheading">
                                     </div>
                                     <div class="col-12 mb-4">
-                                        <label class="form-label" for="title">title</label>
+                                        <label class="form-label" for="title">Sidebar Title</label>
                                         <input type="text" name="title" class="form-control" placeholder="title">
                                     </div>
                                     <div class="col-12 mb-4">
-                                        <label class="form-label" for="details">details</label>
+                                        <label class="form-label" for="details">Sidebar Details</label>
                                         <input type="text" name="details" class="form-control" placeholder="details">
                                     </div>
 
@@ -140,50 +140,46 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Modal -->
-@foreach($locations as $location)
+                        @foreach($locations as $location)
                         <div class="modal fade" id="exampleModalCenter{{$location->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-body">
                                         <div class="card">
                                             <div class="card-head border-bottom">
-                                                <h4 class="title">Slider Data Update</h4>
+                                                <h4 class="title">Location Data Update</h4>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="card-body">
                                                 <form method="post" action="{{route('backend.locationupdate')}}"  enctype="multipart/form-data">
-                        <input type="text" class="d-none" name="id"  value="{{$location->id}}">
-                                        @csrf
-
-
-
-   
-<div class="col-12 mb-4">
-    <label class="form-label" for="location">location</label>
-    <input type="text" class="form-control" name="location" placeholder="location" value="{{$location->location}}">
-</div>
-<div class="col-12 mb-4">
-    <label class="form-label" for="image">Image</label>
-    <input id="image" class="form-control" name="image"  type="file">
-</div>
-<div class="col-12 mb-4">
-    <label class="form-label" for="heading">heading</label>
-    <input type="text" class="form-control" name="heading" placeholder="heading" value="{{$location->heading}}">
-</div>
-<div class="col-12 mb-4">
-    <label class="form-label" for="subheading">subheading</label>
-    <input type="text" class="form-control" name="subheading" placeholder="subheading" value="{{$location->subheading}}">
-</div>
-<div class="col-12 mb-4">
-    <label class="form-label" for="title">title</label>
-    <input type="text" class="form-control" name="title" placeholder="title" value="{{$location->title}}">
-</div>
-<div class="col-12 mb-4">
-    <label class="form-label" for="details">details</label>
-    <input type="text" class="form-control" name="details" placeholder="details" value="{{$location->details}}">
-</div>
+                                                    <input type="text" class="d-none" name="id"  value="{{$location->id}}">
+                                                        @csrf
+                                                        <div class="col-12 mb-4">
+                                                            <label class="form-label" for="location">Location</label>
+                                                            <input type="text" class="form-control" name="location" placeholder="location" value="{{$location->location}}">
+                                                        </div>
+                                                        <div class="col-12 mb-4">
+                                                            <label class="form-label" for="image">Image</label>
+                                                            <input id="image" class="form-control" name="image"  type="file">
+                                                        </div>
+                                                        <div class="col-12 mb-4">
+                                                            <label class="form-label" for="heading">Heading</label>
+                                                            <input type="text" class="form-control" name="heading" placeholder="heading" value="{{$location->heading}}">
+                                                        </div>
+                                                        <div class="col-12 mb-4">
+                                                            <label class="form-label" for="subheading">Subheading</label>
+                                                            <input type="text" class="form-control" name="subheading" placeholder="subheading" value="{{$location->subheading}}">
+                                                        </div>
+                                                        <div class="col-12 mb-4">
+                                                            <label class="form-label" for="title">Sidebar Title</label>
+                                                            <input type="text" class="form-control" name="title" placeholder="title" value="{{$location->title}}">
+                                                        </div>
+                                                        <div class="col-12 mb-4">
+                                                            <label class="form-label" for="details">Sidebar Details</label>
+                                                            <input type="text" class="form-control" name="details" placeholder="details" value="{{$location->details}}">
+                                                        </div>
 
                                                         <div class="col-12 mb-4">
                                                             <input type="submit" value="Update Now" class="btn btn-primary">
@@ -197,7 +193,7 @@
                                 </div>
                             </div>
                         </div>
- @endforeach
+                    @endforeach
 
 
 

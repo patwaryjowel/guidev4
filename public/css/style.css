@@ -2016,8 +2016,9 @@ td.ui-datepicker-days-cell-over.ui-state-highlight.myClass.ui-datepicker-current
   margin-right: 15px;
 }
 .guide-profile-block .guide-image-box img{
-  border-radius: 10px;
+  border-radius: 500px;
   max-width: 100px;
+  height: 100px;
 }
 
 .guide-profile-block .guide-name h6{

@@ -14,6 +14,7 @@ use Image;
 use delete;
 use Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 
 
@@ -45,7 +46,7 @@ class multiPageFormController extends Controller
         
     ]);
         
-/* if (empty($request->user_id)) {
+if (empty($request->user_id)) {
     $validated = $request->validate([
            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
            'password' => 'required',
@@ -55,7 +56,7 @@ class multiPageFormController extends Controller
 
 
 if (empty($request->user_id)) {
-            $user = new User();
+            /* $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
@@ -66,17 +67,28 @@ if (empty($request->user_id)) {
         $user->alternate_email_two = $request->alternate_email_two;
         $user->alternate_email_three = $request->alternate_email_three;
         $user->newsletter = $request->newsletter;
-        $user->save();
+        $user->save(); */
 
-        $credentials = $request->only('email', 'password');
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'utype' => 'user',
+            'token' => $request->password,
+            'country' => $request->country,
+            'alternate_email_one' => $request->alternate_email_one,
+            'alternate_email_two' => $request->alternate_email_two,
+            'alternate_email_three' => $request->alternate_email_three,
+            'newsletter' => $request->newsletter,
+        ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        //$credentials = $request->only('email', 'password');
+
+        Auth::guard('web')->login($user, $remember = true);
+
+
         }
 
-
-        }
- */
 
 $booking = new booking();
 
@@ -84,7 +96,8 @@ $booking = new booking();
 $booking->user_id =  Auth::user()->id;
 
 
-$selected_dates = array_unique(explode(',',$request->selected_dates));
+
+ $selected_dates = array_unique(explode(',',$request->selected_dates));
 
 $unqe_dates = implode(',',$selected_dates);
 
@@ -128,6 +141,10 @@ $order->booking_id = $booking->id;
 $order->transaction_id = $tran_id;
 $order->status = 'Processing';
 $order->save();
+
+echo Auth::user()->id;
+
+
 				//sslcommerze payment gateway start
 						
                     $post_data = array();
