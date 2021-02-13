@@ -127,28 +127,31 @@ $x = $booking->metting_location;
 
 
 
-                                                    </td> 
+</td> 
 
 </tr>
 
 
 <tr class="@if( $x == 1)@else d-none @endif"><td>Address / Intersection</td><td>{{$booking->address_one}}</td> 
 </tr>
-
 <tr class="@if( $x == 1)@else d-none @endif"><td>Google Map Link</td><td>{{$booking->map_link_one}}</td> </tr>
 
 <tr class="@if( $x == 2)@else d-none @endif"><td>Airport Name</td><td>{{$booking->airport_two}}</td> </tr>
-<tr class="@if( $x == 2)@else d-none @endif"><td>FLIGHT Number</td><td>{{$booking->flight_two}}</td> </tr>
-<tr class="@if( $x == 2)@else d-none @endif"><td>ARRIVAL TIME</td><td>{{$booking->arrival_time_two}}</td> </tr>
-<tr class="@if( $x == 3)@else d-none @endif"><td>hotel_three</td><td>{{$booking->hotel_three}}</td> </tr>
-<tr class="@if( $x == 3)@else d-none @endif"><td>name_booked_three</td><td>{{$booking->name_booked_three}}</td> </tr>
-<tr class="@if( $x == 3)@else d-none @endif"><td>hotel_address_three</td><td>{{$booking->hotel_address_three}}</td> </tr>
-<tr class="@if( $x == 4)@else d-none @endif"><td>address_four_one</td><td>{{$booking->address_four_one}}</td> </tr>
-<tr class="@if( $x == 4)@else d-none @endif"><td>address_four_two</td><td>{{$booking->address_four_two}}</td> </tr>
+<tr class="@if( $x == 2)@else d-none @endif"><td>Flight Number</td><td>{{$booking->flight_two}}</td> </tr>
+<tr class="@if( $x == 2)@else d-none @endif"><td>Arrival Time</td><td>{{$booking->arrival_time_two}}</td> </tr>
+
+<tr class="@if( $x == 3)@else d-none @endif"><td>Hotel</td><td>{{$booking->hotel_three}}</td> </tr>
+<tr class="@if( $x == 3)@else d-none @endif"><td>Name Booked under</td><td>{{$booking->name_booked_three}}</td> </tr>
+<tr class="@if( $x == 3)@else d-none @endif"><td>Hotel Address</td><td>{{$booking->hotel_address_three}}</td> </tr>
+
+<tr class="@if( $x == 4)@else d-none @endif"><td>Ship Name</td><td>{{$booking->address_four_one}}</td> </tr>
+<tr class="@if( $x == 4)@else d-none @endif"><td>Ship Address</td><td>{{$booking->address_four_two}}</td> </tr>
+
 <tr class="@if( $x == 5)@else d-none @endif"><td>address_five_one</td><td>{{$booking->address_five_one}}</td> </tr>
 <tr class="@if( $x == 5)@else d-none @endif"><td>address_five_two</td><td>{{$booking->address_five_two}}</td> </tr>
-<tr class="@if( $x == 6)@else d-none @endif"><td>address_six_one</td><td>{{$booking->address_six_one}}</td> </tr>
-<tr class="@if( $x == 6)@else d-none @endif"><td>address_six_two</td><td>{{$booking->address_six_two}}</td> </tr>
+
+<tr class="@if( $x == 6)@else d-none @endif"><td>Area Name</td><td>{{$booking->address_six_one}}</td> </tr>
+<tr class="@if( $x == 6)@else d-none @endif"><td>House Number, Block Name, Road Number</td><td>{{$booking->address_six_two}}</td> </tr>
 
 
 
@@ -164,13 +167,13 @@ $x = $booking->metting_location;
                                                     <h4 class="title">Payment Status</h4>
                                                 </div>
                                                 <table class="table table-bordered  mt-5">
-                                                    <tr><td>tour_details_from</td><td>{{$booking->tour_details_from}}</td> </tr>
-                                                    <tr><td>tour_details_to</td><td>{{$booking->tour_details_to}}</td> </tr>
-                                                    <tr><td>payment_info_one</td><td>{{$booking->payment_info_one}}</td> </tr>
+                                                    <tr><td>Tour Details From</td><td>{{$booking->tour_details_from}}</td> </tr>
+                                                    <tr><td>Tour Details To</td><td>{{$booking->tour_details_to}}</td> </tr>
+                                                    <!-- <tr><td>payment_info_one</td><td>{{$booking->payment_info_one}}</td> </tr>
                                                     <tr><td>payment_info_two</td><td>{{$booking->payment_info_two}}</td> </tr>
-                                                    <tr><td>payment_info_three</td><td>{{$booking->payment_info_three}}</td> </tr>
-                                                    <tr><td>status</td><td>{{$booking->status}}</td> </tr>
-                                                    <tr><td>payment</td><td>{{$booking->payment}}</td> </tr>
+                                                    <tr><td>payment_info_three</td><td>{{$booking->payment_info_three}}</td> </tr> -->
+                                                    <!-- <tr><td>status</td><td>{{$booking->status}}</td> </tr>
+                                                    <tr><td>payment</td><td>{{$booking->payment}}</td> </tr> -->
                                                 </table>
                                             </div>
                                         </div>

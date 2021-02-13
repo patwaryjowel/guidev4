@@ -52,7 +52,7 @@ display: none;
         
         <div class="header-bottom-area header-sticky header-sticky">
             <div class="container">
-                <div class="row">
+                <div class="row row align-items-center">
                    
                     <div class="col-lg-3 col-md-5 col-6">
                         
@@ -89,104 +89,35 @@ display: none;
 
                                             </ul>
                                         </li>
-                                        <!--<li><a href="about.html">About</a></li>-->
-                                        <!-- <li><a href="{{route('front.packagelist')}}">Package</a></li> -->
-                                      
+                                        @guest
+                                                <li><a href="#">Login</a>
+                                                    <ul class="sub-menu">
+                                                            <li><a href="{{route('front.adminlogin')}}">Agent Login </a></li>
+                                                        <li><a href="{{route('front.guidelogin')}}">Guide Login </a>
+                                                        <li><a href="{{route('front.travelerlogin')}}">Traveler Login </a></li>
+                                                    </ul>
+                                                </li>
 
 
-                       @guest
-                          <!--   <li>
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li> -->
-
-                             <li><a href="#">Login</a>
-                                            <ul class="sub-menu">
-                                                 <li><a href="{{route('front.adminlogin')}}">Agent Login </a></li>
-                                                <li><a href="{{route('front.guidelogin')}}">Guide Login </a>
-                                                <li><a href="{{route('front.travelerlogin')}}">Traveler Login </a></li>
-                                            </ul>
-                                        </li>
-                           
-                               <!--  <li>
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li> -->
-
-
-
-                               <!--   <li>
-                                    <a class="nav-link" href="{{ route('login') }}">Guide Apply</a>
-                                </li> -->
-
-
-
-
-
-
-                               <!--  <li><a href="#">{{ __('Register') }}</a>
-                                            <ul class="sub-menu">
-
-                                <li>
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('User Register') }}</a>
-                                </li>
-                                 <li>
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Guide Register') }}</a>
-                                </li>
-
-                                            </ul>
-                                        </li> -->
-
-
-
-                          
-                        @else
-                            @if(Auth::check())
-                                @if(Auth::User()->utype == "admin")                
-                                    <li>
-                                        <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
-                                    </li>
-                                @elseif(Auth::User()->utype == "guide")
-                                    <li>
-                                        <a class="nav-link" href="{{ route('guide.dashboard') }}">{{ __('Dashboard') }}</a>
-                                    </li>
-                                @else
-                                    <li>
-                                        <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
-                                    </li>
-
-                                    <!--  <li>
-                                    <a class="nav-link" href="{{ route('guide.apply') }}">Guide Apply</a>
-                                </li> -->
-                                @endif
-                            @endif
-
-
-                           <!--  <li>
-                             <a class="nav-link" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Sign Out
-                                    </a>
-                             </li>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                    </form> -->
-                        @endguest
- 
-                                          <!--   <ul class="sub-menu">
-                                                <li><a href="{{route('front.guidelogin')}}">Guide Login </a>
-                                                <li><a href="{{route('front.travelerlogin')}}">Traveler Login </a></li>
-                                            </ul>
-                                         -->
-                                      
-
-                                       
-
-
-
-                                        
+                                            
+                                            @else
+                                                @if(Auth::check())
+                                                    @if(Auth::User()->utype == "admin")                
+                                                        <li>
+                                                            <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+                                                        </li>
+                                                    @elseif(Auth::User()->utype == "guide")
+                                                        <li>
+                                                            <a class="nav-link" href="{{ route('guide.dashboard') }}">{{ __('Dashboard') }}</a>
+                                                        </li>
+                                                    @else
+                                                        <li>
+                                                            <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
+                                                        </li>
+                                                    @endif
+                                                @endif
+                                            @endguest
                                     </ul>
-
-
                                 </nav>
                             </div><!--// main-menu -->
 
@@ -266,7 +197,7 @@ display: none;
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="copy-right pt-30 pb-30 text-center text-white">
-                            <p>© Copyright 2021 <a href="#">Local BD Guide</a>, Designed by <span>Jowel</span></p>
+                            <p>© Copyright 2021 <a href="#">Local BD Guide</a>, Designed by <span>Local Guide BD</span></p>
                         </div>
                     </div>
                 </div>

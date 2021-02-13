@@ -96,7 +96,13 @@
                                     <div class="guide-profile-block">
                                         
                                         <div class="guide-image-box avatar-holder ">
-                                            <a href="#" ><img alt="Private tour guide Obaidul" class="lazy" src="{{asset('assets/images/user/'.$user->image)}}"></a>
+                                            <a href="#" ><img alt="Private tour guide Obaidul" class="lazy"
+                                            @if(!is_null($user->image))
+                                            src="{{asset('assets/images/user/'.$user->image)}}"
+                                            @else
+                                            src="{{asset('assets/images/user/default-profile-picture.png')}}"
+                                            @endif
+                                            ></a>
                                         </div>
                                         <div class="guide-meta text-left">
                                             <strong class="guide-name">
@@ -167,12 +173,14 @@
                            
 
                         </ul>
+                        <div class="button-box mt-3">
                             <a href="/single-guide-details/{{$user->id}}">More info</a>
+                        </div>
                                 
                                
 
 
-
+                            
 
 
 
@@ -243,8 +251,9 @@
  
 @section('customscript')
 
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ5y0EF8dE6qwc03FcbXHJfXr4vEa7z54"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script> -->
 
 
     <script>
@@ -264,7 +273,7 @@ if ($(this).length) {
 
     function initialize() {
         var mapOptions = {
-            zoom: 14,
+            zoom: 18,
             scrollwheel: false,
             center: new google.maps.LatLng($lat, $long),
             

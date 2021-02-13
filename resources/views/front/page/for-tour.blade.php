@@ -1,7 +1,7 @@
    
 @php
 use App\Models\tour;
-$tours = tour::all();
+$tours = tour::orderBy('title', 'asc')->paginate(9);
 @endphp
 
 
@@ -27,14 +27,6 @@ $tours = tour::all();
     <div class="tour-place-area masonry-activation section-ptb">
         <div class="container">
             <div class="row clearfix masonry-wrap">
-               
-               
-
-
-
-
-
-
                  @foreach($tours as $tour)
                 <div class="col-lg-4 col-md-6 masonary-item">
                     <article class="single-tour-place">
@@ -58,22 +50,20 @@ $tours = tour::all();
                     </article>
                 </div>
                  @endforeach
-                
-               
-                
-               
-               
-                
-                
-                
-                
-
-
+                       
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="pre-next-button text-center mt-5">
+                    {{ $tours->links() }}
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
     <!-- Tour Place Area End  -->
+    
 
     
    

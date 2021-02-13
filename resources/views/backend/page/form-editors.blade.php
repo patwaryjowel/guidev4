@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Adtron - Responsive Bootstrap 4 Admin Template</title>
+    <title>Tour Guide Supper Admin</title>
     <meta name="description" content="Admin Template to use in any Backend Development" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Favicon -->
@@ -170,7 +170,7 @@
                                     <!-- User Start -->
                                     <li class="nav-item dropdown user">
                                         <a class="nav-link" href="#" data-toggle="dropdown">
-                                            <span class="name">Mr. Doe</span>
+                                            <span class="name">Mr. Jowel</span>
                                             <span class="thumbnail">
 										<img src="{{asset('admin/assets/images/user/thumb-small.jpg')}}" alt="User Thumbnail Image" />
 									</span>

@@ -83,7 +83,7 @@
   @yield('content')
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-  <p>©2021 <strong>BD local Guide</strong>. made with ❤️ by <a href="#">JOWEL</a></p>
+  <p>©2021 <strong>Tour Guide Bd</strong>. made with ❤️ by <a href="#">JOWEL</a></p>
   </footer>
 
   <!-- Control Sidebar -->

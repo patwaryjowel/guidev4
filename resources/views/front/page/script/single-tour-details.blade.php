@@ -216,8 +216,9 @@
         onSelect: function(dateText, inst){
             selectedDate.push(dateText);
             Cookies.set('selected_dates', selectedDate);
+            Cookies.set('clicked_date', dateText);
             $('#selected_dates').val(selectedDate);
-            console.log(selectedDate);
+            //console.log(selectedDate);
         },
         beforeShowDay: function(date) {
             var today = new Date(), maxDate;
@@ -227,11 +228,13 @@
                 return [true, 'myClass'];
             }
             return [true, ''];
+
+            
         }
      });
      
-    console.log(Cookies.get('selected_dates'));
-
+    //console.log(Cookies.get('selected_dates'));
+    
  </script>
       <style>
         .ui-datepicker-week-end {

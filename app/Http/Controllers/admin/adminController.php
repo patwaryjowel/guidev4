@@ -430,10 +430,26 @@ public function approveguide(Request $request){
 }
 
 
+public function disableGuide($id){
+    $user = User::find($id);
+    $user->status = Null;
+    $user->save();
+    return redirect()->back()->with('success','Successfully disabled.');
+
+}
+
 public function approvetourguide(Request $request){
         $id = $request->id;
         $tour = tour::findorfail($id);
-        $tour->guide_id = $request->guide_id;
+        $guide = User::findorfail($request->guide_id);
+        $guide->status = 1;
+        $guide->save();
+        if($tour->guide_id == $request->guide_id) {
+            $tour->guide_id = Null;
+        }else{
+            $tour->guide_id = $request->guide_id;
+        }
+        
         $tour->update();
         return redirect()->back()->with('success','Successfully');
 

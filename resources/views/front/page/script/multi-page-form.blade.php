@@ -102,10 +102,21 @@
      var weekend_strtday = 0;
      var weekend_endday =  6;
  
-     $("#calendar").datepicker({
+   /*   $("#calendar").datepicker({
          defaultDate: new Date(),      // Just for this demo longevity on SO ;)
          minDate: dateToday,
          beforeShowDay: $.datepicker.noWeekends
+         
+     }); */
+     var array = ["2021-02-14","2021-02-18","2021-02-20"];
+
+     $("#calendar").datepicker({
+         defaultDate: new Date(),      // Just for this demo longevity on SO ;)
+         minDate: dateToday,
+         beforeShowDay: function(date){
+            var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            return [ array.indexOf(string) == -1 ]
+        }
          
      });
  

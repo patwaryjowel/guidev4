@@ -1,45 +1,4 @@
-/*-----------------------------------------------------------------------------------
 
-    Template Name: Adomx - Responsive Bootstrap 4 Admin Template
-    Version: 1.0
-
------------------------------------------------------------------------------------
-    
-    CSS INDEX
-    ===================
-	
-    01. Template default CSS
-    02. Header + SideNav Style CSS
-        02.01 - Header CSS
-        02.02 - SideNav CSS
-    02. Elements CSS
-        Baisc ---------
-        - Accordion
-        - Alert
-        - Avatar
-        - Badge
-        - Button
-        - Card
-        - List
-        - Pagination
-        - Progress
-        - Spinner
-        - Tab
-        Advance ---------
-        - Fullcalendar
-        - Media Player
-        - Ratting
-        - Sweetalert
-        - Toastr
-    03. Form CSS
-        - Basic
-        - Checkbox (Custom)
-        - Radio (Custom)
-        - Range Slider
-        - Select
-        - Switch (Custom)
-
------------------------------------------------------------------------------------*/
 /*!
  * Bootstrap v5.0.0-alpha2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -15275,7 +15234,7 @@ textarea:-ms-input-placeholder {
 }
 
 .header-logo a img {
-  max-width: 100%;
+  max-width: 150px;
 }
 
 .header-logo a img.light {

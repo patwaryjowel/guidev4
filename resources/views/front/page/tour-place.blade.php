@@ -1,6 +1,6 @@
 
     
-    <div class="place-area">
+    <div class="place-area mt-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -59,6 +59,14 @@
 
                     </div>
 
+                    <div class="row">
+                <div class="col-lg-12">
+                    <div class="pre-next-button text-center mt-5">
+                    {{ $tours->links() }}
+                    </div>
+                </div>
+            </div>
+
                 </div>
                 
                 <div class="col-lg-4">
@@ -77,7 +85,7 @@
                            @php
                            
                            
-                            $users = User::where('utype', 'guide')->where('location_id', $location->id)->where('status', 1)->get();
+                            $users = User::where('utype', 'guide')->where('location_id', $location->id)->where('status', 1)->paginate(3);
 
                           
                              @endphp
@@ -95,24 +103,23 @@
                                     <div class="guide-profile-block">
                                         
                                         <div class="guide-image-box avatar-holder ">
-                                            <a href="#" ><img alt="Private tour guide Obaidul" class="lazy" src="{{asset('assets/images/user/'.$user->image)}}"></a>
+                                            <a href="#" ><img alt="Private tour guide Obaidul" class="lazy" 
+                                            @if(!is_null($user->image))
+                                            src="{{asset('assets/images/user/'.$user->image)}}"
+                                            @else
+                                            src="{{asset('assets/images/user/default-profile-picture.png')}}"
+                                            @endif
+                                            
+                                            ></a>
                                         </div>
                                         <div class="guide-meta text-left">
                                             <strong class="guide-name">
-                                                <h6><a href="/single-guide-details/{{$user->id}}" class="font-width-bold">{{$user->name}} </a></h6>
+                                                <h6><a href="/single-guide-details/{{$user->id}}" class="font-width-bold">{{$user->name}} {{$user->email}}</a></h6>
                                             </strong>
                                             <div class="guide-addres">
                                                 {{$user->location}}, {{$user->country}}
                                             </div>
-                                            <div class="rating-holder orange">
-                                                <a class="fancybox" href="#">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </a>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>

@@ -29,7 +29,11 @@ use App\Models\User;
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="{{asset('assets/images/user/'.Auth::user()->image)}}"
+                  @if(!is_null(Auth::user()->image))
+                    src="{{asset('assets/images/user/'.Auth::user()->image)}}"
+                    @else
+                    src="{{asset('assets/images/user/default-profile-picture.png')}}"
+                  @endif
                        alt="User profile picture">
                 </div>
 

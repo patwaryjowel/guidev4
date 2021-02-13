@@ -144,17 +144,15 @@ $users = User::where('utype', 'guide')->get();
                                                  
                                                 <td>
                                                     <div class="button-box">
-                                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}" class="btn-sm btn btn-primary mr-1 mb-1">Approve
 
-
- @php
-                                                 $x = $user->status;
-
-                                                 @endphp  
-                                                            @if($x == 1)
-                                                            it
-                                                            @endif
+                                                        @if($user->status == 1)
+                                                        <a href="{{route('backend.disableGuide',$user->id) }}" class="btn-sm btn btn-primary mr-1 mb-1">Disable
                                                         </a>
+                                                        @else
+                                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}" class="btn-sm btn btn-primary mr-1 mb-1">Approve
+                                                        </a>
+                                                        @endif
+                                                        
                                                      
                                                     </div>
                                                 </td>

@@ -59,9 +59,9 @@
                             <h4 class="title-post"><a href="./single-tour-details/{{$tour->id}}" rel="bookmark">{{ $tour->title }}</a></h4>
                             
                             <p>
-                                {{ substr(strip_tags($tour->details), 0, 200) }}
-                                {{ strlen(strip_tags($tour->details)) > 200 ? "..." : "" }}</p>
-                            <a class="read-more" href="./single-tour-details/{{$tour->id}}">{{ strlen(strip_tags($tour->details)) > 200 ? "Read More" : "" }}</a>
+                                {{ substr(strip_tags($tour->details), 0, 120) }}
+                                {{ strlen(strip_tags($tour->details)) > 120 ? "..." : "" }}</p>
+                            <a class="read-more" href="./single-tour-details/{{$tour->id}}">{{ strlen(strip_tags($tour->details)) > 120 ? "Read More" : "" }}</a>
                         </div>
                     </article>
                 </div>
@@ -100,7 +100,7 @@
             <div class="row no-gutters">
                 <div class="col-lg-3">
                     <a href="http://localhost:8000/single-tour-details/17" class="single-item-most-popular-place">
-                        <img src="assets/images/gallery/private-guided-experiences-1608106323.jpg" alt="">
+                        <img src="assets/images/bg/dhaka.jpg" alt="">
                         <div class="heading">
                             <h4>Most popular place in Dhaka </h4>
                         </div>
@@ -108,29 +108,30 @@
                 </div>
                 <div class="col-lg-3">
                     <a href="http://localhost:8000/single-tour-details/18" class="single-item-most-popular-place">
-                        <img src="assets/images/gallery/private-guided-experiences-1608106323.jpg" alt="">
+                        <img src="assets/images/bg/khulna.jpg" alt="">
                         <div class="heading">
-                            <h4>Most popular place in </h4>
+                            <h4>Most popular place in khulna</h4>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-3">
                     <a class="single-item-most-popular-place">
-                        <img src="assets/images/gallery/private-guided-experiences-1608106323.jpg" alt="">
+                        <img src="assets/images/bg/chittagong.jpg" alt="">
                         <div class="heading">
-                            <h4>Most popular place in</h4>
+                            <h4>Most popular place in Chittagong</h4>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-3">
+                    <a class="single-item-most-popular-place">
+                        <img src="assets/images/bg/barisal.jpg" alt="">
+                        <div class="heading">
+                            <h4>Most popular place in Chittagong</h4>
                         </div>
                     </a>
                 </div>
 
-                <div class="col-lg-3">
-                    <a class="single-item-most-popular-place">
-                        <img src="assets/images/gallery/private-guided-experiences-1608106323.jpg" alt="">
-                        <div class="heading">
-                            <h4>Most popular place in</h4>
-                        </div>
-                    </a>
-                </div>
             </div>
         </div>
     </div>

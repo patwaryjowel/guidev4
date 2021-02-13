@@ -43,7 +43,7 @@
                       </ul>
                   @endif
                   <div class="row register-form-box">
-                      <form method="POST" action="{{route('register')}}">
+                      <form method="POST" action="{{route('register')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="col-lg-12">
                           
@@ -71,12 +71,19 @@
                           </div>
                           </div>
                         </div>
-                       <!--  <div class="col-lg-6">
-                            <p class="single-form-row">
-                                <label>email <span class="required">*</span></label>
-                                <input type="email" name="email">
-                            </p>
-                        </div> -->
+                        <div class="col-lg-6">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="customFile" name="profile_picture">
+                          <label class="custom-file-label" for="customFile">Choose Profile Image<span class="must">*</span></label>
+                        </div>
+                        <br><br>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="customFile" name="nid">
+                          <label class="custom-file-label" for="customFile">Choose NID<span class="must">*</span></label>
+                        </div>
+
+
+                        </div>
                         <div class="col-lg-12">
                             <p class="form-field">
                                 <label>Country <span class="must">*</span></label>

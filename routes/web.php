@@ -101,6 +101,7 @@ Route::middleware(['auth:sanctum', 'verified' , 'authadmin'])->get('/admin/manag
 
 //Route::POST('/admin/tourplace-area-success', [adminController::class, 'tourplacestore'])->name('backend.tourplacestore');
 Route::post('/admin/approve-guide', [adminController::class, 'approveguide'])->name('backend.approveguide');
+Route::get('/admin/disable-guide/{id}', [adminController::class, 'disableGuide'])->name('backend.disableGuide');
 
 Route::post('/admin/approve-tour-guide', [adminController::class, 'approvetourguide'])->name('backend.approvetourguide');
 

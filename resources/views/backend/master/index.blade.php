@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Adtron - Responsive Bootstrap 4 Admin Template</title>
+    <title>Tour Guide Supper Admin</title>
     <meta name="description" content="Admin Template to use in any Backend Development" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Favicon -->
@@ -26,7 +26,7 @@
    
 
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="{{asset('admin/assets/css/style.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}" />
 </head>
 
 <body>
@@ -74,7 +74,7 @@
                                     <!-- User Start -->
                                     <li class="nav-item dropdown user">
                                         <a class="nav-link" href="#" data-toggle="dropdown">
-                                            <span class="name">Mr. Doe</span>
+                                            <span class="name">Mr. Jowel</span>
                                             <span class="thumbnail">
 										<img src="{{asset('admin/assets/images/user/thumb-small.jpg')}}" alt="User Thumbnail Image" />
 									</span>
@@ -117,9 +117,9 @@
             <div class="sidenav-inner">
                 <nav class="sidenav-menu" id="sidenav-menu">
                     <ul>
-                        <li><a href="#"><i data-feather="home" class="nav-icon"></i>Dashdoards</a></li>
+                        <li><a href="{{route('admin.dashboard')}}">Dashdoards</a></li>
                         <!-- <li><a href="index.html">BD locals tours</a></li> -->
-                        <li><a href="{{route('backend.manageslider')}}">Manage Slider</a></li>
+                        <li><a href="{{route('backend.manageslider')}}"> Manage Slider</a></li>
                         <li><a href="{{route('backend.tourplacearea')}}">Manage tours Place</a></li>
                         <li><a href="{{route('backend.managetestimonial')}}">Manage Testimonials</a></li>
                         <li><a href="{{route('backend.manageguide')}}">Manage Guide</a></li>
@@ -141,7 +141,7 @@
         <div class="section bg-white py-4 mt-auto">
             <div class="container-fluid">
                 <div class="footer-copyright text-center">
-                    <p class="text-muted">2020 &copy; <a href="https://themeforest.net/user/codecarnival">Codecarnival</a></p>
+                    <p class="text-muted">&copy; 2021  <a href="#">Tour Guide BD. Designed By JP</a></p>
                 </div>
             </div>
         </div>

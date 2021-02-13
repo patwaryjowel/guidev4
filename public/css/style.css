@@ -866,7 +866,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .header-sticky.is-sticky .logo-area {
-  margin: 16px 0;
+  margin: 10px 0;
 }
 
 .header-sticky.is-sticky .main-menu nav > ul > li {
@@ -883,7 +883,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .logo-area {
-  margin: 25px 0;
+  margin: 10px 0;
 }
 
 .header-bottom-right {
@@ -1791,190 +1791,6 @@ td.ui-datepicker-days-cell-over.ui-state-highlight.myClass.ui-datepicker-current
 }
 
 
-
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-.stages {
-	font-size: 0;
-	text-align: justify;
-}
-
-.stages:after {
-	content: '';
-	display: inline-block;
-	font-size: 0;
-	text-align: justify;
-	width: 100%;
-}
-
-input[type="radio"] {
-	display: none;
-}
-
-.stages label {
-	background: #ffffff;
-	border: solid 5px #c0c0c0;
-	border-radius: 50%;
-	cursor: pointer;
-	display: inline-block;
-	font-size: 0;
-	font-weight: 700;
-	height: 50px;
-	line-height: 50px;
-	position: relative;
-	text-align: center;
-	vertical-align: top;
-	width: 50px;
-	z-index: 1;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-.stages label:after {
-	content: '\2713';
-	color: #0cc39f;
-	display: inline-block;
-	font-size: 16px;
-}
-
-#one:checked ~ .stages label[for="one"],
-#two:checked ~ .stages label[for="two"],
-#three:checked ~ .stages label[for="three"],
-#four:checked ~ .stages label[for="four"],
-#five:checked ~ .stages label[for="five"],
-#six:checked ~ .stages label[for="six"] {
-	border-color: #0cc39f;
-}
-
-.stages label.active{
-	border-color: purple !important;
-}
-
-#one:checked ~ .stages label,
-#two:checked ~ .stages label[for="one"] ~ label,
-#three:checked ~ .stages label[for="two"] ~ label,
-#four:checked ~ .stages label[for="three"] ~ label,
-#five:checked ~ .stages label[for="four"] ~ label,
-#six:checked ~ .stages label[for="five"] ~ label {
-	font-size: 1rem;
-}
-
-#one:checked ~ .stages label:after,
-#two:checked ~ .stages label[for="one"] ~ label:after,
-#three:checked ~ .stages label[for="two"] ~ label:after,
-#four:checked ~ .stages label[for="three"] ~ label:after,
-#five:checked ~ .stages label[for="four"] ~ label:after,
-#six:checked ~ .stages label[for="five"] ~ label:after {
-	display: none;
-}
-
-.progress > span {
-	background: #c0c0c0;
-	display: inline-block;
-	height: 5px;
-	transform: translateY(-2.75em);
-	transition: 0.3s;
-	width: 0;
-}
-
-#two:checked ~ .progress span {
-	width: calc(100% / 5 * 1);
-}
-
-#three:checked ~ .progress span {
-	width: calc(100% / 5 * 2);
-}
-
-#four:checked ~ .progress span {
-	width: calc(100% / 5 * 3);
-}
-
-#five:checked ~ .progress span {
-	width: calc(100% / 5 * 4);
-}
-
-#six:checked ~ .progress span {
-	width: calc(100% / 5 * 5);
-}
-
-.panels div {
-	display: none;
-}
-
-#one:checked ~ .panels [data-panel="one"],
-#two:checked ~ .panels [data-panel="two"],
-#three:checked ~ .panels [data-panel="three"],
-#four:checked ~ .panels [data-panel="four"],
-#five:checked ~ .panels [data-panel="five"],
-#six:checked ~ .panels [data-panel="six"] {
-	display: block;
-}
- Custom code for the demo 
-
-
-
-
-.form {
-	background: #ffffff;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, .4);
-	margin: 4em;
-	min-width: 480px;
-	padding: 1em;
-}
-
-.panels div {
-	border-top: solid 1px #c0c0c0;
-	margin: 1em 0 0;
-	padding: 1em 0 0;
-}
-
-input {
-	box-sizing: border-box;
-	display: block;
-	padding: .4em;
-	width: 100%;
-}
-
-button {
-	background-color: #0cc39f;
-	border: 0;
-	color: #ffffff;
-	cursor: pointer;
-	font-weight: 700;
-	margin: 1em 0 0 0;
-	padding: 1em;
-}
-
-button:hover {
-	opacity: 0.8;
-}
-
-#four:checked ~ .progress span {
-    width: calc(100% / 5 * 3);
-}
-.progress > span {
-    background: #c0c0c0;
-    display: inline-block;
-    height: 5px;
-    transform: translateY(-2.75em);
-    transition: 0.3s;
-    width: 0;
-}*/
 /*form styles*/
 #msform {
   text-align: center;
@@ -2018,7 +1834,7 @@ button:hover {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  border: 1px solid #ee0979;
+  border: 1px solid #ff5951;
   outline-width: 0;
   transition: All 0.5s ease-in;
   -webkit-transition: All 0.5s ease-in;
@@ -2029,7 +1845,7 @@ button:hover {
 /*buttons*/
 #msform .action-button {
   width: 100px;
-  background: #ee0979;
+  background: #ff5951;
   font-weight: bold;
   color: white;
   border: 0 none;
@@ -2040,7 +1856,7 @@ button:hover {
 }
 
 #msform .action-button:hover, #msform .action-button:focus {
-  box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #ff5951;
 }
 
 #msform .action-button-previous {
@@ -2089,7 +1905,7 @@ button:hover {
   color: #333;
   text-transform: uppercase;
   font-size: 14px;
-  width: 20%;
+  width: 33.333%;
   float: left;
   position: relative;
   letter-spacing: 1px;
@@ -2116,7 +1932,7 @@ button:hover {
   content: "";
   width: 100%;
   height: 2px;
-  background: green;
+  background: #ddd;
   position: absolute;
   left: -50%;
   top: 9px;
@@ -2133,7 +1949,7 @@ button:hover {
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before, #progressbar li.active:after {
-  background: #ee0979;
+  background: #ff5951;
   color: white;
 }
 
@@ -2326,3 +2142,18 @@ button:hover {
   height: 2px;
 }
 
+.multiform--login-form {
+  
+}
+
+.multiform--login-form .form-field input{
+  width: 100%;
+}
+
+.place-br-wrap .single-gallery-img img {
+  height: 380px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}

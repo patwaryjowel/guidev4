@@ -135,11 +135,11 @@ $users = User::where('utype', 'guide')->where('tour_place_id', $member->id)->get
                                                         @if($member->guide_id == $user->id)
                                                         
                                                         <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}" class="btn-sm btn btn-success mr-1 mb-1">
-                                                            Approved</span>
+                                                            <span>Cancle</span>
                                                         </a>
                                                         @else
                                                         <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}" class="btn-sm btn btn-primary mr-1 mb-1">
-                                                            Approve</span>
+                                                            <span>Approve</span>
                                                         </a>
 
                                                         @endif
