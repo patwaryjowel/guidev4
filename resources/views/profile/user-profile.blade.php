@@ -41,14 +41,9 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
 
           </div>
 
-
-
-
           @php
           $x = User::where('id', Auth::user()->id)->where('utype', 'guide')->count();
           @endphp
-
-
 
 
          <div class="col-md-9 @if($x == 0) d-none @endif">
@@ -100,8 +95,6 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
                       <form method="post"  action="{{route('userprofileupdate')}}" enctype="multipart/form-data">
                         <input type="text" class="d-none" value="{{Auth::user()->id}}" name="id">
                     @csrf
-
-
 
 
                     <div class="form-group row">
@@ -162,9 +155,6 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
                       </div>
                     </div> 
 
-
-
-
                     <div class="form-group row">
                       <label for="homephone" class="col-sm-2 col-form-label">Homephone</label>
                       <div class="col-sm-10">
@@ -196,10 +186,6 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
                     @endforeach
 
                 </div>
-
-                          
-
-
 
                 </div>
                 <!-- /.tab-content -->

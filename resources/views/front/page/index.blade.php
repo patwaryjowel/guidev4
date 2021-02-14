@@ -99,7 +99,7 @@
 
             <div class="row no-gutters">
                 <div class="col-lg-3">
-                    <a href="http://localhost:8000/single-tour-details/17" class="single-item-most-popular-place">
+                    <a href="http://localhost:8000/tour-place/2" class="single-item-most-popular-place">
                         <img src="assets/images/bg/dhaka.jpg" alt="">
                         <div class="heading">
                             <h4>Most popular place in Dhaka </h4>
@@ -107,7 +107,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3">
-                    <a href="http://localhost:8000/single-tour-details/18" class="single-item-most-popular-place">
+                    <a href="http://localhost:8000/tour-place/1" class="single-item-most-popular-place">
                         <img src="assets/images/bg/khulna.jpg" alt="">
                         <div class="heading">
                             <h4>Most popular place in khulna</h4>

@@ -6,11 +6,11 @@
             <div class="in-breadcrumb">
                 <div class="row">
                     <div class="col">
-                        <h3>Old Dhaka Private Tour</h3>
+                        <h3>Private Tour Guide</h3>
                         <!-- breadcrumb-list start -->
                         <ul class="breadcrumb-list">
                             <li class="breadcrumb-item"><a href="{{route('front.index')}}">Home</a></li>
-                            <li class="breadcrumb-item active">Become a Guide</li>
+                            <li class="breadcrumb-item active">Guide Booking</li>
                         </ul>
                         <!-- breadcrumb-list end -->
                     </div>

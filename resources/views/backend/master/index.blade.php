@@ -141,7 +141,7 @@
         <div class="section bg-white py-4 mt-auto">
             <div class="container-fluid">
                 <div class="footer-copyright text-center">
-                    <p class="text-muted">&copy; 2021  <a href="#">Tour Guide BD. Designed By JP</a></p>
+                    <p class="text-muted">&copy; 2021 <a href="#">Tour Guide BD. </a> Designed By Jowel & Murad</p>
                 </div>
             </div>
         </div>

@@ -152,7 +152,7 @@ display: none;
                     <div class="col-lg-4 col-md-6 mt--60">
                         <div class="footer-single-block">    
                             <div class="footer-logo">
-                                <a href="{{route('front.index')}}"><img src="{{asset('images/logo/logo-2.png')}}" alt=""></a>
+                                <a href="{{route('front.index')}}"><img src="{{asset('images/logo/logo.png')}}" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -197,7 +197,7 @@ display: none;
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="copy-right pt-30 pb-30 text-center text-white">
-                            <p>© Copyright 2021 <a href="#">Local BD Guide</a>, Designed by <span>Local Guide BD</span></p>
+                            <p>&copy; 2021 <a href="#">Tour Guide BD. </a> Designed By Jowel & Murad</p>
                         </div>
                     </div>
                 </div>

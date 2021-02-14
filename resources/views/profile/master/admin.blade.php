@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BD - Tours Local Guide Supper User Profile</title>
+  <title>Tours Local Guide Supper User Profile</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -42,85 +42,54 @@
           </a>
       </div>
     <div class="header-right flex-grow-1 col-auto">
-              <div class="row justify-content-between align-items-center">
-                  <!-- SideNav Toggle & Search Start -->
-                  <div class="d-flex col-auto">
-                      <!-- SideNav Toggle Start -->
-                      <button class="sidenav-toggle d-lg-none"><i data-feather="menu"></i></button>
-                      <!-- SideNav Toggle End -->
-                  </div>
-                  <!-- SideNav Toggle & Search End -->
+        <div class="row justify-content-between align-items-center">
+            <!-- SideNav Toggle & Search Start -->
+            <div class="d-flex col-auto">
+                <!-- SideNav Toggle Start -->
+                <button class="sidenav-toggle d-lg-none"><i data-feather="menu"></i></button>
+                <!-- SideNav Toggle End -->
+            </div>
+            <!-- SideNav Toggle & Search End -->
 
-                  <!-- Header Actions (Header Right) Start -->
-                  <div class="col-auto">
-                      <ul class="header-right-action nav">
+            <!-- Header Actions (Header Right) Start -->
+            <div class="col-auto">
+                <ul class="header-right-action nav">
 
-                          @yield('notification')
+                    @yield('notification')
+                    
+                    <!-- User Start -->
+                    <li class="nav-item dropdown user supper-admin-profile">
+                        <a class="nav-link" href="#" data-toggle="dropdown">
+                            <span class="name">Jowel</span>
+                            <span class="thumbnail">
+                              <img src="{{asset('admin/assets/images/user/thumb-small.jpg')}}" alt="User Thumbnail Image" />
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="{{route('profile.admin-show')}}"><i data-feather="user"></i> Profile</a>
                           
-                          <!-- User Start -->
-                          <li class="nav-item dropdown user supper-admin-profile">
-                              <a class="nav-link" href="#" data-toggle="dropdown">
-                                  <span class="name">Jowel</span>
-                                  <span class="thumbnail">
-                                    <img src="{{asset('admin/assets/images/user/thumb-small.jpg')}}" alt="User Thumbnail Image" />
-                                  </span>
-                              </a>
-                              <div class="dropdown-menu dropdown-menu-right">
-                                  <a class="dropdown-item" href="{{route('profile.admin-show')}}"><i data-feather="user"></i> Profile</a>
-                                
-                                  <a class="dropdown-item" href="{{route('admin.dashboard')}}"><i data-feather="user"></i> Dashboard</a>
-                                  <a class="dropdown-item" href="{{route('profile.setting')}}"><i data-feather="user"></i> Setting</a>
-                                  <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                      <i data-feather="log-out"></i>Sign Out
-                                  </a>
+                            <a class="dropdown-item" href="{{route('admin.dashboard')}}"><i data-feather="user"></i> Dashboard</a>
+                            <a class="dropdown-item" href="{{route('profile.setting')}}"><i data-feather="user"></i> Setting</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                              onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+                                <i data-feather="log-out"></i>Sign Out
+                            </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                </form>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                              @csrf
+                          </form>
 
 
-                              </div>
-                          </li>
-                          <!-- User End -->
-                      </ul>
-                  </div>
-                  <!-- Header Actions (Header Right) End -->
-              </div>
-          </div>
-
-
-    
-
-    <!-- Right navbar links -->
-    <!-- <ul class="navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-         
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-
-          <a class="dropdown-item" href="{{route('admin.dashboard')}}"><i data-feather="user"></i> Dashboard</a>
-          <a class="dropdown-item" href="{{route('profile.setting')}}"><i data-feather="user"></i> Setting</a>
-          <div class="dropdown-divider"></div>
-
-
-
-          <a class="dropdown-item" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-              <i data-feather="log-out"></i>Sign Out
-          </a>
-
-          <form id="logout-form" action="{{ route('logout') }}" method="POST">
-              @csrf
-          </form>
-     
+                        </div>
+                    </li>
+                    <!-- User End -->
+                </ul>
+            </div>
+            <!-- Header Actions (Header Right) End -->
         </div>
-      </li>
-    </ul> -->
+    </div>
+    
   </nav>
   <!-- /.navbar -->
 
@@ -149,7 +118,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer text-center">
-    <p>©2021 <strong>Tour Guide Bd</strong>. made with ❤️ by <a href="#">JOWEL</a></p>
+    <p>&copy; 2021 <a href="#">Tour Guide BD. </a> Designed By Jowel & Murad</p>
   </footer>
 
   <!-- Control Sidebar -->

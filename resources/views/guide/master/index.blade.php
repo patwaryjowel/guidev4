@@ -52,7 +52,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar Menu -->
-      <nav class="mt-2">
+      <nav class="mt-4">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
             <a class="nav-link" href="{{route('guide.dashboard')}}"><i data-feather="user"></i> <p>Order Stats</p>  </a>
@@ -83,7 +83,7 @@
   @yield('content')
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-  <p>©2021 <strong>Tour Guide Bd</strong>. made with ❤️ by <a href="#">JOWEL</a></p>
+  <p>&copy; 2021 <a href="#">Tour Guide BD. </a> Designed By Jowel & Murad</p>
   </footer>
 
   <!-- Control Sidebar -->
