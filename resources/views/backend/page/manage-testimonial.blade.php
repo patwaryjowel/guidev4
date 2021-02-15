@@ -7,7 +7,7 @@
             <div class="manage-slier-area">
 
 
-  @if ($message = Session::get('success'))
+                @if ($message = Session::get('success'))
 
                     <div class="alert alert-success alert-block mt-3">
 
@@ -39,7 +39,7 @@
                     <div class="col-xl-6 col-12 mb-6">
                         <div class="card">
                             <div class="card-head border-bottom">
-                                <h4 class="title">Basic Form</h4>
+                                <h4 class="title">Testimonial Form</h4>
                             </div>
                             <div class="card-body">
                                  <form method="post" action="{{route('testimonial.store')}}"  enctype="multipart/form-data">
@@ -82,7 +82,7 @@
                     <div class="col-xl-6 col-12 mb-6">
                         <div class="card">
                             <div class="card-head border-bottom">
-                                <h4 class="title">Basic Form</h4>
+                                <h4 class="title">Testimonial Post</h4>
                             </div>
                             <div class="card-body">
                                 <div class="manage-table-wrap">

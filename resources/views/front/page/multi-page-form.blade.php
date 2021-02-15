@@ -25,44 +25,26 @@
     
     <div class="tour-details-area grey-light section-ptb">
         <div class="container">
-           
-           
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block mt-3">
 
-  @if ($message = Session::get('success'))
+                    <button type="button" class="close" data-dismiss="alert">×</button>
 
-                    <div class="alert alert-success alert-block mt-3">
+                    <strong>{{ $message }}</strong>
 
-                        <button type="button" class="close" data-dismiss="alert">×</button>
+                </div>
+            @endif
+            @if (count($errors) > 0)
+                <ul class="alert alert-danger pl-5">
 
-                        <strong>{{ $message }}</strong>
+                    @foreach($errors->all() as $error)
 
-                    </div>
+                        <li>{{ $error }}</li> 
 
-                  @endif
+                    @endforeach
 
-                  @if (count($errors) > 0)
-
-                        <ul class="alert alert-danger pl-5">
-
-                          @foreach($errors->all() as $error)
-
-                             <li>{{ $error }}</li> 
-
-                          @endforeach
-
-                        </ul>
-
-                @endif
-
-         
-
-
-
-
-               
-                               
-
-
+                </ul>
+            @endif
 
 
             <!-- MultiStep Form -->
@@ -72,9 +54,8 @@
                       
 
 
-                        	 <form id="msform" method="get" action="{{route('front.multipageformstore')}}">
-                                        @csrf
-
+                        <form id="msform" method="get" action="{{route('front.multipageformstore')}}">
+                        @csrf
                             <input type="hidden" value="{{$member->id}}" name="tour_id">
                             <input type="hidden" value="" name="total_amount" id="total_amount">
 
@@ -98,7 +79,6 @@
 
                                     <br>
 
-                                 
                                     @php
                                     use App\Models\User;
                                     $users = User::where('id', $member->guide_id)->get();
@@ -147,7 +127,7 @@
                                         <div class="col-lg-12">
                                             <div class="single-row mb-3">
                                                 <label>START TIME</label>
-                                                <select class="input-box date-select" name="start_time" id="select">
+                                                <select class="input-box date-select" name="start_time" id="select" require>
                                                     <option  selected="selected" value="">Select...</option>
                                                     <option value="09:00">09:00</option>
                                                     <option value="09:30">09:30</option>
@@ -167,7 +147,7 @@
                                                 <option  selected="selected" value="">Select...</option>
                                                 <option value="1">Address or Intersection</option>
                                                 <option value="2">Airport</option>
-                                                <option value="3">Ask Guide to suggest a location</option>
+                                                <option value="3">Hotel</option>
                                                 <option value="4">Cruise Ship Port</option>
                                                 <!-- <option value="5">Hotel</option> -->
                                                 <option value="6">Monument/Building</option>

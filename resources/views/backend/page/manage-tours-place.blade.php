@@ -12,42 +12,36 @@ $users = User::where('utype', 'guide')->where('status', 1)->get();
             <div class="manage-slier-area">
 
                 <div class="row">
-                    <div class="col-xl-6 col-12 mb-6">
+                    <div class="col-xl-5 col-12 mb-6">
 
 
-  @if ($message = Session::get('success'))
+                     @if ($message = Session::get('success'))
 
-                    <div class="alert alert-success alert-block mt-3">
+                        <div class="alert alert-success alert-block mt-3">
 
-                        <button type="button" class="close" data-dismiss="alert">×</button>
+                            <button type="button" class="close" data-dismiss="alert">×</button>
 
-                        <strong>{{ $message }}</strong>
+                            <strong>{{ $message }}</strong>
 
-                    </div>
+                        </div>
 
-                  @endif
+                    @endif
 
-                  @if (count($errors) > 0)
+                    @if (count($errors) > 0)
 
                         <ul class="alert alert-danger pl-5">
 
-                          @foreach($errors->all() as $error)
+                            @foreach($errors->all() as $error)
 
-                             <li>{{ $error }}</li> 
+                                <li>{{ $error }}</li> 
 
-                          @endforeach
-
+                            @endforeach
                         </ul>
-
-                @endif
-
-
+                    @endif
 
                         <div class="card">
                             <div class="card-head border-bottom">
-                                <h4 class="title">Basic Form</h4>
-
-                                
+                                <h4 class="title">Tour Place Form</h4>
                             </div>
                             <div class="card-body">
                                  <form method="post" action="{{route('backend.tourplacestore')}}"  enctype="multipart/form-data">
@@ -57,93 +51,86 @@ $users = User::where('utype', 'guide')->where('status', 1)->get();
                                             <label class="form-label" for="image">Tours Image Choose</label>
                                             <input id="formLayoutUsername1" class="form-control" name="image" type="file" placeholder="Tours Image">
                                         </div>
-                                       
-
-
                                         <div class="col-12 mb-4">
                                             <label class="form-label" for="title">Tours Title</label>
                                             <input type="text" name="title" class="form-control" placeholder="Tours Title">
                                         </div>
+                                        <!--TinyMCE Start-->
+                                        <div class="col-12 mb-6 textarea-select">
+                                        <!--  <div class="card">
+                                            
+                                                <div class="card-body"> -->
+                                                    <label class="form-label" for="details">Tours Detsils</label>
+                                                    <textarea name="details" id="tour_detailsone">Next, use our Get Started docs to setup Tiny!</textarea>
+                                            <!--   </div>
+                                            </div> -->
+                                        </div>
+                                        <!--TinyMCE End-->
+                                        <style>
+                                            .textarea-select .note-editor .note-editing-area {
+                                                position: relative;
+                                                min-height: 218px;
+                                            }
+                                        </style>
 
 
- 
-              
-
-                <!--TinyMCE Start-->
-                <div class="col-12 mb-6 textarea-select">
-                   <!--  <div class="card">
-                       
-                        <div class="card-body"> -->
-                            <label class="form-label" for="details">Tours Detsils</label>
-                            <textarea name="details" id="tour_detailsone">Next, use our Get Started docs to setup Tiny!</textarea>
-                      <!--   </div>
-                    </div> -->
-                </div>
-                <!--TinyMCE End-->
-                <style>
-                    .textarea-select .note-editor .note-editing-area {
-                        position: relative;
-                        min-height: 218px;
-                    }
-                </style>
-
-
-                <div class="field_wrapper">
-                    <div class="form-group col-md-8" style="padding-left: 0">
-                        <label>Package People and Price</label><br>
-                        <div class="row" style="margin: 0;">
-                        <input type="number" name="people[]" class="form-control col-3" placeholder="people" required="">
-                        <input type="number" name="price[]" class="form-control col-3" placeholder="Price (without sign)" required="">
-                        </div>
-                        <br>
-                        <a href="javascript:void(0);" class="add_button btn btn-success" title="Add field">Add More</a><br><br>
-                    </div>
-                </div>
-
-
-
-@section('customscripttwo')
-
-<script type="text/javascript">
-$(document).ready(function(){
-    var maxField = 10; //Input fields increment limitation
-    var addButton = $('.add_button'); //Add button selector
-    var wrapper = $('.field_wrapper'); //Input field wrapper
-    var fieldHTML = '<div class="form-group col-md-8" style="padding-left: 0"><label>People and Price</label><div class="row" style="margin: 0;"><input type="number" name="people[]" class="form-control col-3" placeholder="People" required=""><input type="number" name="price[]" class="form-control col-3" placeholder="Price (without tk)" required=""></div><br><a href="javascript:void(0);" class="remove_button btn btn-warning">Remove</a></div>'; //New input field html 
-    var x = 1; //Initial field counter is 1
-    
-    //Once add button is clicked
-    $(addButton).click(function(){
-        //Check maximum number of input fields
-        if(x < maxField){ 
-            x++; //Increment field counter
-            //$(wrapper).append(fieldHTML); //Add field html
-            $(wrapper).append('<div class="form-group col-md-8" style="padding-left: 0"><label>People and Price</label><input type="number" name="people[]" class="form-control" placeholder="People" required=""><br><input type="number" name="price[]" class="form-control" placeholder="Price" required=""><br><a href="javascript:void(0);" class="remove_button btn btn-warning">Remove</a></div>');
-        }
-    });
-    
-    //Once remove button is clicked
-    $(wrapper).on('click', '.remove_button', function(e){
-        e.preventDefault();
-        $(this).parent('div').remove(); //Remove field html
-        x--; //Decrement field counter
-    });
-});
-</script>
-
-@endsection
-            
+                                        <div class="field_wrapper">
+                                            <div class="form-group col-md-12">
+                                                <label>Package People and Price</label><br>
+                                                <div class="mt-2">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <input type="number" name="people[]" class="form-control col-12 mt-2" placeholder="people" required="">
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <input type="number" name="price[]" class="form-control col-12 mt-2" placeholder="Price (without sign)" required="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <a href="javascript:void(0);" class="add_button btn btn-success" title="Add field">Add More</a><br><br>
+                                            </div>
+                                        </div>
 
 
 
+                                            @section('customscripttwo')
 
+                                            <script type="text/javascript">
+                                            $(document).ready(function(){
+                                                var maxField = 10; //Input fields increment limitation
+                                                var addButton = $('.add_button'); //Add button selector
+                                                var wrapper = $('.field_wrapper'); //Input field wrapper
+                                                var fieldHTML = '<div class="form-group col-md-12 mb-2"><label class="mt-2">People and Price</label><div class="row"><input type="number" name="people[]" class="form-control col-3" placeholder="People" required=""><input type="number" name="price[]" class="form-control col-3" placeholder="Price (without tk)" required=""></div><br><a href="javascript:void(0);" class="remove_button btn btn-warning">Remove</a></div>'; //New input field html 
+                                                var x = 1; //Initial field counter is 1
+                                                
+                                                //Once add button is clicked
+                                                $(addButton).click(function(){
+                                                    //Check maximum number of input fields
+                                                    if(x < maxField){ 
+                                                        x++; //Increment field counter
+                                                        //$(wrapper).append(fieldHTML); //Add field html
+                                                        $(wrapper).append('<div class="form-group col-md-12"><label>People and Price</label><input type="number" name="people[]" class="form-control" placeholder="People" required=""><br><input type="number" name="price[]" class="form-control" placeholder="Price" required=""><br><a href="javascript:void(0);" class="remove_button btn btn-warning">Remove</a></div>');
+                                                    }
+                                                });
+                                                
+                                                //Once remove button is clicked
+                                                $(wrapper).on('click', '.remove_button', function(e){
+                                                    e.preventDefault();
+                                                    $(this).parent('div').remove(); //Remove field html
+                                                    x--; //Decrement field counter
+                                                });
+                                            });
+                                            </script>
 
+                                            @endsection
+        
 
-                                                @php
-                                                use App\Models\location;
-                                                $locations = location::all();
-                                                @endphp
-                                            <div class="col-12 mb-4">
+                                            @php
+                                            use App\Models\location;
+                                            $locations = location::all();
+                                            @endphp
+                                            <div class="col-12 mb-4 mt-3">
                                             <label class="form-label" for="location_id">Tours location</label>
                                             <select class="form-select" name="location_id">
                                                 <option value="">select location</option>
@@ -152,29 +139,10 @@ $(document).ready(function(){
 
                                                 <option value="{{$location->id}}">{{$location->location}}</option>
 
-                                           
-                                               
+                                            @endforeach
+                                        </select>
 
-                                                @endforeach
-                                            </select>
-
-
-
-                                      
-                                        
                                         </div>
-
-<!-- <div class="col-12 mb-4">
-            <label class="form-label" for="guide_id">Guide Select</label>
-                <select class="form-select" name="guide_id">
-                    <option value="">Select</option>
-                    @foreach($users as $user)
-
-                    <option value="{{$user->id}}">{{$user->name}} - {{$user->location}} ({{$user->guidenumber}}) </option>
-                    @endforeach
-                </select>
-        </div> -->
-
 
                                         <div class="col-12 mb-4">
                                             <label class="form-label" for="map_link">Tours Map Lat,Long</label>
@@ -190,7 +158,7 @@ $(document).ready(function(){
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-12 mb-6">
+                    <div class="col-xl-7 col-12 mb-6">
                         <div class="card">
                             <div class="card-head border-bottom">
                                 <h4 class="title">Tour Places @if(isset($filter_location)) in - {{$filter_location->location}} @endif</h4>
@@ -222,11 +190,11 @@ $(document).ready(function(){
                                             </tr>
                                         </thead>
                                         <tbody>
-                            @foreach($tours as $tour)
+                                        @foreach($tours as $tour)
 
-                            @php
-                             $locationnames = location::where('id', $tour->location_id)->get();
-                            @endphp
+                                        @php
+                                        $locationnames = location::where('id', $tour->location_id)->get();
+                                        @endphp
                                             <tr>
                                                 <td>
                                                     <div class="id">{{$tour->id}}</div>
@@ -244,13 +212,13 @@ $(document).ready(function(){
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <div class="description">
+                                                    <div class="tour__placePost-titel">
                                                         <p>{{$tour->title}}</p>
                                                     </div>
                                                 </td>
 
                                                 <td>
-                                                    <a href="{{route('backend.manageguidefortour', $tour->id)}}">View</a>
+                                                    <a class="btn-sm btn-info me-1 mb-1 text-white" href="{{route('backend.manageguidefortour', $tour->id)}}">View</a>
                                                 </td>
                                                
 

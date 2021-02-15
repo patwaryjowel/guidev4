@@ -1,17 +1,7 @@
-
-
-
-    
-
-
         <!-- Content Body Start -->
         <div class="content-body">
-
             <div class="manage-slier-area">
-
-
-
-  @if ($message = Session::get('success'))
+                @if ($message = Session::get('success'))
 
                     <div class="alert alert-success alert-block mt-3">
 
@@ -21,9 +11,9 @@
 
                     </div>
 
-                  @endif
+                @endif
 
-                  @if (count($errors) > 0)
+                @if (count($errors) > 0)
 
                         <ul class="alert alert-danger pl-5">
 
@@ -37,17 +27,17 @@
 
                 @endif
 
-@php         
-use App\Models\User;
-use App\Models\location;
-use App\Models\tour;
+                @php         
+                use App\Models\User;
+                use App\Models\location;
+                use App\Models\tour;
 
 
-$locations = location::get();
-$users = User::where('utype', 'guide')->where('tour_place_id', $member->id)->get();
-@endphp
+                $locations = location::get();
+                $users = User::where('utype', 'guide')->where('tour_place_id', $member->id)->get();
+                @endphp
 
-<!-- where('id', 1)-> -->
+                <!-- where('id', 1)-> -->
 
 
                 <div class="row">

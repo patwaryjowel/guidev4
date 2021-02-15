@@ -43,7 +43,7 @@
                     <div class="col-xl-6 col-12 mb-6">
                         <div class="card">
                             <div class="card-head border-bottom">
-                                <h4 class="title">Basic Form</h4>
+                                <h4 class="title">Hero Slider Post</h4>
                             </div>
                             <div class="card-body">
                                 <form method="post" action="{{route('backend.store')}}"  enctype="multipart/form-data">
@@ -71,7 +71,7 @@
                     <div class="col-xl-6 col-12 mb-6">
                         <div class="card">
                             <div class="card-head border-bottom">
-                                <h4 class="title">Basic Form</h4>
+                                <h4 class="title">All Slider Post</h4>
                             </div>
                             <div class="card-body">
                                 <div class="manage-table-wrap">

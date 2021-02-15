@@ -28,74 +28,63 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="home2">
-                                    <div class="avatar-lg">
-     <img src="{{asset('assets/images/user/'.$user->image)}}" alt="">
-   
-</div>
+                                    <div class="avatar-lg guide-show-image">
+                                        <img src="{{asset('assets/images/user/'.$user->image)}}" alt="">
+                                        <style>
+                                            .guide-show-image img {
+                                                width: 150px;
+                                                height: 150px;
+                                                border-radius: 50000px;
+                                            }
+                                        </style>
+                                    </div>
                                 </div>
                                 <div class="tab-pane fade" id="profile2">
                                 	<table class="table table-bordered">
-                           
-<tr><td>prefix</td><td>{{$user->prefix}}</td> </tr>
-<tr><td>name</td><td>{{$user->name}}</td> </tr>
-<tr><td>email</td><td>{{$user->email}}</td> </tr>
-<!-- <tr><td>utype</td><td>{{$user->utype}}</td> </tr>
-<tr><td>token</td><td>{{$user->token}}</td> </tr> -->
-<tr><td>country</td><td>{{$user->country}}</td> </tr>
-<tr><td>birthday</td><td>{{$user->birthday}}</td> </tr>
-<tr><td>city</td><td>{{$user->city}}</td> </tr>
-<tr><td>country</td><td>{{$user->country}}</td> </tr>
-<tr><td>address</td><td>{{$user->address}}</td> </tr>
-<tr><td>zip</td><td>{{$user->zip}}</td> </tr>
-<tr><td>homephone</td><td>{{$user->homephone}}</td> </tr>
-<tr><td>cellphone</td><td>{{$user->cellphone}}</td> </tr>
-<tr><td>skypename</td><td>{{$user->skypename}}</td> </tr>
-<tr><td>contacttime</td><td>{{$user->contacttime}}</td> </tr>
-<tr><td>licensed</td><td>{{$user->licensed}}</td> </tr>
-<tr><td>licensedetail</td><td>{{$user->licensedetail}}</td> </tr>
-<tr><td>detail</td><td>{{$user->detail}}</td> </tr>
-<tr><td>notes</td><td>{{$user->notes}}</td> </tr>
-<tr><td>status</td><td>
-
- 
-@php
-$x = $user->status;
-@endphp
-   @if($x == 1)
-   Approved
-   @else
-   Not Approve
-   @endif
-
-
-</td> </tr>
-</table>
+                                        <tr><td>Prefix</td><td>{{$user->prefix}}</td> </tr>
+                                        <tr><td>Name</td><td>{{$user->name}}</td> </tr>
+                                        <tr><td>Email</td><td>{{$user->email}}</td> </tr>
+                                        <!-- <tr><td>utype</td><td>{{$user->utype}}</td> </tr>
+                                        <tr><td>token</td><td>{{$user->token}}</td> </tr> -->
+                                        <tr><td>Country</td><td>{{$user->country}}</td> </tr>
+                                        <tr><td>Birthday</td><td>{{$user->birthday}}</td> </tr>
+                                        <tr><td>City</td><td>{{$user->city}}</td> </tr>
+                                        <tr><td>Country</td><td>{{$user->country}}</td> </tr>
+                                        <tr><td>Address</td><td>{{$user->address}}</td> </tr>
+                                        <tr><td>ZIP</td><td>{{$user->zip}}</td> </tr>
+                                        <tr><td>Homephone</td><td>{{$user->homephone}}</td> </tr>
+                                        <tr><td>Cellphone</td><td>{{$user->cellphone}}</td> </tr>
+                                        <tr><td>Skypename</td><td>{{$user->skypename}}</td> </tr>
+                                        <tr><td>Contacttime</td><td>{{$user->contacttime}}</td> </tr>
+                                        <tr><td>Licensed</td><td>{{$user->licensed}}</td> </tr>
+                                        <tr><td>Licensedetail</td><td>{{$user->licensedetail}}</td> </tr>
+                                        <tr><td>Detail</td><td>{{$user->detail}}</td> </tr>
+                                        <tr><td>Notes</td><td>{{$user->notes}}</td> </tr>
+                                        <tr><td>Status</td><td>
+                                        @php
+                                        $x = $user->status;
+                                        @endphp
+                                        @if($x == 1)
+                                        Approved
+                                        @else
+                                        Not Approve
+                                        @endif
+                                        </td> </tr>
+                                    </table>
                                 </div>
                                 <div class="tab-pane fade" id="contact2">
                                     <table class="table table-bordered">
-                                  
-
-<tr><td>email</td><td>{{$user->email}}</td> </tr>
-<tr><td>home phone</td><td>{{$user->homephone}}</td> </tr>
-<tr><td>cell phone</td><td>{{$user->cellphone}}</td> </tr>
-<tr><td>Skype Name</td><td>{{$user->skypename}}</td> </tr>
-</table>
+                                        <tr><td>Email</td><td>{{$user->email}}</td> </tr>
+                                        <tr><td>Home phone</td><td>{{$user->homephone}}</td> </tr>
+                                        <tr><td>Cell phone</td><td>{{$user->cellphone}}</td> </tr>
+                                        <tr><td>Skype Name</td><td>{{$user->skypename}}</td> </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--Tab With Icon End-->
-
-                
-
-              
-
-              
-
-               
-
-              
             </div>
         </div>
         <!-- Content Body End -->

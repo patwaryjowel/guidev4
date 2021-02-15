@@ -1,61 +1,35 @@
-
-
-
-      
-
-
         <!-- Content Body Start -->
         <div class="content-body">
-
             <div class="manage-slier-area">
-
-
-
-  @if ($message = Session::get('success'))
-
+                @if ($message = Session::get('success'))
                     <div class="alert alert-success alert-block mt-3">
-
                         <button type="button" class="close" data-dismiss="alert">×</button>
-
                         <strong>{{ $message }}</strong>
-
                     </div>
-
-                  @endif
-
-                  @if (count($errors) > 0)
-
-                        <ul class="alert alert-danger pl-5">
-
-                          @foreach($errors->all() as $error)
-
-                             <li>{{ $error }}</li> 
-
-                          @endforeach
-
-                        </ul>
-
+                @endif
+                @if (count($errors) > 0)
+                    <ul class="alert alert-danger pl-5">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li> 
+                        @endforeach
+                    </ul>
                 @endif
 
-@php         
-use App\Models\User;
-use App\Models\location;
-use App\Models\tour;
+                @php         
+                use App\Models\User;
+                use App\Models\location;
+                use App\Models\tour;
+                $locations = location::get();
+                $users = User::where('utype', 'guide')->get();
+                @endphp
 
-
-$locations = location::get();
-$users = User::where('utype', 'guide')->get();
-@endphp
-
-<!-- where('id', 1)-> -->
-
+                <!-- where('id', 1)-> -->
 
                 <div class="row">
-                  
                     <div class="col-12 mb-6">
                         <div class="card">
                             <div class="card-head border-bottom">
-                                <h4 class="title">Basic Form</h4>
+                                <h4 class="title">All Guide Apply List</h4>
                             </div>
                             <div class="card-body">
                                 <div class="manage-table-wrap">
@@ -63,12 +37,9 @@ $users = User::where('utype', 'guide')->get();
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
-                                                <th scope="col">Name</th>
-                                               <!--  <th scope="col">Country</th>
-                                                <th scope="col">City</th>
-                                                <th scope="col">User status</th> -->
+                                                <th scope="col">Guide Name</th>
                                                 <th scope="col">Apply Tour Place</th>
-                                                 <th scope="col">Approve Tour Location</th>
+                                                <th scope="col">Tour Image</th>
                                                 <th scope="col">View</th>
                                                 <th scope="col">Approve</th>
                                                 <th scope="col">Delete</th>
@@ -76,8 +47,6 @@ $users = User::where('utype', 'guide')->get();
                                         </thead>
                                         <tbody>
                                             @foreach($users as $user)
-                                           
-
                                             <tr>
                                                 <td>
                                                     <div class="id">{{$user->id}}</div>
@@ -86,55 +55,37 @@ $users = User::where('utype', 'guide')->get();
                                                     <div class="name">
                                                         <h6>{{$user->name}}</h6>
                                                     </div>
-                                                </td>
+                                                </td>                                   
+                                                    @php
+                                                    $tours = tour::where('id', $user->tour_place_id)->get();
 
-
-                                               <!--  <td>
-                                                    <div class="country">
-                                                        <h6>{{$user->country}}</h6>
-                                                    </div>
-                                                </td>
-                                                
+                                                    @endphp
                                                 <td>
-                                                    <div class="name">
-                                                        <h6>{{$user->city}}</h6>
-                                                    </div>
-                                                </td>
-                                              
-                                                <td>
-                                                    <div class="country">
-                                                         <h6>{{ $user->status}}</h6>
-                                                    </div>
-                                                </td> -->
-
-                                                
-    @php
-    $tours = tour::where('id', $user->tour_place_id)->get();
-
-    @endphp
-                                                 <td>
-    @foreach($tours as $tour)
-    @php
-    $tourlocation = location::where('id', $tour->location_id)->get();
-    @endphp
-     @foreach($tourlocation as $tourlocation)
+                                                    @foreach($tours as $tour)
+                                                    @php
+                                                    $tourlocation = location::where('id', $tour->location_id)->get();
+                                                    @endphp
+                                                    @foreach($tourlocation as $tourlocation)
                                                
                                                     <div class="country">
                                                          <h6>{{$tour->title}} - {{$tourlocation->location}}</h6>
                                                     </div>
                                                 
-                                                @endforeach
-                                                  @endforeach
+                                                    @endforeach
+                                                    @endforeach
                                                 </td>
 
-<td>
-                                                    <div class="name">
-                                                        <h6>{{$user->location}}</h6>
+                                                <td>
+                                                    <div class="image-tour--apply">
+                                                        <img src="{{asset('assets/images/tour-place/'.$tour->image)}}" alt="">
+                                                        <style>
+                                                            .image-tour--apply img{
+                                                                width: 160px;
+
+                                                            }
+                                                        </style>
                                                     </div>
                                                 </td>
-
-
-
                                                 <td>
                                                     <div class="button-box">
                                                          <a href="/admin/view/{{$user->id}}/show" class="btn-sm btn btn-primary mr-1 mb-1">View</a>
@@ -156,9 +107,6 @@ $users = User::where('utype', 'guide')->get();
                                                      
                                                     </div>
                                                 </td>
-
-
-
                                                 <td>
                                                     <div class="button-box">
                                                         <a href="#" data-toggle="modal" data-target="#exampleModalDetail{{$user->id}}" class="btn-sm btn btn-primary mr-1 mb-1">Delete </a>
@@ -175,11 +123,11 @@ $users = User::where('utype', 'guide')->get();
                     </div>
                 </div>
 
-<!-- Start details -->
+                <!-- Start details -->
                 <div class="row">
                     <div class="col-md-12">
                         <!-- Modal -->
- @foreach($users as $user)
+                         @foreach($users as $user)
                         <div class="modal fade" id="exampleModalDetail{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -196,28 +144,20 @@ $users = User::where('utype', 'guide')->get();
                                                     
                                                     <div class="row mb-n4">
 
-
-                                                        
-
-                                                   
-                                                       
-
                                                         <div class="col-12 mb-4">
-                                                           
-                                                          
-                                                          <a href="/admin/guidedestroy/{{$user->id}}" class="btn btn-primary">Yes </a>
-
-                                                           <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">No</span>
-                                                </button>
-                                                  </div>  </div>  
+                                                        <a href="/admin/guidedestroy/{{$user->id}}" class="btn btn-primary">Yes </a>
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">No</span>
+                                                        </button>
+                                                    </div>  
+                                                </div>  
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
- @endforeach
+                        @endforeach
 
 
 

@@ -5,40 +5,20 @@
         <div class="content-body">
 
             <div class="manage-slier-area">
-
-
-
-  @if ($message = Session::get('success'))
-
+                @if ($message = Session::get('success'))
                     <div class="alert alert-success alert-block mt-3">
-
                         <button type="button" class="close" data-dismiss="alert">×</button>
-
                         <strong>{{ $message }}</strong>
-
                     </div>
-
-                  @endif
-
-                  @if (count($errors) > 0)
-
-                        <ul class="alert alert-danger pl-5">
-
-                          @foreach($errors->all() as $error)
-
-                             <li>{{ $error }}</li> 
-
-                          @endforeach
-
-                        </ul>
-
                 @endif
 
-         
-
-
-
-
+                @if (count($errors) > 0)
+                    <ul class="alert alert-danger pl-5">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li> 
+                        @endforeach
+                    </ul>
+                @endif
                 <div class="row">
                     <div class="col-xl-6 col-12 mb-6">
                         <div class="card">
@@ -47,32 +27,32 @@
                             </div>
                             <div class="card-body">
                                 <form method="post" action="{{route('backend.locationstore')}}"  enctype="multipart/form-data">
-                                        @csrf
+                                    @csrf
                                     <div class="row mb-n4">
-                                       <div class="col-12 mb-4">
-                                        <label class="form-label" for="location">Location</label>
-                                        <input type="text" name="location" class="form-control" placeholder="location">
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label class="form-label" for="image">Location Hero Image</label>
-                                        <input id="image" class="form-control" name="image"  type="file">
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label class="form-label" for="heading">Heading</label>
-                                        <input type="text" name="heading" class="form-control" placeholder="heading">
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label class="form-label" for="subheading">Subheading</label>
-                                        <input type="text" name="subheading" class="form-control" placeholder="subheading">
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label class="form-label" for="title">Sidebar Title</label>
-                                        <input type="text" name="title" class="form-control" placeholder="title">
-                                    </div>
-                                    <div class="col-12 mb-4">
-                                        <label class="form-label" for="details">Sidebar Details</label>
-                                        <input type="text" name="details" class="form-control" placeholder="details">
-                                    </div>
+                                        <div class="col-12 mb-4">
+                                            <label class="form-label" for="location">Location</label>
+                                            <input type="text" name="location" class="form-control" placeholder="location">
+                                        </div>
+                                        <div class="col-12 mb-4">
+                                            <label class="form-label" for="image">Location Hero Image</label>
+                                            <input id="image" class="form-control" name="image"  type="file">
+                                        </div>
+                                        <div class="col-12 mb-4">
+                                            <label class="form-label" for="heading">Heading</label>
+                                            <input type="text" name="heading" class="form-control" placeholder="heading">
+                                        </div>
+                                        <div class="col-12 mb-4">
+                                            <label class="form-label" for="subheading">Subheading</label>
+                                            <input type="text" name="subheading" class="form-control" placeholder="subheading">
+                                        </div>
+                                        <div class="col-12 mb-4">
+                                            <label class="form-label" for="title">Sidebar Title</label>
+                                            <input type="text" name="title" class="form-control" placeholder="title">
+                                        </div>
+                                        <div class="col-12 mb-4">
+                                            <label class="form-label" for="details">Sidebar Details</label>
+                                            <input type="text" name="details" class="form-control" placeholder="details">
+                                        </div>
 
                                         <div class="col-12 mb-4">
                                             <input type="submit" value="Add Now" class="btn btn-primary">
@@ -116,8 +96,16 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <div class="image">
+                                                    <div class="image devison-hero_img">
                                                         <img src="{{asset('assets/images/location/'.$location->image)}}" alt="">
+                                                        <style> 
+                                                            .devison-hero_img img {
+                                                                width: 200px;
+                                                                height: 150px;
+                                                                object-fit: cover;
+                                                                object-position: center;
+                                                            }
+                                                        </style>
                                                     </div>
                                                 </td>
                                                 <td>

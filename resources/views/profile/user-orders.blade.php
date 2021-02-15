@@ -17,9 +17,9 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3">
+          
+          <!-- <div class="col-md-3">
 
-            <!-- Profile Image -->
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
@@ -35,11 +35,9 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
                 <h3 class="profile-username text-center">{{Auth::user()->name}}  </h3>
 
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
 
-          </div>
+          </div> -->
 
 
 
@@ -60,95 +58,140 @@ $bookings = booking::where('user_id', Auth::user()->id)->get();
             </div>
           </div>
 
-           <div class="col-md-9 @if($x == 1) d-none @endif">
+          <div class="col-md-12 @if($x == 1) d-none @endif">
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
                     <li class="nav-item"><a class="nav-link active" href="#order" data-toggle="tab">Order Info</a></li>
                 </ul>
               </div><!-- /.card-header -->
-              <div class="card-body">
-                <div class="tab-content">    
-                <!-- tab-pane -->
-                              
-                <div class="tab-pane  active" id="order">
+              <div class="card-body row">  
+                  <!-- tab-pane -->         
+                  @foreach($bookings as $booking)
+                    @php
+                        $guide = App\Models\User::where('id', $booking->guide_user_id)->first();
+                        $tour = App\Models\Tour::where('id', $booking->tour_id)->first();
+                        $traveler = App\Models\User::where('id', $booking->user_id)->first();
+                        $x = $booking->metting_location;
+                    @endphp
+                    <div class="col-md-4">
+                      <div class="card">
+                        <img class="card-img-top" src="{{asset('assets/images/tour-place/'.$tour->image )}}" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{$tour->name}}</h5>
+                          <p class="card-text">
+                            <style>
+                              ul.list_ul {
+                                  padding: 17px;
+                              }
+                            </style>
+                            <ul class="list_ul">
+                              <li> <strong>Tour Date:</strong> {{$booking->tour_date_one}}</li>
+                              <li> <strong>Start Time:</strong> {{$booking->start_time}}</li>
+                              <li> <strong>Status:</strong>@if($booking->status == 1) Approved @else Processing @endif</li>
+                              <li> <strong>Packge:</strong> {{$booking->tour_price}}</li>
+                              <li> <strong>Guide Name:</strong> 
+                                @if(isset($guide->name))
+                                    {{$guide->name}}@else Guide not selected.
+                                @endif
+                              </li>
+                            </ul>
+                            
+                            <table class="border-top mb-2 w-100">
+                              <tr class="border-bottom">
+                                <th>
+                                  <strong class="pickup-guid">Metting Location:</strong>
+                                </th>
+                                <th>
+                                      @if( $x == 1)
+                                      Address or Intersection
+                                      @elseif( $x == 2)
+                                          Airport
+                                      @elseif( $x == 3)
+                                          Ask Guide to suggest a location
+                                      @elseif( $x == 4)
+                                          Cruise Ship Port
+                                      @elseif( $x == 5)
+                                          Hotel
+                                      @elseif( $x == 6)
+                                          Monument/Building
+                                      @else
+                                          Other
+                                      @endif
+                                    
+                                  </th>
+                              </tr>
+                              <tr class="@if( $x == 1)@else d-none @endif">
+                                <td><strong>Address / Intersection:</strong></td>
+                                <td>{{$booking->address_one}}</td> 
+                              </tr>
+                              <tr class="@if( $x == 1)@else d-none @endif">
+                                <td><strong>Google Map Link</strong></td>
+                                <td>{{$booking->map_link_one}}</td> 
+                              </tr>
 
+                              <tr class="@if( $x == 2)@else d-none @endif">
+                                <td><strong>Airport Name:</strong> </td>
+                                <td>{{$booking->airport_two}}</td>
+                              </tr>
+                              <tr class="@if( $x == 2)@else d-none @endif">
+                                <td><strong>Flight Number:</strong></td>
+                                <td>{{$booking->flight_two}}</td> 
+                              </tr>
+                              <tr class="@if( $x == 2)@else d-none @endif">
+                                <td><strong>Arrival Time:</strong></td>
+                                <td>{{$booking->arrival_time_two}}</td>
+                              </tr>
 
-                @foreach($bookings as $booking)
-                <table class="table table-bordered">
-                <tr><td>Guide User Id</td><td>{{$booking->guide_user_id}}</td> </tr>
-                <tr><td>User Id</td><td>{{$booking->user_id}}</td> </tr>
-                <tr><td>Tour Date</td><td>{{$booking->tour_date_one}}</td> </tr>
-                
-                <tr><td>Start Time</td><td>{{$booking->start_time}}</td> </tr>
-                <tr><td>Number Of People</td><td>{{$booking->number_of_people}}</td> </tr>
-                <tr><td>Metting Location</td><td>{{$booking->metting_location}}</td> </tr>
-                <tr><td>Address One</td><td>{{$booking->address_one}}</td> </tr>
-                <tr><td>Map Link One</td><td>{{$booking->map_link_one}}</td> </tr>
-                <tr><td>Airport Two</td><td>{{$booking->airport_two}}</td> </tr>
-                <tr><td>Flight Two</td><td>{{$booking->flight_two}}</td> </tr>
-                <tr><td>Arrival Time Two</td><td>{{$booking->arrival_time_two}}</td> </tr>
-                <tr><td>hotel_three</td><td>{{$booking->hotel_three}}</td> </tr>
-                <tr><td>name_booked_three</td><td>{{$booking->name_booked_three}}</td> </tr>
-                <tr><td>hotel_address_three</td><td>{{$booking->hotel_address_three}}</td> </tr>
-                <tr><td>Address_four_one</td><td>{{$booking->address_four_one}}</td> </tr>
-                <tr><td>Address_four_two</td><td>{{$booking->address_four_two}}</td> </tr>
-                <tr><td>Address_five_one</td><td>{{$booking->address_five_one}}</td> </tr>
-                <tr><td>Address_five_two</td><td>{{$booking->address_five_two}}</td> </tr>
-                <tr><td>Address_six_one</td><td>{{$booking->address_six_one}}</td> </tr>
-                <tr><td>Address_six_two</td><td>{{$booking->address_six_two}}</td> </tr>
-                <tr><td>Tour_details_from</td><td>{{$booking->tour_details_from}}</td> </tr>
-                <tr><td>Tour_details_to</td><td>{{$booking->tour_details_to}}</td> </tr>
-                <tr><td>Payment_info_one</td><td>{{$booking->payment_info_one}}</td> </tr>
-                <tr><td>Payment_info_two</td><td>{{$booking->payment_info_two}}</td> </tr>
-                <tr><td>Payment_info_three</td><td>{{$booking->payment_info_three}}</td> </tr>
-                <tr><td>Status</td><td>{{$booking->status}}</td> </tr>
-                <tr><td>Payment</td><td>{{$booking->payment}}</td> </tr>
-                </table>
+                              <tr class="@if( $x == 3)@else d-none @endif">
+                                <td><strong>Hotel:</strong></td>
+                                <td>{{$booking->hotel_three}}</td>
+                              </tr>
+                              <tr class="@if( $x == 3)@else d-none @endif">
+                                <td><strong>Name Booked under:</strong></td>
+                                <td>{{$booking->name_booked_three}}</td>
+                              </tr>
+                              <tr class="@if( $x == 3)@else d-none @endif">
+                                <td><strong>Hotel Address:</strong></td>
+                                <td>{{$booking->hotel_address_three}}</td> 
+                              </tr>
 
-                @endforeach
+                              <tr class="@if( $x == 4)@else d-none @endif">
+                                <td><strong>Ship Name:</strong></td>
+                                <td>{{$booking->address_four_one}}</td>
+                              </tr>
+                              <tr class="@if( $x == 4)@else d-none @endif">
+                                <td><strong>Ship Address:</strong></td>
+                                <td>{{$booking->address_four_two}}</td>
+                              </tr>
 
-              </div>
+                              <tr class="@if( $x == 5)@else d-none @endif">
+                                <td>Address_five_one:</td>
+                                <td>{{$booking->address_five_one}}</td> 
+                              </tr>
+                              <tr class="@if( $x == 5)@else d-none @endif">
+                                <td>address_five_two</td>
+                                <td>{{$booking->address_five_two}}</td> 
+                              </tr>
 
+                              <tr class="@if( $x == 6)@else d-none @endif">
+                                <td><strong>Area Name:</strong></td>
+                                <td>{{$booking->address_six_one}}</td>
+                              </tr>
+                              <tr class="@if( $x == 6)@else d-none @endif">
+                                <td><strong>House Number, Block Name, Road Number:</strong></td>
+                                <td>{{$booking->address_six_two}}</td> 
+                              </tr>
+                            </table>
+                            
 
-                    <!-- tab-pane -->
-
-                    <div class="tab-pane" id="order2">
-
-
-                    @foreach($users as $user)
-                      <table class="table table-bordered">
-                                                      
-                    <tr><td>Prefix</td><td>{{$user->prefix}}</td> </tr>
-                    <tr><td>Name</td><td>{{$user->name}}</td> </tr>
-                    <tr><td>Email</td><td>{{$user->email}}</td> </tr>
-                    <tr><td>Utype</td><td>{{$user->utype}}</td> </tr>
-                    <tr><td>Token</td><td>{{$user->token}}</td> </tr>
-                    <tr><td>Country</td><td>{{$user->country}}</td> </tr>
-                    <tr><td>Birthday</td><td>{{$user->birthday}}</td> </tr>
-                    <tr><td>City</td><td>{{$user->city}}</td> </tr>
-                    <tr><td>Country</td><td>{{$user->country}}</td> </tr>
-                    <tr><td>Address</td><td>{{$user->address}}</td> </tr>
-                    <tr><td>ZIP</td><td>{{$user->zip}}</td> </tr>
-                    <tr><td>Home Phone</td><td>{{$user->homephone}}</td> </tr>
-                    <tr><td>Cell Phone</td><td>{{$user->cellphone}}</td> </tr>
-                    <tr><td>Skypename</td><td>{{$user->skypename}}</td> </tr>
-                    <tr><td>Contacttime</td><td>{{$user->contacttime}}</td> </tr>
-                    <tr><td>Licensed</td><td>{{$user->licensed}}</td> </tr>
-                    <tr><td>License detail</td><td>{{$user->licensedetail}}</td> </tr>
-                    <tr><td>Detail</td><td>{{$user->detail}}</td> </tr>
-                    <tr><td>Notes</td><td>{{$user->notes}}</td> </tr>
-                    <tr><td>Status</td><td>{{$user->status}}</td> </tr>
-                    </table>
-                    @endforeach
-
+                          </p>
+                        </div>
+                      </div>
                     </div>
 
+                  @endforeach
 
-
-                </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>
