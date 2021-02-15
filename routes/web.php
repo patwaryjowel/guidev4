@@ -72,7 +72,7 @@ Route::post('/newregister-success', [newAuthController::class, 'store'])->name('
 Route::middleware(['auth:sanctum', 'verified' , 'authadmin'])->get('/admin/manage-slider', [adminController::class, 'slider'])->name('backend.manageslider');
 Route::POST('/admin/slider-success', [adminController::class, 'store'])->name('backend.store');
 //Route::get('/member/{id}/edit', [memberController::class, 'edit'])->name('member.edit');
-Route::middleware(['auth:sanctum', 'verified' , 'authadmin'])->get('/admin/manage-slider/{id}', [adminController::class, 'destroy']);
+Route::middleware(['auth:sanctum', 'verified' , 'authadmin'])->get('/admin/manage-slider/{id}', [adminController::class, 'destroy'])->name('admin.slider.delete');
 Route::post('/admin/manage-slider/update', [adminController::class, 'update'])->name('admin.update');
 
 
@@ -209,6 +209,7 @@ Route::get('/custom/login', function() {
 })->name('custome.login');
 
 Route::get('/custom/login/get', [customAuthController::class, 'boot'])->name('custom.login.post');
+Route::get('/custom/signup/get', [customAuthController::class, 'signup'])->name('custom.signup.get');
 
 Route::get('/booking/success', function() {
     return view('success');

@@ -38,10 +38,7 @@
                     </div>
                 </div>
             </div>
-
             <div class="row clearfix masonry-wrap">
-                
-               
                 @foreach($tours as $tour)
                 <div class="col-lg-4 col-md-6 masonary-item">
                     <article class="single-tour-place">
@@ -55,9 +52,7 @@
                             </div>
                         </div>
                         <div class="tour-small-info">
-                            
                             <h4 class="title-post"><a href="./single-tour-details/{{$tour->id}}" rel="bookmark">{{ $tour->title }}</a></h4>
-                            
                             <p>
                                 {{ substr(strip_tags($tour->details), 0, 120) }}
                                 {{ strlen(strip_tags($tour->details)) > 120 ? "..." : "" }}</p>
@@ -66,8 +61,6 @@
                     </article>
                 </div>
                  @endforeach
-               
-               
             </div>
 
             <div class="row">
@@ -115,7 +108,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3">
-                    <a class="single-item-most-popular-place">
+                    <a href="http://localhost:8000/tour-place/3" class="single-item-most-popular-place">
                         <img src="assets/images/bg/chittagong.jpg" alt="">
                         <div class="heading">
                             <h4>Most popular place in Chittagong</h4>
@@ -124,7 +117,7 @@
                 </div>
                 
                 <div class="col-lg-3">
-                    <a class="single-item-most-popular-place">
+                    <a href="http://localhost:8000/tour-place/6" class="single-item-most-popular-place">
                         <img src="assets/images/bg/barisal.jpg" alt="">
                         <div class="heading">
                             <h4>Most popular place in Barisal</h4>

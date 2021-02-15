@@ -46,7 +46,7 @@ class multiPageFormController extends Controller
         
     ]);
         
-if (empty($request->user_id)) {
+/* if (!Auth::check()) {
     $validated = $request->validate([
            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
            'password' => 'required',
@@ -55,8 +55,8 @@ if (empty($request->user_id)) {
         }     
 
 
-if (empty($request->user_id)) {
-            /* $user = new User();
+if (!Auth::check()) {
+            $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
@@ -67,7 +67,7 @@ if (empty($request->user_id)) {
         $user->alternate_email_two = $request->alternate_email_two;
         $user->alternate_email_three = $request->alternate_email_three;
         $user->newsletter = $request->newsletter;
-        $user->save(); */
+        $user->save(); 
 
         $user = User::create([
             'name' => $request->name,
@@ -88,7 +88,7 @@ if (empty($request->user_id)) {
 
 
         }
-
+ */
 
 $booking = new booking();
 

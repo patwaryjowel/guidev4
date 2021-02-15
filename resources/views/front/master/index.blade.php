@@ -31,16 +31,16 @@
 
     <style type="text/css">
   
-.displaynone{
-  display: none;
-}
-.show {
-display: flex;
-}
-.hide {
-display: none;
-}
-</style> 
+        .displaynone{
+        display: none;
+        }
+        .show {
+        display: flex;
+        }
+        .hide {
+        display: none;
+        }
+    </style> 
 </head>
 
 <body>
@@ -62,9 +62,7 @@ display: none;
                         </div><!--// logo-area -->
                         
                     </div>
-                    
                     <div class="col-lg-9 col-md-7 col-6">
-                        
                         <div class="header-bottom-right">
                             <!-- main-menu -->
                             <div class="main-menu">
@@ -74,54 +72,44 @@ display: none;
                                         <li><a href="{{route('front.forguide')}}">Our Guids</a></li>
                                         <li><a href="{{route('front.fortour')}}">Tour Place</a>
                                             <ul class="sub-menu">
-
                                                 @php
                                                 use App\Models\location;
                                                 $locations = location::all();
                                                 @endphp
-
                                                 @foreach($locations as $location)
-
                                                 <li><a href="/tour-place/{{$location->id}}">Tour Place {{$location->location}}</a></li>
 
                                                 @endforeach
-                                              
-
                                             </ul>
                                         </li>
                                         @guest
-                                                <li><a href="#">Login</a>
-                                                    <ul class="sub-menu">
-                                                            <li><a href="{{route('front.adminlogin')}}">Agent Login </a></li>
-                                                        <li><a href="{{route('front.guidelogin')}}">Guide Login </a>
-                                                        <li><a href="{{route('front.travelerlogin')}}">Traveler Login </a></li>
-                                                    </ul>
-                                                </li>
-
-
-                                            
-                                            @else
-                                                @if(Auth::check())
-                                                    @if(Auth::User()->utype == "admin")                
-                                                        <li>
-                                                            <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
-                                                        </li>
-                                                    @elseif(Auth::User()->utype == "guide")
-                                                        <li>
-                                                            <a class="nav-link" href="{{ route('guide.dashboard') }}">{{ __('Dashboard') }}</a>
-                                                        </li>
-                                                    @else
-                                                        <li>
-                                                            <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
-                                                        </li>
-                                                    @endif
+                                        <li><a href="#">Login</a>
+                                            <ul class="sub-menu">
+                                                    <li><a href="{{route('front.adminlogin')}}">Admin Login </a></li>
+                                                <li><a href="{{route('front.guidelogin')}}">Guide Login </a>
+                                                <li><a href="{{route('front.travelerlogin')}}">Traveler Login </a></li>
+                                            </ul>
+                                        </li>
+                                        @else
+                                            @if(Auth::check())
+                                                @if(Auth::User()->utype == "admin")                
+                                                    <li>
+                                                        <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+                                                    </li>
+                                                @elseif(Auth::User()->utype == "guide")
+                                                    <li>
+                                                        <a class="nav-link" href="{{ route('guide.dashboard') }}">{{ __('Dashboard') }}</a>
+                                                    </li>
+                                                @else
+                                                    <li>
+                                                        <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
+                                                    </li>
                                                 @endif
-                                            @endguest
+                                            @endif
+                                        @endguest
                                     </ul>
                                 </nav>
                             </div><!--// main-menu -->
-
-                            
                         </div>
                     </div>
                     
@@ -140,10 +128,8 @@ display: none;
     
 @yield('content')
     
-    
     <!-- Footer Area -->
     <footer class="footer-area">
-       
         <!-- Footer Top Area -->
         <div class="footer-top section-pb section-pt-60">
             <div class="container">
@@ -230,9 +216,7 @@ display: none;
 @yield('customscript')
 @yield('paymentscript')
 @yield('loginformscript')
-
-
-
+@yield('signupformscript')
 
 <script>
  $('#msform input').keydown(function (e) {
@@ -242,7 +226,6 @@ display: none;
     }
 });
 </script>
-
 <script>
     (function (window, document) {
         var loader = function () {
@@ -254,9 +237,6 @@ display: none;
         window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
     })(window, document);
 </script>
-
-
-
 </body>
 
 </html>

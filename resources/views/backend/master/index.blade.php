@@ -76,8 +76,8 @@
                                         <a class="nav-link" href="#" data-toggle="dropdown">
                                             <span class="name">Mr. Jowel</span>
                                             <span class="thumbnail">
-										<img src="{{asset('admin/assets/images/user/thumb-small.jpg')}}" alt="User Thumbnail Image" />
-									</span>
+                                                <img src="{{asset('admin/assets/images/user/thumb-small.jpg')}}" alt="User Thumbnail Image" />
+                                            </span>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="{{route('profile.admin-show')}}"><i data-feather="user"></i> Profile</a>

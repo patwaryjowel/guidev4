@@ -1,46 +1,23 @@
-
-
-
         <!-- Content Body Start -->
         <div class="content-body">
-
             <div class="manage-slier-area">
-
-
-
-  @if ($message = Session::get('success'))
-
+                @if ($message = Session::get('success'))
                     <div class="alert alert-success alert-block mt-3">
-
                         <button type="button" class="close" data-dismiss="alert">×</button>
 
                         <strong>{{ $message }}</strong>
-
                     </div>
-
-                  @endif
-
-                  @if (count($errors) > 0)
-
-                        <ul class="alert alert-danger pl-5">
-
-                          @foreach($errors->all() as $error)
-
-                             <li>{{ $error }}</li> 
-
-                          @endforeach
-
-                        </ul>
-
                 @endif
 
-         
-
-
-
-
+                @if (count($errors) > 0)
+                        <ul class="alert alert-danger pl-5">
+                          @foreach($errors->all() as $error)
+                             <li>{{ $error }}</li> 
+                          @endforeach
+                        </ul>
+                @endif
                 <div class="row">
-                    <div class="col-xl-6 col-12 mb-6">
+                    <div class="col-xl-5 col-12 mb-6">
                         <div class="card">
                             <div class="card-head border-bottom">
                                 <h4 class="title">Hero Slider Post</h4>
@@ -57,8 +34,6 @@
                                             <label class="form-label" for="title">Slider Title</label>
                                             <input type="text" name="title" class="form-control" placeholder="Slider Title">
                                         </div>
-                                        
-
                                         <div class="col-12 mb-4">
                                             <input type="submit" value="Add Now" class="btn btn-primary">
                                             <input type="submit" value="Cancel" class="btn btn-danger">
@@ -68,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-12 mb-6">
+                    <div class="col-xl-7 col-12 mb-6">
                         <div class="card">
                             <div class="card-head border-bottom">
                                 <h4 class="title">All Slider Post</h4>
@@ -103,7 +78,7 @@
                                                 <td>
                                                     <div class="button-box">
                                                         <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$slider->id}}" class="btn-sm btn btn-primary mr-1 mb-1">Edit</a>
-                                                        <a href="/manage-slider/{{$slider->id}}" class="btn-sm btn btn-danger mr-1 mb-1">Delete</a>
+                                                        <a href="{{route('admin.slider.delete',$slider->id)}}" class="btn-sm btn btn-danger mr-1 mb-1">Delete</a>
                                                     </div>
                                                 </td>
                                             </tr>

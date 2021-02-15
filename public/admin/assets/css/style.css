@@ -173,7 +173,10 @@ dd {
   margin-bottom: .5rem;
   margin-left: 0;
 }
-
+button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disabled), [type="submit"]:not(:disabled) {
+  cursor: pointer;
+  border: 1px solid #ddd;
+}
 blockquote {
   margin: 0 0 1rem;
 }
@@ -17958,8 +17961,8 @@ a.badge-dark-outline:hover {
 
 .btn-sm, .btn-group-sm > .btn, .smart-wizard .toolbar .btn, .dataTables_wrapper .dt-buttons .dt-button, .dataTables_wrapper .dataTables_paginate .paginate_button {
   font-size: 14px;
-  height: 40px;
-  padding: 8px 20px 6px;
+  height: 35px;
+  padding: 6px 10px;
 }
 
 .btn-lg, .btn-group-lg > .btn, .dataTables_wrapper .dt-buttons .btn-group-lg > .dt-button, .dataTables_wrapper .dataTables_paginate .btn-group-lg > .paginate_button {
@@ -20972,9 +20975,12 @@ table.data-table.datatable-selectable thead tr th:nth-child(1) {
     white-space:nowrap;
 }
 .tour__placePost-titel {
-  max-width: 200px;
+  max-width: 150px;
   word-wrap: break-word;
   text-overflow:ellipsis;
     overflow:hidden;
     white-space:nowrap;
+}
+.manage-table-wrap .image img {
+  width: 140px;
 }

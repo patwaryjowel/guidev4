@@ -136,11 +136,11 @@
                                         
                                         <div class="form-field">
                                             <label>Family  Name</label>
-                                            <input tabindex="5" type="text" name="name">
+                                            <input tabindex="5" type="text" name="name" id="family_name">
                                         </div>
                                         <div class="form-field" id="countryDropdown">
                                             <label>Country</label>
-                                            <select name="country" class="w-100 single-input-box">
+                                            <select name="country" class="w-100 single-input-box" id="register_country">
                                                 <option value="">choose...</option>
                                                 <option value="Bangladesh">Bangladesh</option>
                                                 <option value="Afghanistan">Afghanistan</option>
@@ -155,7 +155,7 @@
                                         </div>
                                             <div class="form-field">
                                             <label>Email</label>
-                                            <input tabindex="5" type="email" name="email">
+                                            <input tabindex="5" type="email" name="email" id="register_email">
                                         </div>
                                         <!--  <div class="form-field">
                                             <label>Confirm Email</label>
@@ -172,7 +172,7 @@
         
                                         <div class="form-field">
                                             <label>Choose a Password</label>
-                                            <input type="password" tabindex="12" name="password">
+                                            <input type="password" tabindex="12" name="password" id="register_password">
                                         </div>
                                         <div class="form-field">
                                             <label>Re-enter Password</label>
@@ -203,6 +203,41 @@
                 <br>
                 <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
 
-                <input type="button" name="next"   class="next action-button" value="Next"/>   
+                <input type="button" name="next"   class="next action-button" id="register_button" value="Next"/>  
+
+    @section('signupformscript')
+    <script>
+    $( document ).ready(function() {
+        $('#register_button').click(function(e) {
+                e.preventDefault();
+                var name = $('#family_name').val();
+                var country = $('#register_country').val();
+                var email = $('#register_email').val();
+                var emailone = $('#alternate_email_one').val();
+                var password = $('#register_password').val();
+                
+                
+                $.ajax('/custom/signup/get', {
+                type: 'GET',  // http method
+                data: { name: name, country: country, email: email, emailone: emailone, password: password },  // data to submit
+                success: function (data, status, xhr) {
+                    console.log(data);
+                    if(data == 'success') {
+                        $('#authentiaction_form').find('.next').click();
+                        $('#login_message').hide();
+                    }else {
+                        $('#login_message').show();
+                    }
+                    
+                },
+                error: function (jqXhr, textStatus, errorMessage) {
+                        
+                }
+            });
+        });
+    });
+
+    </script>
+    @endsection 
 
 

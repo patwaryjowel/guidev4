@@ -1462,6 +1462,9 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   border-radius: 100%;
   z-index: 9;
 }
+.single-testimonial.testimonial-style-2 .author-img img {
+  border-radius: 50000px;
+}
 
 .single-testimonial.testimonial-style-2 .testimonial-author {
   background: #f5f5f5f5;
