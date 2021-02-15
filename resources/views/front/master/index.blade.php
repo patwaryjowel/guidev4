@@ -72,7 +72,7 @@ display: none;
                                     <ul>
                                         <li class="active"><a href="{{route('front.index')}}">Home</a></li>
                                         <li><a href="{{route('front.forguide')}}">Our Guids</a></li>
-                                        <li><a href="{{route('front.fortour')}}">For Tour Place</a>
+                                        <li><a href="{{route('front.fortour')}}">Tour Place</a>
                                             <ul class="sub-menu">
 
                                                 @php
@@ -82,7 +82,7 @@ display: none;
 
                                                 @foreach($locations as $location)
 
-                                                <li><a href="/tour-place/{{$location->id}}">Tour For {{$location->location}}</a></li>
+                                                <li><a href="/tour-place/{{$location->id}}">Tour Place {{$location->location}}</a></li>
 
                                                 @endforeach
                                               

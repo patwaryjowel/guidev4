@@ -35,7 +35,7 @@ $tours = tour::orderBy('title', 'asc')->paginate(9);
                               <img src="{{asset('assets/images/tour-place/'.$tour->image)}}" alt="{{ $tour->title }}">
                             </a>
                             <div class="location">
-                                <a href="{{$tour->map_link}}"><i class="fa fa-map-marker"></i></a><a href="/single-tour-details/{{$tour->id}}" rel="category tag">{{ $tour->title }}</a>
+                                <!-- <a href="{{$tour->map_link}}"><i class="fa fa-map-marker"></i></a><a href="/single-tour-details/{{$tour->id}}" rel="category tag">{{ $tour->title }}</a> -->
                             </div>
                         </div>
                         <div class="tour-small-info">

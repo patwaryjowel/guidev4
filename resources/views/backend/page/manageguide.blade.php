@@ -234,7 +234,7 @@
 
                                                         <div class="col-12 mb-4">
                                                             <input type="submit" value="Yes" class="btn btn-primary">
-                                                           <!--  <input type="submit" value="Cancle" class="btn btn-danger"> -->
+                                                           <!--  <input type="submit" value="Cancel" class="btn btn-danger"> -->
 
                                                            <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">No</span>

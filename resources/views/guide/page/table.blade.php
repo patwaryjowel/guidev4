@@ -52,6 +52,9 @@
                     @endphp
 
                     @foreach($bookings as $booking)
+                    @php
+                    $tour = App\Models\Tour::find($booking->tour_id);
+                    @endphp
                   <tr>
                     <td>
                       @php
@@ -95,7 +98,7 @@
                     @endif
                     </td>
                     <td>
-                      Tour Place
+                      {{$tour->title}}
                     </td>
                     <td>
                       <a href="/guide/order/{{$booking->user_id}}/show"> <i class="fas fa-eye"></i></a>

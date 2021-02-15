@@ -2158,3 +2158,9 @@ td.ui-datepicker-days-cell-over.ui-state-highlight.myClass.ui-datepicker-current
   -o-object-position: center;
   object-position: center;
 }
+.single-gallery-img a{
+  display: block;
+}
+.single-gallery-img a img{
+  width: 100%;
+}

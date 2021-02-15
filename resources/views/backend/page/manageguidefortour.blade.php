@@ -84,33 +84,27 @@
                                                         <h6>{{$user->country}}</h6>
                                                     </div>
                                                 </td>
-                                                
-                                               
-                                              
-                                              
-
-
-                                                  @php
-    $tours = tour::where('id', $user->tour_place_id)->get();
-
-    @endphp
-                                                 <td>
-    @foreach($tours as $tour)
-    @php
-    $tourlocation = location::where('id', $tour->location_id)->get();
-    @endphp
-     @foreach($tourlocation as $tourlocation)
+                                                    @php
+                                                        $tours = tour::where('id', $user->tour_place_id)->get();
+                                                    @endphp
+                                                    <td>
+                                                    @foreach($tours as $tour)
+                                                    @php
+                                                    $tourlocation = location::where('id', $tour->location_id)->get();
+                                                    @endphp
+                                                    @foreach($tourlocation as $tourlocation)
                                                
                                                     <div class="country">
                                                          <h6>{{$tour->title}} - {{$tourlocation->location}}</h6>
                                                     </div>
                                                 
-                                                @endforeach
+                                                    @endforeach
                                                   @endforeach
                                                 </td>
                                                  <td>
                                                     <div class="name">
                                                         <h6>{{$user->location}}</h6>
+                                                       
                                                     </div>
                                                 </td>
                                                 <td>
@@ -125,7 +119,7 @@
                                                         @if($member->guide_id == $user->id)
                                                         
                                                         <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}" class="btn-sm btn btn-success mr-1 mb-1">
-                                                            <span>Cancle</span>
+                                                            <span>Cancel</span>
                                                         </a>
                                                         @else
                                                         <a href="#" data-toggle="modal" data-target="#exampleModalCenter{{$user->id}}" class="btn-sm btn btn-primary mr-1 mb-1">

@@ -76,13 +76,9 @@
                                 <label>Country <span class="must">*</span></label>
                                 <select name="country">
                                     <option value="">choose...</option>
-                                    <option value="Afghanistan">Afghanistan</option>
-                                    <option value="Albania">Albania</option>
-                                    <option value="Algeria">Algeria</option>
-                                    <option value="Andorra">Andorra</option>
-                                    <option value="Angola">Angola</option>
-                                    
+                                    <option value="Bangladesh">Bangladesh</option>
                                 </select>
+                                
                             </p>
                         </div>
 
@@ -146,7 +142,7 @@
                         <div class="col-lg-12">
                             <p class="form-field">
                                 <label>Cell Phone <span class="must">*</span>  <small>(include country code)</small></label>
-                                <input tabindex="10" type="text" name="cellphone">
+                                <input tabindex="10" type="text" name="cellphone" require>
                             </p>
                         </div>
                         <div class="col-lg-12">
@@ -163,46 +159,40 @@
                         </div>
                         
                         <!------------------------------->
-                        <div class="form-group row">
-                            <label for="city" class="col-sm-2 col-form-label">city</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" value="{{old('city')}}" name="city" id="city" placeholder="city">
-                            </div>
+                        <div class="col-12">
+                          <div class="form-field">
+                              <label for="city" class="col-form-label">City</label>
+                              <input type="text" class="form-control" value="{{old('city')}}" name="city" id="city" placeholder="City">
                           </div>  
-                          <div class="form-group row">
-                            <label for="country" class="col-sm-2 col-form-label">country</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" name="country" id="country" placeholder="country">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="biography" class="col-sm-2 col-form-label">biography</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" name="biography" id="biography" placeholder="biography">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="credentials" class="col-sm-2 col-form-label">credentials</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" name="credentials" id="credentials" placeholder="credentials">
-                            </div>
-                          </div>
-                          <!-- <div class="form-group row">
-                            <label for="guidenumber" class="col-sm-2 col-form-label">guidenumber</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" name="guidenumber" id="guidenumber" placeholder="guidenumber">
-                            </div>
-                          </div> -->
-                          {{--
-                          <div class="form-group row">
-                            <div class="offset-sm-2 col-sm-10">
-                                  <h2>Languages</h2> 
-                              </div>
                         </div>
 
+                        <div class="col-12">
+                          <div class="form-group">
+                              <label for="country" class="col-form-label">Country</label>
+                              <input type="text" class="form-control" name="country" id="country" placeholder="Country">
+                          </div>
+                        </div>
 
+                        <div class="col-12">
+                          <div class="form-group">
+                            <label for="biography" class="col-form-label">Biography</label>
+                              <input type="text" class="form-control" name="biography" id="biography" placeholder="Biography">
+                          </div>
+                        </div>
+
+                        <div class="col-12">
+                          <div class="form-group">
+                              <label for="credentials" class="col-form-label">Credentials</label>
+                              <input type="text" class="form-control" name="credentials" id="credentials" placeholder="Credentials">
+                          </div>
+                        </div>
+                  {{-- 
                   <div class="form-group row">
-                 
+                      <div class="offset-sm-2 col-sm-10">
+                            <h2>Languages</h2> 
+                        </div>
+                  </div>
+                  <div class="form-group row">
                       <div class="col-sm-3">
                         <div class="form-check">
                           <label class="form-check-label">Bangla</label>
