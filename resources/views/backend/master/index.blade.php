@@ -12,19 +12,12 @@
 
     <!-- CSS
     ============================================ -->
-
     <!-- Vendor CSS (Contain Bootstrap, Icon Fonts) -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/vendor/vendor.min.css')}}" />
-
     <!-- Plugin CSS (Global Plugins Files) -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/plugins/simplebar.css')}}" />
-
-   
     <!-- Plugin CSS (Plugins Files for only this Page) -->
     @yield('customcss')
-
-   
-
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}" />
 </head>
@@ -81,21 +74,18 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <a class="dropdown-item" href="{{route('profile.admin-show')}}"><i data-feather="user"></i> Profile</a>
-                                          <!--   <a class="dropdown-item" href="#"><i data-feather="mail"></i> Inbox</a>
-                                            <a class="dropdown-item" href="#"><i data-feather="lock"></i> Lock Screen</a>
-                                          <a class="dropdown-item" href="#"><i data-feather="log-out"></i>Sign Out</a> -->
+                                            <!--   <a class="dropdown-item" href="#"><i data-feather="mail"></i> Inbox</a>
+                                                <a class="dropdown-item" href="#"><i data-feather="lock"></i> Lock Screen</a>
+                                            <a class="dropdown-item" href="#"><i data-feather="log-out"></i>Sign Out</a> -->
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                <i data-feather="log-out"></i>Sign Out
+                                            </a>
 
-
-
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        <i data-feather="log-out"></i>Sign Out
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                    </form>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                            </form>
 
 
                                         </div>
